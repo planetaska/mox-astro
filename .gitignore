@@ -1,0 +1,9 @@
+# Ignore everything
+*
+
+# Except the story.ni file
+!mox-astro.inform/
+!mox-astro.inform/Source/
+!mox-astro.inform/Source/story.ni
+
+!.gitignore
