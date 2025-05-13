@@ -278,10 +278,13 @@ To say health-status of (creature - a person):
 	else:
 		say "[The creature] has [hit points of the creature]/[max hit points of the creature] HP";
 
+Instead of examining the player:
+    say "[health-status of the player]"
+
 Every turn when the player is alive:
 	if hit points of the player <= 0:
 		now the player is dead;
-		say "YOU DIED";
+		say "YOU DIED[line break]";
 		die and return.
 
 Section - Stamina System
@@ -298,6 +301,7 @@ spouse to honor long-standing tradition.
 One of the legendary armaments.
 
 Ranni's sigil is a full moon, cold and leaden, and this sword is but a beam of its light."
+The damage of the Dark Moon Greatsword is 20.
 
 The player is carrying the Dark Moon Greatsword.
 The Dark Moon Greatsword is wielded.
@@ -377,11 +381,12 @@ Carry out attacking an enemy with a weapon:
 		let the damage be the damage of the second noun;
 		say "You attack [the noun] with [the second noun] for [damage] damage!";
 		decrease the hit points of the noun by damage;
-		say "[health-status of noun]";
 		if the hit points of the noun <= 0:
 			now the noun is dead;
 			now the noun is defeated;
-			say "You have defeated [the noun]!".
+			say "You have defeated [the noun]!";
+		otherwise:
+			say "[health-status of noun]";
 
 Slashing is an action applying to nothing. Understand "slash" as slashing.
 Thrusting is an action applying to nothing. Understand "thrust" as thrusting.
