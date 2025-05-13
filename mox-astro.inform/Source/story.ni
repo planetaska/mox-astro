@@ -157,8 +157,7 @@ Carry out resting at an unlit bonfire:
 [Healing at bonfires should fully restore player health]
 Carry out resting at a lit bonfire:
 	now the hit points of the player is the max hit points of the player;
-	say "You kneel beside the bonfire, extending your hands toward its warm glow. The flames dance higher, casting strange shadows across your face. For a moment, you feel weightless, as if the fire draws the burden of your journey away. Your wounds seal, your strength returns, and your mind clears.";
-	say "[paragraph break][health-status of player]".
+	say "You kneel beside the bonfire, extending your hands toward its warm glow. The flames dance higher, casting strange shadows across your face. For a moment, you feel weightless, as if the fire draws the burden of your journey away. Your wounds seal, your strength returns, and your mind clears.".
 
 To die and return:
 	increase the player-deaths by 1;
@@ -296,12 +295,10 @@ Section - Weapons
 A weapon is a kind of thing. A weapon has a number called damage. The damage of a weapon is usually 10.
 A weapon can be wielded or unwielded. A weapon is usually unwielded.
 
-Dark Moon Greatsword is a weapon. "A Moon Greatsword, bestowed by a Carian queen upon her
-spouse to honor long-standing tradition.
-One of the legendary armaments.
+Dark Moon Greatsword is a weapon. The description is "A Moon Greatsword, bestowed by a Carian queen upon her spouse to honor long-standing tradition. One of the legendary armaments.
 
-Ranni's sigil is a full moon, cold and leaden, and this sword is but a beam of its light."
-The damage of the Dark Moon Greatsword is 20.
+[italic type]Ranni's sigil is a full moon, cold and leaden, and this sword is but a beam of its light.[roman type]".
+The damage of the Dark Moon Greatsword is 15.
 
 The player is carrying the Dark Moon Greatsword.
 The Dark Moon Greatsword is wielded.
