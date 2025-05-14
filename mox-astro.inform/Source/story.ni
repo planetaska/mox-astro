@@ -368,7 +368,7 @@ The Headless Armor is alive and undefeated.
 The Headless Armor is passive.
 The hit points of the Headless Armor is 75.
 The max hit points of the Headless Armor is 75.
-The attack power of the Headless Armor is 15.
+The attack power of the Headless Armor is 25.
 The description of the Headless Armor is "Once Vesper in his mortal form, now an eternal guardian bound by oath to protect the labyrinth."
 The waiting description of the Headless Armor is "The Headless Armor stands motionless among its fallen brethren. As you approach, a ethereal blue glow begins to emanate from within its hollow chest. Slowly, methodically, it raises its ancient blade, the metal scraping against its armored form with a sound like distant thunder."
 
@@ -377,7 +377,7 @@ The Ghost Dancers are alive and undefeated.
 The Ghost Dancers are aggressive.
 The hit points of the Ghost Dancers is 60.
 The max hit points of the Ghost Dancers is 60. 
-The attack power of the Ghost Dancers is 10.
+The attack power of the Ghost Dancers is 15.
 The description of the Ghost Dancers is "Spectral figures that weave through the air in a mournful dance. Their translucent forms shimmer with ethereal light, and their movements are both beautiful and deadly."
 The waiting description of the Ghost Dancers is "As you enter the Antechamber, the air grows cold. Motes of pale blue light begin to coalesce, forming the shapes of dancing specters. They circle you in a haunting ballet, their hollow eyes fixed upon your every movement."
 
@@ -386,7 +386,7 @@ The Cursed Beast is alive and undefeated.
 The Cursed Beast is aggressive.
 The hit points of the Cursed Beast is 100.
 The max hit points of the Cursed Beast is 100.
-The attack power of the Cursed Beast is 18.
+The attack power of the Cursed Beast is 28.
 The description of the Cursed Beast is "A creature of pure golden light corrupted by shadow, sealed within the labyrinth by the Duskrose. Its form shifts constantly, part majestic stag, part serpent, part something wholly unknowable."
 The waiting description of the Cursed Beast is "A low growl echoes through the twisted corridors, seeming to come from everywhere and nowhere at once. The shadows before you congeal into a mass of writhing darkness shot through with veins of corrupted gold. The Cursed Beast manifests fully, its form a nightmarish amalgamation of beasts both familiar and alien."
 
@@ -395,7 +395,7 @@ The Spirit of Vesper is alive and undefeated.
 The Spirit of Vesper is passive.
 The hit points of the Spirit of Vesper is 120.
 The max hit points of the Spirit of Vesper is 120.
-The attack power of the Spirit of Vesper is 16.
+The attack power of the Spirit of Vesper is 36.
 The description of the Spirit of Vesper is "Unlike the mindless Headless Armor, this is Vesper's true consciousness preserved by the Duskrose's power. He appears as a noble knight wreathed in spectral blue flame, his eyes wells of ancient sorrow."
 The waiting description of the Spirit of Vesper is "As you move among the biers, a figure materializes beside the central sarcophagus. A knight in spectral armor, his form partially transparent yet somehow more substantial than mere ghost. 'Seeker of the Star Leaf,' he intones, his voice like wind through ancient ruins. 'I am Vesper, First Follower of the Duskrose. By my oath, none may pass who have not proven their worth. Draw your weapon, Starbound.'"
 
@@ -747,11 +747,107 @@ To perform (attack - a special attack):
 		say "[player-status]";
 	follow the effect rule of attack.
 
+Section - Special Attack Telegraph System
+
+A special attack can be telegraphed or untelegraphed. A special attack is usually untelegraphed.
+A special attack has a text called telegraph message. The telegraph message of a special attack is usually "".
+A special attack has a text called recovery message. The recovery message of a special attack is usually "".
+
+[Telegraph messages for each special attack]
+The telegraph message of the overhead slash is "The Headless Armor slowly raises its blade high above where its head should be, gathering strength for a powerful strike.".
+The recovery message of the overhead slash is "The Headless Armor struggles to recover its balance after the powerful swing.".
+
+The telegraph message of the sweeping attack is "The Headless Armor shifts its stance lower, blade held horizontally as it prepares for a wide attack.".
+The recovery message of the sweeping attack is "The momentum of the sweeping attack leaves the Headless Armor temporarily open.".
+
+The telegraph message of the spectral tornado is "The Ghost Dancers begin to circle more rapidly, their forms blurring as they build up ethereal energy.".
+The recovery message of the spectral tornado is "After their whirlwind assault, the Ghost Dancers drift apart momentarily, their forms less cohesive.".
+
+The telegraph message of the mournful dirge is "The Ghost Dancers slow their movements, spectral mouths opening in unison as they prepare to sing.".
+The recovery message of the mournful dirge is "The Ghost Dancers' forms flicker faintly after expending their energy in song.".
+
+The telegraph message of the corruption blast is "The Cursed Beast rears back, its chest cavity glowing with sickly golden light that builds in intensity.".
+The recovery message of the corruption blast is "The Cursed Beast staggers slightly, the corruption within momentarily destabilized after the powerful blast.".
+
+The telegraph message of the shifting limbs is "The Cursed Beast's form begins to ripple and distort violently, multiple appendages forming and dissolving rapidly.".
+The recovery message of the shifting limbs is "The Cursed Beast's form temporarily solidifies as it struggles to maintain its shifting nature.".
+
+The telegraph message of the corruption shockwave is "The Cursed Beast crouches low, corruption pooling beneath it and spreading outward in pulsing waves.".
+The recovery message of the corruption shockwave is "After releasing the shockwave, the Cursed Beast seems momentarily drained, its corrupted essence dimming.".
+
+The telegraph message of the moonlight slash is "Vesper raises his spectral blade skyward, where it begins to absorb pale moonlight, glowing with increasing brilliance.".
+The recovery message of the moonlight slash is "Vesper's form wavers slightly after channeling such concentrated moonlight energy.".
+
+The telegraph message of the perfect thrust is "Vesper assumes a fencer's stance, spectral blade pointed directly at your heart as he focuses intently.".
+The recovery message of the perfect thrust is "Vesper pulls back into a defensive posture after his precise strike, momentarily reassessing his strategy.".
+
+The telegraph message of the phantom duplicates is "Vesper's form begins to split and multiply, creating shadowy reflections that mirror his movements.".
+The recovery message of the phantom duplicates is "As the phantom duplicates fade, Vesper himself appears briefly more transparent, having extended his energy.".
+
+Section - Telegraph System Management
+
+A special attack counter is a number that varies. Special attack counter is 0.
+The next special attack is a special attack that varies.
+
+To decide whether a telegraph is active:
+	if special attack counter is 1:
+		decide yes;
+	decide no.
+
+To decide whether in recovery phase:
+	if special attack counter is 3:
+		decide yes;
+	decide no.
+
+Every turn during Combat:
+	if special attack counter > 0:
+		increase special attack counter by 1;
+		if special attack counter > 3:
+			now special attack counter is 0;
+			now all special attacks are untelegraphed;
+
+[Use telegraph in the combat system]
+Every turn during Combat:
+	if the combat turn counter > 1:
+		let foe be a random alive undefeated enemy in the location of the player;
+		if special attack counter is 0 and a random chance of 1 in 3 succeeds:
+			[Begin telegraph sequence]
+			let attack be a random attack of foe;
+			now the next special attack is attack;
+			now attack is telegraphed;
+			now special attack counter is 1;
+			say "[telegraph message of attack]";
+			say "[line break][player-status]";
+		otherwise if special attack counter is 2:
+			[Execute the telegraphed attack]
+			if the next special attack is telegraphed:
+				perform the next special attack;
+				now special attack counter is 3;
+		otherwise if special attack counter is 0:
+			[Normal attack or preparation]
+			if a random chance of 1 in 3 succeeds:
+				say "The foe is watching your movements carefully, waiting for an opening.";
+				say "[line break][player-status]";
+			otherwise:
+				try the foe attacking the player.
+
+[Show recovery message]
+Every turn during Combat:
+	if in recovery phase:
+		say "[recovery message of the next special attack]";
+		say "[line break][player-status]";
+
+[Reset special attack system when combat ends]
+When Combat ends:
+	now special attack counter is 0;
+	now all special attacks are untelegraphed.
+
+
 [ Headless Armor special attacks ]
 The overhead slash is a special attack.
 The name of the overhead slash is "Overhead Slash".
 The description of the overhead slash is "The Headless Armor performs a devastating overhead slash!".
-The base damage of the overhead slash is 20.
+The base damage of the overhead slash is 40.
 The effect rule of the overhead slash is the overhead slash effect rule.
 The owner of the overhead slash is the Headless Armor.
 
@@ -762,7 +858,7 @@ This is the overhead slash effect rule:
 The sweeping attack is a special attack.
 The name of the sweeping attack is "Sweeping Attack".
 The description of the sweeping attack is "The Headless Armor performs a wide sweeping attack!".
-The base damage of the sweeping attack is 12.
+The base damage of the sweeping attack is 32.
 The effect rule of the sweeping attack is the sweeping attack effect rule.
 The owner of the sweeping attack is the Headless Armor.
 
@@ -774,7 +870,7 @@ This is the sweeping attack effect rule:
 The spectral tornado is a special attack.
 The name of the spectral tornado is "Spectral Tornado".
 The description of the spectral tornado is "The Ghost Dancers swirl around you in a spectral tornado, their ethereal forms passing through your body!".
-The base damage of the spectral tornado is 15.
+The base damage of the spectral tornado is 25.
 The effect rule of the spectral tornado is the spectral tornado effect rule.
 The owner of the spectral tornado is the Ghost Dancers.
 
@@ -785,7 +881,7 @@ This is the spectral tornado effect rule:
 The mournful dirge is a special attack.
 The name of the mournful dirge is "Mournful Dirge".
 The description of the mournful dirge is "The Ghost Dancers perform a mournful dirge that seems to pull at your very life force!".
-The base damage of the mournful dirge is 8.
+The base damage of the mournful dirge is 18.
 The effect rule of the mournful dirge is the mournful dirge effect rule.
 The owner of the mournful dirge is the Ghost Dancers.
 
@@ -797,7 +893,7 @@ This is the mournful dirge effect rule:
 The corruption blast is a special attack.
 The name of the corruption blast is "Corruption Blast".
 The description of the corruption blast is "The Cursed Beast rears up and releases a blast of corrupted golden light!".
-The base damage of the corruption blast is 22.
+The base damage of the corruption blast is 42.
 The effect rule of the corruption blast is the corruption blast effect rule.
 The owner of the corruption blast is the Cursed Beast.
 
@@ -808,7 +904,7 @@ This is the corruption blast effect rule:
 The shifting limbs is a special attack.
 The name of the shifting limbs is "Shifting Limbs".
 The description of the shifting limbs is "The Cursed Beast's form shifts rapidly, lashing out with multiple limbs simultaneously!".
-The base damage of the shifting limbs is 15.
+The base damage of the shifting limbs is 35.
 The effect rule of the shifting limbs is the shifting limbs effect rule.
 The owner of the shifting limbs is the Cursed Beast.
 
@@ -819,7 +915,7 @@ This is the shifting limbs effect rule:
 The corruption shockwave is a special attack.
 The name of the corruption shockwave is "Corruption Shockwave".
 The description of the corruption shockwave is "The Cursed Beast slams into the ground, sending a shockwave of corrupted energy through the floor!".
-The base damage of the corruption shockwave is 18.
+The base damage of the corruption shockwave is 28.
 The effect rule of the corruption shockwave is the corruption shockwave effect rule.
 The owner of the corruption shockwave is the Cursed Beast.
 
@@ -831,7 +927,7 @@ This is the corruption shockwave effect rule:
 The moonlight slash is a special attack.
 The name of the moonlight slash is "Moonlight Slash".
 The description of the moonlight slash is "Vesper raises his spectral blade, which glows with ethereal moonlight before he brings it down in a perfect arc!".
-The base damage of the moonlight slash is 25.
+The base damage of the moonlight slash is 45.
 The effect rule of the moonlight slash is the moonlight slash effect rule.
 The owner of the moonlight slash is the Spirit of Vesper.
 
@@ -842,7 +938,7 @@ This is the moonlight slash effect rule:
 The perfect thrust is a special attack.
 The name of the perfect thrust is "Perfect Thrust".
 The description of the perfect thrust is "Vesper performs a perfect thrust, his spectral blade aimed at your heart with unerring precision!".
-The base damage of the perfect thrust is 20.
+The base damage of the perfect thrust is 40.
 The effect rule of the perfect thrust is the perfect thrust effect rule.
 The owner of the perfect thrust is the Spirit of Vesper.
 
@@ -855,7 +951,7 @@ This is the perfect thrust effect rule:
 The phantom duplicates is a special attack.
 The name of the phantom duplicates is "Phantom Duplicates".
 The description of the phantom duplicates is "Vesper surrounds himself with spectral duplicates that all attack simultaneously!".
-The base damage of the phantom duplicates is 18.
+The base damage of the phantom duplicates is 38.
 The effect rule of the phantom duplicates is the phantom duplicates effect rule.
 The owner of the phantom duplicates is the Spirit of Vesper.
 
@@ -893,7 +989,7 @@ To decide which special attack is a random attack of (enemy - an enemy):
 	decide on the overhead slash.
 
 [ Use the special attacks in the combat system ]
-Every turn during Combat:
+[Every turn during Combat:
 	if the combat turn counter > 1:
 		let foe be a random alive undefeated enemy in the location of the player;
 		if a random chance of 1 in 3 succeeds:
@@ -904,7 +1000,7 @@ Every turn during Combat:
 				say "The foe is preparing its next move. Get ready!";
 				say "[player-status]";
 			otherwise:
-				try the foe attacking the player.
+				try the foe attacking the player.]
 
 Section - Combat Resets
 
@@ -920,11 +1016,11 @@ When Combat ends:
 When Combat ends:
 	repeat with foe running through enemies:
 		if foe is the Ghost Dancers:
-			now the attack power of foe is 10;
+			now the attack power of foe is 15;
 		if foe is the Cursed Beast:
-			now the attack power of foe is 18;
+			now the attack power of foe is 28;
 		if foe is the Spirit of Vesper:
-			now the attack power of foe is 16.
+			now the attack power of foe is 36.
 
 Part - Misc
 
