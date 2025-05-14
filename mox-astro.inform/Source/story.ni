@@ -157,6 +157,7 @@ Carry out resting at an unlit bonfire:
 [Healing at bonfires should fully restore player health]
 Carry out resting at a lit bonfire:
 	now the hit points of the player is the max hit points of the player;
+	now the stamina of the player is the max stamina of the player;
 	say "You kneel beside the bonfire, extending your hands toward its warm glow. The flames dance higher, casting strange shadows across your face. For a moment, you feel weightless, as if the fire draws the burden of your journey away. Your wounds seal, your strength returns, and your mind clears.".
 
 To die and return:
@@ -277,9 +278,6 @@ To say health-status of (creature - a person):
 	else:
 		say "[The creature] has [hit points of the creature]/[max hit points of the creature] HP";
 
-Instead of examining the player:
-    say "[health-status of the player]"
-
 Every turn when the player is alive:
 	if hit points of the player <= 0:
 		now the player is dead;
@@ -288,7 +286,56 @@ Every turn when the player is alive:
 
 Section - Stamina System
 
-[TODO]
+A person has a number called stamina. The stamina of a person is usually 100.
+A person has a number called max stamina. The max stamina of a person is usually 100.
+
+The player has stamina 100. The player has max stamina 100.
+
+To say stamina-status of (creature - a person):
+	if creature is the player:
+		say "Stamina: [stamina of the creature]/[max stamina of the creature]";
+	else:
+		say "[The creature]'s Stamina: [stamina of the creature]/[max stamina of the creature]".
+
+[Stamina regeneration]
+Every turn when the player is alive and Combat is not happening:
+	if the stamina of the player < the max stamina of the player:
+		increase the stamina of the player by 5;
+		if the stamina of the player > the max stamina of the player:
+			now the stamina of the player is the max stamina of the player.
+
+Every turn when the player is alive and Combat is happening:
+	if the stamina of the player < the max stamina of the player:
+		increase the stamina of the player by 3;
+		if the stamina of the player > the max stamina of the player:
+			now the stamina of the player is the max stamina of the player.
+
+[Stamina costs for actions]
+To decide which number is the stamina cost of slashing:
+	decide on 30.
+
+To decide which number is the stamina cost of thrusting:
+	decide on 15.
+
+To decide which number is the stamina cost of heavy swinging:
+	decide on 55.
+
+To decide which number is the stamina cost of parrying:
+	decide on 20.
+
+To decide which number is the stamina cost of blocking:
+	decide on 15.
+
+To decide which number is the stamina cost of dodging:
+	decide on 40.
+
+Section - Player Status
+
+Instead of examining the player:
+	say "[health-status of the player] / [stamina-status of the player]"
+
+To say player-status:
+	say "[health-status of the player] / [stamina-status of the player]"
 
 Section - Weapons
 
@@ -392,6 +439,8 @@ Heavy swinging is an action applying to nothing. Understand "swing" or "heavy sw
 Check slashing:
 	if the player does not carry a weapon that is wielded:
 		say "You need to wield a weapon first." instead;
+	if the stamina of the player < the stamina cost of slashing:
+		say "You don't have enough stamina to perform this action." instead;
 	let target be a random enemy in the location;
 	if target is nothing:
 		say "There's no enemy to attack here." instead;
@@ -401,6 +450,7 @@ Check slashing:
 Carry out slashing:
 	let target be a random alive undefeated enemy in the location;
 	let damage be the damage of a random weapon that is wielded;
+	decrease the stamina of the player by the stamina cost of slashing;
 	say "You slash at [the target] for [damage] damage!";
 	decrease the hit points of the target by damage;
 	say "[health-status of target]";
@@ -412,6 +462,8 @@ Carry out slashing:
 Check thrusting:
 	if the player does not carry a weapon that is wielded:
 		say "You need to wield a weapon first." instead;
+	if the stamina of the player < the stamina cost of thrusting:
+		say "You don't have enough stamina to perform this action." instead;
 	let target be a random enemy in the location;
 	if target is nothing:
 		say "There's no enemy to attack here." instead;
@@ -421,6 +473,7 @@ Check thrusting:
 Carry out thrusting:
 	let target be a random alive undefeated enemy in the location;
 	let damage be the damage of a random weapon that is wielded - 3;
+	decrease the stamina of the player by the stamina cost of thrusting;
 	say "You thrust at [the target] for [damage] damage!";
 	decrease the hit points of the target by damage;
 	say "[health-status of target]";
@@ -432,6 +485,8 @@ Carry out thrusting:
 Check heavy swinging:
 	if the player does not carry a weapon that is wielded:
 		say "You need to wield a weapon first." instead;
+	if the stamina of the player < the stamina cost of heavy swinging:
+		say "You don't have enough stamina to perform this action." instead;
 	let target be a random enemy in the location;
 	if target is nothing:
 		say "There's no enemy to attack here." instead;
@@ -441,6 +496,7 @@ Check heavy swinging:
 Carry out heavy swinging:
 	let target be a random alive undefeated enemy in the location;
 	let damage be the damage of a random weapon that is wielded + 5;
+	decrease the stamina of the player by the stamina cost of heavy swinging;
 	say "You swing heavily at [the target] for [damage] damage!";
 	decrease the hit points of the target by damage;
 	say "[health-status of target]";
@@ -556,7 +612,7 @@ Before an enemy (called attacker) attacking the player:
 	let damage be the adjusted attack of attacker;
 	say "[The attacker] attacks you for [damage] damage!";
 	decrease the hit points of the player by damage;
-	say "[health-status of player]";
+	say "[player-status]";
 	if the hit points of the player <= 0:
 		now the player is dead;
 		say "YOU DIED[line break]";
@@ -688,7 +744,7 @@ To perform (attack - a special attack):
 	otherwise:
 		say "[line break]You take [actual damage] damage from [the name of attack]!";
 		decrease the hit points of the player by actual damage;
-		say "[health-status of player]";
+		say "[player-status]";
 	follow the effect rule of attack.
 
 [ Headless Armor special attacks ]
@@ -846,6 +902,7 @@ Every turn during Combat:
 		otherwise:
 			if a random chance of 1 in 3 succeeds:
 				say "The foe is preparing its next move. Get ready!";
+				say "[player-status]";
 			otherwise:
 				try the foe attacking the player.
 
@@ -856,6 +913,7 @@ When Combat ends:
 	now the player is not parrying;
 	now the player is not blocking;
 	now the player is not dodging;
+	now the stamina of the player is the max stamina of the player;
 	now combat turn counter is 0.
 
 [Reset enemy attributes after combat if needed]
@@ -875,8 +933,10 @@ Asking for help is an action applying to nothing.
 Carry out asking for help:
 	say "Commands:
 - 'slash', 'thrust', or 'heavy swing': different attacks with your weapon
-- 'parry': reduce incoming damage
-- 'block': reduce incoming damage (requires shield)
+  (Stamina costs: Slash [stamina cost of slashing], Thrust [stamina cost of thrusting], Heavy Swing [stamina cost of heavy swinging])
+- 'parry': reduce incoming damage (Stamina cost: [stamina cost of parrying])
+- 'block': reduce incoming damage (requires shield) (Stamina cost: [stamina cost of blocking])
+- 'dodge': avoid damage (Stamina cost: [stamina cost of dodging])
 - 'attack enemy with weapon': alternative attack syntax
 - 'equip shield' / 'unequip shield': ready or lower your shield
 - Standard movement: 'go north/south/east/west/up/down' or simply 'north/south/east/west/up/down'";
