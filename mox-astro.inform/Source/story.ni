@@ -317,23 +317,26 @@ Every turn when the player is alive and Combat is happening:
 			now the stamina of the player is the max stamina of the player.
 
 [Stamina costs for actions]
+To decide which number is the stamina cost of attacking:
+	decide on 16.
+
 To decide which number is the stamina cost of slashing:
-	decide on 30.
+	decide on 18.
 
 To decide which number is the stamina cost of thrusting:
-	decide on 15.
+	decide on 14.
 
 To decide which number is the stamina cost of heavy swinging:
-	decide on 55.
+	decide on 28.
 
 To decide which number is the stamina cost of parrying:
-	decide on 20.
+	decide on 12.
 
 To decide which number is the stamina cost of blocking:
-	decide on 15.
+	decide on 10.
 
 To decide which number is the stamina cost of dodging:
-	decide on 40.
+	decide on 24.
 
 Section - Breathe Command
 
@@ -487,6 +490,7 @@ Carry out attacking an enemy with a weapon:
 	if the enemy is alive:
 		let the damage be the damage of the second noun;
 		say "You attack [the noun] with [the second noun] for [damage] damage!";
+		decrease the stamina of the player by the stamina cost of attacking;
 		decrease the hit points of the noun by damage;
 		if the hit points of the noun <= 0:
 			now the noun is dead;
@@ -723,7 +727,7 @@ Check dodging:
 Carry out dodging:
 	say "You prepare to dodge the incoming attack with a quick roll.";
 	decrease the stamina of the player by the stamina cost of dodging;
-	now the player is dodging.	
+	now the player is dodging.
 
 Section - Death Effects
 
@@ -1140,7 +1144,8 @@ Combat Commands:[line break]
 - 'parry': reduce incoming damage[line break]
 - 'block': reduce incoming damage[line break]
 - 'dodge': avoid damage[line break]
-- all combat actions require stamina to perform[line break]".
+- 'breathe': take a breathe and recover stamina[line break]
+- [italic type]*all combat actions require stamina to perform[roman type][line break]".
 [- 'attack enemy with weapon': alternative attack syntax[line break]
 - 'equip shield' / 'unequip shield': ready or lower your shield[line break]".]
 
