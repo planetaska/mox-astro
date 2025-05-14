@@ -40,6 +40,7 @@ The journey has not been without sacrifice. Blood has been spilled, oaths have b
 The Starbound stands before the entrance to the Duskrose Labyrinth, a structure of black onyx stone that catches the golden rays of the setting sun. The carvings etched into its surface shimmer like celestial ornaments, creating an ethereal dance of shadow and light. With a whispered prayer to the Moon's wisdom, the Starbound steps into the shadowed entrance.";
 	wait for any key;
 	now the left hand status line is "[the location]";
+	now the right hand status line is "Death: [player-deaths]";
 	now intro played is true.
 
 The player is in Entrance Passage.
