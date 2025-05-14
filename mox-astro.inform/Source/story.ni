@@ -400,7 +400,7 @@ Check slashing:
 
 Carry out slashing:
 	let target be a random alive undefeated enemy in the location;
-	let damage be 10;
+	let damage be the damage of a random weapon that is wielded;
 	say "You slash at [the target] for [damage] damage!";
 	decrease the hit points of the target by damage;
 	say "[health-status of target]";
@@ -420,7 +420,7 @@ Check thrusting:
 
 Carry out thrusting:
 	let target be a random alive undefeated enemy in the location;
-	let damage be 8;
+	let damage be the damage of a random weapon that is wielded - 3;
 	say "You thrust at [the target] for [damage] damage!";
 	decrease the hit points of the target by damage;
 	say "[health-status of target]";
@@ -440,7 +440,7 @@ Check heavy swinging:
 
 Carry out heavy swinging:
 	let target be a random alive undefeated enemy in the location;
-	let damage be 15;
+	let damage be the damage of a random weapon that is wielded + 5;
 	say "You swing heavily at [the target] for [damage] damage!";
 	decrease the hit points of the target by damage;
 	say "[health-status of target]";
@@ -448,16 +448,6 @@ Carry out heavy swinging:
 		now the target is dead;
 		now the target is defeated;
 		say "You have defeated [the target]!".
-
-Section - Movement Restrictions
-
-Before going up:
-	if an undefeated alive enemy is in the location:
-		say "You cannot ascend while [a random undefeated alive enemy in the location] blocks your path!" instead.
-
-Before going down:
-	if an undefeated alive enemy is in the location:
-		say "You cannot descend while [a random undefeated alive enemy in the location] blocks your path!" instead.
 
 Section - Shield
 
@@ -526,18 +516,18 @@ When Combat ends:
 	otherwise:
 		say "The battle has ended, but in a manner most unexpected."
 
-After going to a room (called destination) when an alive undefeated enemy is in destination:
+[After going to a room (called destination) when an alive undefeated enemy is in destination:
 	if destination is combat-unlocked:
 		let foe be a random alive undefeated enemy in destination;
 		if the waiting description of foe is not "":
 			say "[waiting description of foe][paragraph break]";
 		if foe is aggressive:
 			say "[The foe] immediately notices your presence and moves to attack!";
-	continue the action.
+	continue the action.]
+
+Section - Movement Restrictions
 
 [Prevent player from leaving during combat]
-[Instead of going somewhere when the location of the player is combat-locked:
-	say "You cannot leave while in combat!".]
 Before going from a room (called origin) when origin is combat-locked:
 	say "You cannot leave while enemies block your path!" instead.
 
@@ -647,13 +637,14 @@ He gestures toward the sanctum above.
 
 With these words, the Spirit of Vesper dissolves completely, leaving only a faint blue glow that slowly fades.";
 
-Section - Enemy Behaviors
+Section - Combat Turn Counter
 
-[Enemy behaviors]
 A combat turn counter is a number that varies. Combat turn counter is 0.
 
 Every turn during Combat:
 	increase combat turn counter by 1.
+
+Section - Enemy Behaviors
 
 First every turn when Combat is happening and the combat turn counter > 2 and a random number from 1 to 10 is greater than 7:
 	let active_enemy be a random alive undefeated enemy in the location of the player;
@@ -661,8 +652,8 @@ First every turn when Combat is happening and the combat turn counter > 2 and a 
 	let max_hp be the max hit points of active_enemy;
 	if active_enemy is the Headless Armor and current_hp < (max_hp / 2):
 		say "The Headless Armor draws itself up to its full height, its empty armor rattling with renewed vigor. It raises its sword in a defensive stance, seeming to gather its strength.";
-		increase the hit points of active_enemy by 10;
-		say "[The active_enemy] recovers some health! [health-status of active_enemy]";
+		increase the hit points of active_enemy by 30;
+		say "[The active_enemy] recovers some health![line break][health-status of active_enemy]";
 	if active_enemy is the Ghost Dancers:
 		if a random chance of 1 in 3 succeeds:
 			say "The Ghost Dancers' movements become frenzied, a whirling storm of spectral limbs and mournful faces that becomes almost impossible to track.";
@@ -695,7 +686,7 @@ To perform (attack - a special attack):
 	if actual damage is 0:
 		say "You completely avoid the attack!";
 	otherwise:
-		say "You take [actual damage] damage from [the name of attack]!";
+		say "[line break]You take [actual damage] damage from [the name of attack]!";
 		decrease the hit points of the player by actual damage;
 		say "[health-status of player]";
 	follow the effect rule of attack.
@@ -847,22 +838,24 @@ To decide which special attack is a random attack of (enemy - an enemy):
 
 [ Use the special attacks in the combat system ]
 Every turn during Combat:
-	let foe be a random alive undefeated enemy in the location of the player;
-	if a random chance of 1 in 3 succeeds:
-		let attack be a random attack of foe;
-		perform attack;
-	otherwise:
+	if the combat turn counter > 1:
+		let foe be a random alive undefeated enemy in the location of the player;
 		if a random chance of 1 in 3 succeeds:
-			say "The foe is preparing its next move. Get ready!";
+			let attack be a random attack of foe;
+			perform attack;
 		otherwise:
-			try the foe attacking the player.
+			if a random chance of 1 in 3 succeeds:
+				say "The foe is preparing its next move. Get ready!";
+			otherwise:
+				try the foe attacking the player.
 
-Section - Resets
+Section - Combat Resets
 
 [Reset blocking and parrying when combat ends]
 When Combat ends:
 	now the player is not parrying;
-	now the player is not blocking;	
+	now the player is not blocking;
+	now the player is not dodging;
 	now combat turn counter is 0.
 
 [Reset enemy attributes after combat if needed]
