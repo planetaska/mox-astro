@@ -329,6 +329,31 @@ To decide which number is the stamina cost of blocking:
 To decide which number is the stamina cost of dodging:
 	decide on 40.
 
+Section - Breathe Command
+
+Breathing is an action applying to nothing. Understand "breathe" or "b" as breathing.
+
+Check breathing:
+	if the stamina of the player is the max stamina of the player:
+		say "Your breathing is already steady. You don't need to catch your breath." instead.
+
+Carry out breathing:
+	increase the stamina of the player by 60;
+	if the stamina of the player > the max stamina of the player:
+		now the stamina of the player is the max stamina of the player;
+	say "You take a moment to catch your breath, steadying yourself. Your stamina recovers.[line break][player-status]".
+
+Instead of breathing during Combat:
+	increase the stamina of the player by 60;
+	if the stamina of the player > the max stamina of the player:
+		now the stamina of the player is the max stamina of the player;
+	say "You take a quick, deep breath in the midst of battle, regaining some of your strength.[line break][player-status]";
+	let foe be a random alive undefeated enemy in the location of the player;
+	if foe is not nothing:
+		if a random chance of 1 in 4 succeeds:
+			say "[line break]Your momentary pause gives [the foe] an opening to strike!";
+			try the foe attacking the player.
+
 Section - Player Status
 
 Instead of examining the player:
