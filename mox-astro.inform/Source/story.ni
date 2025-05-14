@@ -158,6 +158,7 @@ Carry out resting at an unlit bonfire:
 Carry out resting at a lit bonfire:
 	now the hit points of the player is the max hit points of the player;
 	now the stamina of the player is the max stamina of the player;
+	replenish flask;
 	say "You kneel beside the bonfire, extending your hands toward its warm glow. The flames dance higher, casting strange shadows across your face. For a moment, you feel weightless, as if the fire draws the burden of your journey away. Your wounds seal, your strength returns, and your mind clears.".
 
 To die and return:
@@ -353,6 +354,38 @@ Instead of breathing during Combat:
 		if a random chance of 1 in 4 succeeds:
 			say "[line break]Your momentary pause gives [the foe] an opening to strike!";
 			try the foe attacking the player.
+
+Section - Flask of Crimson Tears
+
+The Flask of Crimson Tears is a thing carried by the player. The description is "A sacred flask modelled after a golden holy chalice that was once graced by a tear of life.
+
+Filled with crimson tears, this flask restores HP with use. Rest at a site of grace to replenish.
+
+[italic type]The one washed up on the gravesite was sure to die, until this flask offered its gift of rejuvenation. To seek the Elden Ring.[roman type]"
+
+The Flask of Crimson Tears has a number called charges. The charges of the Flask of Crimson Tears is 3.
+The Flask of Crimson Tears has a number called max charges. The max charges of the Flask of Crimson Tears is 3.
+
+Instead of drinking the Flask of Crimson Tears:
+	if the charges of the Flask of Crimson Tears is 0:
+		say "The Flask of Crimson Tears is empty. You must rest at a bonfire to replenish it.";
+	otherwise if the hit points of the player is the max hit points of the player:
+		say "Your health is already full.";
+	otherwise:
+		decrease the charges of the Flask of Crimson Tears by 1;
+		increase the hit points of the player by 60;
+		if the hit points of the player > the max hit points of the player:
+			now the hit points of the player is the max hit points of the player;
+		say "You drink from the Flask of Crimson Tears. The crimson liquid flows through you, mending your wounds and restoring your strength.[line break][health-status of player]";
+		say "The Flask has [charges of the Flask of Crimson Tears] use[if charges of the Flask of Crimson Tears is not 1]s[end if] remaining.".
+
+After printing the name of the Flask of Crimson Tears:
+	say " ([charges of the Flask of Crimson Tears]/[max charges of the Flask of Crimson Tears])".
+
+[Update bonfire resting to restore flask charges]
+To replenish flask:
+	now the charges of the Flask of Crimson Tears is the max charges of the Flask of Crimson Tears;
+	say "Your Flask of Crimson Tears is replenished to [charges of the Flask of Crimson Tears] uses.".
 
 Section - Player Status
 
