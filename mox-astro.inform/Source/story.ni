@@ -208,7 +208,8 @@ Check stepping on:
 Carry out stepping on a pressure plate:
 	now the noun is triggered;
 	say "The stone beneath your feet sinks with a grinding sound. Too late, you notice the holes that open in the walls. Golden darts whistle through the air, piercing your body from multiple angles. A burning sensation spreads from each puncture, and your limbs grow heavy as you collapse...";
-	die and return.
+	now the hit points of the player is 0;
+	check for player death.
 
 Before going to Duskrose Sanctum:
 	if Burial Chamber Pressure Plate is untriggered or Burial Chamber Pressure Plate is triggered:
@@ -220,7 +221,8 @@ Before going to Duskrose Sanctum:
 			say "As you cross the burial chamber toward the glass staircase, you unwittingly step on a raised floor tile. It sinks beneath your weight with an ominous click.";
 			now Burial Chamber Pressure Plate is triggered;
 			say "The stone beneath your feet sinks with a grinding sound. Too late, you notice the holes that open in the walls. Golden darts whistle through the air, piercing your body from multiple angles. A burning sensation spreads from each puncture, and your limbs grow heavy as you collapse...";
-			die and return;
+			now the hit points of the player is 0;
+			check for player death;
 	continue the action.
 
 Disarming is an action applying to one visible thing. Understand "disarm [something]" or "disable [something]" or "deactivate [something]" as disarming.
@@ -261,7 +263,7 @@ The moonstone wedge is a thing. The description is "A thin, crescent-shaped piec
 
 After going to Winding Corridors for the first time:
 	say "As you navigate the twisting corridors, something catches your eye - a glint of blue-white light from a small alcove. Upon inspection, you discover a thin, crescent-shaped moonstone wedge that has fallen between two stones. Something tells you this might prove useful...";
-	move the moonstone wedge to the Winding Corridors.
+	move the moonstone wedge to the Winding Corridors.	
 
 Part - Combat System
 
@@ -279,11 +281,11 @@ To say health-status of (creature - a person):
 	else:
 		say "[The creature] has [hit points of the creature]/[max hit points of the creature] HP";
 
-Every turn when the player is alive:
+[Every turn when the player is alive:
 	if hit points of the player <= 0:
 		now the player is dead;
 		say "YOU DIED[line break]";
-		die and return.
+		die and return.]
 
 Section - Stamina System
 
@@ -623,12 +625,14 @@ When Combat begins:
 	repeat with foe running through alive undefeated enemies in the location of the player:
 		try the foe attacking the player.]
 
-When Combat ends:
-	now the location of the player is combat-unlocked;
-	if every enemy in the location of the player is defeated:
-		say "The battle is over. You stand victorious amidst the silence of the labyrinth.";
-	otherwise:
-		say "The battle has ended, but in a manner most unexpected."
+[Ensure combat state is properly reset after the player dies and returns]
+After looking when the player is in a room (called R) and the player-deaths > 0 and Combat is not happening:
+	repeat with foe running through enemies in R:
+		if foe is alive and foe is undefeated:
+			now special attack counter is 0;
+			now all special attacks are untelegraphed;
+			now combat turn counter is 0;
+	continue the action.
 
 [After going to a room (called destination) when an alive undefeated enemy is in destination:
 	if destination is combat-unlocked:
@@ -671,10 +675,7 @@ Before an enemy (called attacker) attacking the player:
 	say "[The attacker] attacks you for [damage] damage!";
 	decrease the hit points of the player by damage;
 	say "[player-status]";
-	if the hit points of the player <= 0:
-		now the player is dead;
-		say "YOU DIED[line break]";
-		die and return;
+	check for player death;
 	stop the action.
 
 A person can be parrying. A person is usually not parrying.
@@ -689,6 +690,7 @@ Check parrying:
 
 Carry out parrying:
 	say "You prepare to parry the next attack.";
+	decrease the stamina of the player by the stamina cost of parrying;
 	now the player is parrying.
 
 Blocking is an action applying to nothing. Understand "block" as blocking.
@@ -703,6 +705,7 @@ Check blocking:
 
 Carry out blocking:
 	say "You raise your shield and brace for impact.";
+	decrease the stamina of the player by the stamina cost of blocking;
 	now the player is blocking.
 
 Dodging is an action applying to nothing. Understand "dodge" as dodging.
@@ -713,16 +716,8 @@ Check dodging:
 
 Carry out dodging:
 	say "You prepare to dodge the incoming attack with a quick roll.";
-	now the player is dodging.
-
-[ Reset all defensive states at the end of each turn ]
-Every turn:
-	if the player is parrying and Combat is not happening:
-		now the player is not parrying;
-	if the player is blocking and Combat is not happening:
-		now the player is not blocking;
-	if the player is dodging and Combat is not happening:
-		now the player is not dodging.
+	decrease the stamina of the player by the stamina cost of dodging;
+	now the player is dodging.	
 
 Section - Death Effects
 
@@ -803,6 +798,7 @@ To perform (attack - a special attack):
 		say "[line break]You take [actual damage] damage from [the name of attack]!";
 		decrease the hit points of the player by actual damage;
 		say "[player-status]";
+		check for player death;
 	follow the effect rule of attack.
 
 Section - Special Attack Telegraph System
@@ -858,7 +854,7 @@ To decide whether in recovery phase:
 	decide no.
 
 Every turn during Combat:
-	if special attack counter > 0:
+	if special attack counter > 0 and the player is not dead:
 		increase special attack counter by 1;
 		if special attack counter > 3:
 			now special attack counter is 0;
@@ -866,7 +862,7 @@ Every turn during Combat:
 
 [Use telegraph in the combat system]
 Every turn during Combat:
-	if the combat turn counter > 1:
+	if the combat turn counter > 1 and the player is not dead:
 		let foe be a random alive undefeated enemy in the location of the player;
 		if special attack counter is 0 and a random chance of 1 in 3 succeeds:
 			[Begin telegraph sequence]
@@ -884,21 +880,19 @@ Every turn during Combat:
 		otherwise if special attack counter is 0:
 			[Normal attack or preparation]
 			if a random chance of 1 in 3 succeeds:
-				say "The foe is watching your movements carefully, waiting for an opening.";
+				say "[The foe] is watching your movements carefully, waiting for an opening.";
 				say "[line break][player-status]";
 			otherwise:
 				try the foe attacking the player.
 
 [Show recovery message]
 Every turn during Combat:
-	if in recovery phase:
+	if in recovery phase and the player is not dead:
 		say "[recovery message of the next special attack]";
 		say "[line break][player-status]";
-
-[Reset special attack system when combat ends]
-When Combat ends:
-	now special attack counter is 0;
-	now all special attacks are untelegraphed.
+	otherwise if in recovery phase and the player is dead:
+		now special attack counter is 0;
+		now all special attacks are untelegraphed.
 
 
 [ Headless Armor special attacks ]
@@ -1060,6 +1054,43 @@ To decide which special attack is a random attack of (enemy - an enemy):
 			otherwise:
 				try the foe attacking the player.]
 
+Part - Death Handling
+
+Section - Death Check and Processing
+
+To check for player death:
+	if the hit points of the player <= 0:
+		now the player is dead;
+		say "[line break]YOU DIED[line break]";
+		die and return.		
+
+To die and return:
+	increase the player-deaths by 1;
+	now the player is not parrying;
+	now the player is not blocking;
+	now the player is not dodging;
+	[Reset special attack system]
+	now special attack counter is 0;
+	now all special attacks are untelegraphed;
+	[Reset combat]
+	now combat turn counter is 0;
+	[Ensure the location is not combat-locked]
+	now the location of the player is combat-unlocked;
+	say "Darkness claims you, but the cold embrace of death rejects your presence. The golden-blue flame that you kindled calls to your essence across the void.[paragraph break]";
+	let revival location be the last bonfire room;
+	move the player to revival location;
+	now the player is alive;
+	now the hit points of the player is the max hit points of the player;
+	now the stamina of the player is the max stamina of the player;
+	say "You awaken beside [if there is a lit bonfire in the location of the player]the[otherwise]an unlit[end if] bonfire, your body reformed by the strange magic that binds you to this world. The memory of your death lingers like a half-forgotten dream.[paragraph break][death status].[paragraph break]";
+
+[Update any damage-dealing code to use the centralized death check]
+After an enemy (called attacker) attacking the player:
+	check for player death.
+
+Every turn when the player is alive and the hit points of the player <= 0:
+	check for player death.
+
 Section - Combat Resets
 
 [Reset blocking and parrying when combat ends]
@@ -1068,7 +1099,9 @@ When Combat ends:
 	now the player is not blocking;
 	now the player is not dodging;
 	now the stamina of the player is the max stamina of the player;
-	now combat turn counter is 0.
+	now combat turn counter is 0;
+	now special attack counter is 0;
+	now all special attacks are untelegraphed.
 
 [Reset enemy attributes after combat if needed]
 When Combat ends:
@@ -1085,15 +1118,20 @@ Part - Misc
 Understand "help" as asking for help.
 Asking for help is an action applying to nothing.
 Carry out asking for help:
-	say "Commands:
-- 'slash', 'thrust', or 'heavy swing': different attacks with your weapon
-  (Stamina costs: Slash [stamina cost of slashing], Thrust [stamina cost of thrusting], Heavy Swing [stamina cost of heavy swinging])
-- 'parry': reduce incoming damage (Stamina cost: [stamina cost of parrying])
-- 'block': reduce incoming damage (requires shield) (Stamina cost: [stamina cost of blocking])
-- 'dodge': avoid damage (Stamina cost: [stamina cost of dodging])
-- 'attack enemy with weapon': alternative attack syntax
-- 'equip shield' / 'unequip shield': ready or lower your shield
-- Standard movement: 'go north/south/east/west/up/down' or simply 'north/south/east/west/up/down'";
+	say "Commands:[line break]
+- Standard movement: 'go north/south/east/west' or simply 'north/south/east/west'[line break]
+- 'drink flask': drink flask to recover HP[line break]
+- 'touch bonfire' or 'light bonfire': Light a bonfire[line break]
+- 'rest at bonfire': rest at a bonfire to fully recover HP and flask charges.[line break]
+Combat Commands:[line break]
+- 'attach', 'attack enemy with weapon': attack with equpped weapon[line break]
+- 'slash', 'thrust', or 'heavy swing': different attacks with your weapon[line break]
+- 'parry': reduce incoming damage[line break]
+- 'block': reduce incoming damage[line break]
+- 'dodge': avoid damage[line break]
+- all combat actions require stamina to perform[line break]".
+[- 'attack enemy with weapon': alternative attack syntax[line break]
+- 'equip shield' / 'unequip shield': ready or lower your shield[line break]".]
 
 [Testing commands]
 Understand "test combat" as testing combat. Testing combat is an action out of world.
