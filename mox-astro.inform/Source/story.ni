@@ -513,7 +513,7 @@ Check slashing:
 Carry out slashing:
 	let target be a random alive undefeated enemy in the location;
 	let damage be the damage of a random weapon that is wielded;
-	decrease the stamina of the player by the stamina cost of slashing;
+	decrease the stamina of the player by the stamina cost of slashing + 6;
 	say "You slash at [the target] for [damage] damage!";
 	decrease the hit points of the target by damage;
 	say "[health-status of target]";
@@ -556,7 +556,7 @@ Check heavy swinging:
 
 Carry out heavy swinging:
 	let target be a random alive undefeated enemy in the location;
-	let damage be the damage of a random weapon that is wielded + 5;
+	let damage be the damage of a random weapon that is wielded + 15;
 	decrease the stamina of the player by the stamina cost of heavy swinging;
 	say "You swing heavily at [the target] for [damage] damage!";
 	decrease the hit points of the target by damage;
@@ -655,17 +655,17 @@ To decide which number is the adjusted attack of (attacker - an enemy):
 	let base attack be the attack power of attacker;
 	if the player is parrying:
 		now the player is not parrying;
-		say "You successfully parry [the attacker]'s attack, reducing the damage!";
+		say "[line break]-> You successfully parry [the attacker]'s attack, reducing the damage!";
 		let adjusted attack be base attack / 2;
 		decide on adjusted attack;
 	if the shield is carried by the player and the shield is equipped and the player is blocking:
 		now the player is not blocking;
-		say "Your shield absorbs much of [the attacker]'s blow!";
+		say "[line break]-> Your shield absorbs much of [the attacker]'s blow!";
 		let adjusted attack be base attack / 3;
 		decide on adjusted attack;
 	if the player is dodging:
 		now the player is not dodging;
-		say "You successfully dodge [the attacker]'s attack!";
+		say "[line break]-> You successfully dodge [the attacker]'s attack!";
 		let adjusted attack be 0;
 		decide on adjusted attack;
 	decide on base attack.
@@ -1113,11 +1113,15 @@ When Combat ends:
 [Reset enemy attributes after combat if needed]
 When Combat ends:
 	repeat with foe running through enemies:
+		now the hit points of foe is the max hit points of foe;
 		if foe is the Ghost Dancers:
-			now the attack power of foe is 15;
+			now the hit points of foe is 60;
+			now the attack power of foe is 15;		
 		if foe is the Cursed Beast:
+			now the hit points of foe is 100;
 			now the attack power of foe is 28;
 		if foe is the Spirit of Vesper:
+			now the hit points of foe is 120;
 			now the attack power of foe is 36.
 
 Part - Misc
