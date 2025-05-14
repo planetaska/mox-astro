@@ -489,7 +489,7 @@ Carry out attacking an enemy with a weapon:
 		if the hit points of the noun <= 0:
 			now the noun is dead;
 			now the noun is defeated;
-			say "You have defeated [the noun]!";
+			say "[line break]You have defeated [the noun]!";
 		otherwise:
 			say "[health-status of noun]";
 
@@ -517,8 +517,7 @@ Carry out slashing:
 	say "[health-status of target]";
 	if the hit points of the target <= 0:
 		now the target is dead;
-		now the target is defeated;
-		say "You have defeated [the target]!".
+		say "[line break]You have slain [the target]!".
 
 Check thrusting:
 	if the player does not carry a weapon that is wielded:
@@ -540,8 +539,7 @@ Carry out thrusting:
 	say "[health-status of target]";
 	if the hit points of the target <= 0:
 		now the target is dead;
-		now the target is defeated;
-		say "You have defeated [the target]!".
+		say "[line break]You have defeated [the target]!".
 
 Check heavy swinging:
 	if the player does not carry a weapon that is wielded:
@@ -563,8 +561,7 @@ Carry out heavy swinging:
 	say "[health-status of target]";
 	if the hit points of the target <= 0:
 		now the target is dead;
-		now the target is defeated;
-		say "You have defeated [the target]!".
+		say "[line break]You have defeated [the target]!".
 
 Section - Shield
 
@@ -687,7 +684,9 @@ Parrying is an action applying to nothing. Understand "parry" as parrying.
 
 Check parrying:
 	if Combat is not happening:
-		say "There's no enemy attack to parry." instead.
+		say "There's no enemy attack to parry." instead;
+	if the stamina of the player < the stamina cost of parrying:
+		say "You don't have enough stamina to perform this action." instead.
 
 Carry out parrying:
 	say "You prepare to parry the next attack.";
@@ -702,7 +701,9 @@ Check blocking:
 	if the shield is not equipped:
 		say "Your shield is not ready. Try equipping it first." instead;
 	if an alive undefeated enemy is not in the location:
-		say "There's no attack to block." instead.
+		say "There's no attack to block." instead;
+	if the stamina of the player < the stamina cost of blocking:
+		say "You don't have enough stamina to perform this action." instead.
 
 Carry out blocking:
 	say "You raise your shield and brace for impact.";
@@ -713,7 +714,9 @@ Dodging is an action applying to nothing. Understand "dodge" as dodging.
 
 Check dodging:
 	if Combat is not happening:
-		say "There's no attack to dodge." instead.
+		say "There's no attack to dodge." instead;
+	if the stamina of the player < the stamina cost of dodging:
+		say "You don't have enough stamina to perform this action." instead.
 
 Carry out dodging:
 	say "You prepare to dodge the incoming attack with a quick roll.";
@@ -1102,7 +1105,8 @@ When Combat ends:
 	now the stamina of the player is the max stamina of the player;
 	now combat turn counter is 0;
 	now special attack counter is 0;
-	now all special attacks are untelegraphed.
+	now all special attacks are untelegraphed;
+	now the location of the player is combat-unlocked.
 
 [Reset enemy attributes after combat if needed]
 When Combat ends:
