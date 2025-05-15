@@ -2,6 +2,8 @@
 
 Include Basic Screen Effects by Emily Short
 
+Release along with an interpreter.
+
 Part - Opening
 
 Intro is a scene.
@@ -147,6 +149,9 @@ Instead of burning an unlit bonfire:
 
 Instead of burning a lit bonfire:
 	say "You rest your hand near the already burning flames. The fire seems to recognize you, flaring slightly in acknowledgment. You feel a renewed connection to this place, as if confirming its promise to call you back should you fall.";
+
+Instead of burning a bonfire when Combat is happening:
+	say "This is probably not the best timing."
 
 Resting at is an action applying to one visible thing. Understand "rest at [something]" or "rest by [something]" or "rest near [something]" or "rest beside [something]" as resting at.
 
@@ -1131,18 +1136,19 @@ When Combat ends:
 Part - Misc
 
 Understand "help" as asking for help.
-Asking for help is an action applying to nothing.
+Asking for help is an action out of world.
 Carry out asking for help:
 	say "Commands:[line break]
 - Standard movement: 'go north/south/east/west' or simply 'north/south/east/west'[line break]
-- 'drink flask': drink flask to recover HP[line break]
+- 'drink flask', 'sip flask': drink flask to recover HP[line break]
 - 'touch bonfire' or 'light bonfire': Light a bonfire[line break]
 - 'rest at bonfire': rest at a bonfire to fully recover HP and flask charges.[line break]
+- 'x me' or 'l me': check player status[line break]
 Combat Commands:[line break]
-- 'attach', 'attack enemy with weapon': attack with equpped weapon[line break]
 - 'slash', 'thrust', or 'heavy swing': different attacks with your weapon[line break]
+- 'attack enemy with weapon': attack with equpped weapon[line break]
 - 'parry': reduce incoming damage[line break]
-- 'block': reduce incoming damage[line break]
+- 'block': reduce incoming damage (requires shield)[line break]
 - 'dodge': avoid damage[line break]
 - 'breathe': take a breathe and recover stamina[line break]
 - [italic type]*all combat actions require stamina to perform[roman type][line break]".
