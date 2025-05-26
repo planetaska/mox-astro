@@ -626,7 +626,7 @@ Section - Combat Scene
 
 Combat is a recurring scene.
 
-Combat begins when there is an alive undefeated enemy in the location of the player.
+Combat begins when there is an alive encountered undefeated enemy in the location of the player.
 Combat ends when every enemy in the location of the player is defeated or every enemy in the location of the player is dead or the player is dead.
 
 A room can be combat-locked or combat-unlocked. A room is usually combat-unlocked.
@@ -636,6 +636,7 @@ When Combat begins:
 	let foe be a random alive undefeated enemy in the location of the player;
 	if the waiting description of foe is not "":
 		say "[waiting description of foe][paragraph break]";
+		say "([The foe] has noticed you. Get ready.)";
 	if foe is aggressive:
 		say "[The foe] immediately moves to attack you!";
 		try the foe attacking the player.
@@ -777,6 +778,18 @@ A combat turn counter is a number that varies. Combat turn counter is 0.
 
 Every turn during Combat:
 	increase combat turn counter by 1.
+
+Section - Enemy Knowledge and Memory
+
+An enemy can be encountered or unencountered. An enemy is usually unencountered.
+
+Instead of examining an enemy for the first time:
+	now the noun is encountered;
+	say "[description of noun][paragraph break]";
+	if the noun is alive and the noun is undefeated:
+		say "The [noun] regards you with [if the noun is aggressive]hostile intent[otherwise]wary readiness[end if].";
+	otherwise:
+		say "The [noun] has been defeated.".
 
 Section - Enemy Behaviors
 
