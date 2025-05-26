@@ -123,11 +123,19 @@ Instead of examining a lit bonfire:
 Instead of examining an unlit bonfire:
 	say "An arrangement of ash-coated bones and blackened branches, arranged in a circular pattern. Faint traces of golden embers linger within, as if waiting to be rekindled by a Tarnished's touch.";
 
+The last activated bonfire is a bonfire that varies.
+
 To decide which room is the last bonfire room:
-	repeat with potential bonfire running through lit bonfires:
-		let R be the location of the potential bonfire;
-		decide on R;
-	decide on Entrance Passage.
+	if the last activated bonfire is nothing:
+		decide on Entrance Passage;
+	otherwise:
+		decide on the location of the last activated bonfire.
+
+Listing bonfire status is an action applying to nothing.
+Understand "bonfire status" as listing bonfire status.
+
+Carry out listing bonfire status:
+	say "Last bonfire was at [the last bonfire room]."
 
 The player-deaths is a number that varies. The player-deaths is 0.
 
@@ -145,10 +153,11 @@ Understand "touch [a bonfire]" as burning.
 
 Instead of burning an unlit bonfire:
 	now the noun is lit;
+	now the last activated bonfire is the noun;
 	say "You press your palm against the cold ashes. The fragments of bone and wood tremble, then ignite with a soft whoosh. A strange, golden-blue flame rises, casting long shadows that dance like reverent worshippers. The warmth seeps into your very being, and for a moment, you feel connected to this place - anchored by the flame's promise of return. Should darkness claim you, it is to this light you shall return.";
 
 Instead of burning a lit bonfire:
-	say "You rest your hand near the already burning flames. The fire seems to recognize you, flaring slightly in acknowledgment. You feel a renewed connection to this place, as if confirming its promise to call you back should you fall.";
+	try resting at the noun.
 
 Instead of burning a bonfire when Combat is happening:
 	say "This is probably not the best timing."
@@ -166,6 +175,7 @@ Carry out resting at an unlit bonfire:
 Carry out resting at a lit bonfire:
 	now the hit points of the player is the max hit points of the player;
 	now the stamina of the player is the max stamina of the player;
+	now the last activated bonfire is the noun;
 	replenish flask;
 	say "You kneel beside the bonfire, extending your hands toward its warm glow. The flames dance higher, casting strange shadows across your face. For a moment, you feel weightless, as if the fire draws the burden of your journey away. Your wounds seal, your strength returns, and your mind clears.".
 
