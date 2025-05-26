@@ -1186,5 +1186,74 @@ Carry out testing combat:
 
 Part - Main Story
 
-Section - Entrance Passage
+Chapter - Lore System
 
+Section - Backstory Items and Lore Discoveries
+
+A lore item is a kind of thing. A lore item has a text called lore text.
+
+The Torn Journal is a lore item in the Entrance Passage.
+The description of the Torn Journal is "A weathered journal with most pages missing. The remaining entries detail the early days of Maera's pilgrimage away from the Golden Order."
+The lore text of the Torn Journal is "Journal of Irina, Follower of Maera
+
+Day 42 of our pilgrimage.
+
+Lady Maera leads us ever onward, away from the Golden Order's harsh light. Some call us heretics, but they do not understand what she witnessed during the Convergence. 'True divinity,' she tells us, 'exists not in blinding light, but in the sacred moment of dusk - when possibility blooms in the balance between light and shadow.'
+
+Vesper, her closest confidant, never leaves her side. His devotion is absolute, perhaps too much so. I've seen the way he looks at her when she speaks of sacrifice and burden. I fear what he might do for love of her.
+
+Tomorrow we journey to the ancient ruins where texts speak of the Immortal Sun. Lady Maera believes this artifact predates even the Elden Ring and holds the key to establishing a new covenant that honors both light and dark.
+
+May the moonlight guide our—"
+
+The Ritual Dagger is a lore item in the Guardroom.
+The description of the Ritual Dagger is "A ceremonial blade with a crescent-shaped edge. The handle bears inscription in an ancient script."
+The lore text of the Ritual Dagger is "The inscription on the handle reads:
+
+'To part the veil between dusk and dawn,
+Blood of the devoted must be drawn.
+Neither light nor dark, but the threshold between,
+Reveals the path to what remains unseen.'
+
+The blade shows signs of having been used in ritual bloodletting, though the edge is ceremonial rather than practical for combat."
+
+The Star Chart is a lore item in the Antechamber.
+The description of the Star Chart is "A complex astronomical chart mapping constellations unknown to modern stargazers. It seems to predict celestial alignments across vast spans of time."
+The lore text of the Star Chart is "The chart shows the alignment that occurred during the Convergence, when multiple moons crossed paths in the night sky. Notes in faded ink mark this as 'The Threshold Moment' when 'the veil between ordered light and formless shadow grows thin enough to perceive greater truths.'
+
+Another alignment is marked as 'The Coming Age of Stars' with a date that corresponds roughly to the present time. Beside this notation is a small sketch of what appears to be the Dark Moon, with paths leading beneath it labeled 'The Journey Beyond Wisdom.'"
+
+The Cracked Mask is a lore item in the Winding Corridors.
+The description of the Cracked Mask is "A mask shaped like a waning moon, now broken across its surface. It was likely worn by one of the Duskrose's followers during rituals."
+The lore text of the Cracked Mask is "The inner surface of the mask bears an inscription:
+
+'We who walk between wear the face of transition,
+Neither bound to golden dawn nor endless night.
+In the sacred dusk we find our freedom,
+Until the stars reclaim their ancient right.'
+
+The crack in the mask seems deliberate rather than accidental - perhaps part of a ritual symbolizing the breaking of old bonds."
+
+The Immortal Sun Fragment is a lore item in the Burial Chamber.
+The description of the Immortal Sun Fragment is "A small shard that glows with golden light. Though just a tiny piece, it radiates immense power and seems to exist partially outside normal reality."
+The lore text of the Immortal Sun Fragment is "The fragment pulses with a rhythm like a heartbeat, though the tempo feels impossibly slow - as if operating on a timescale vaster than human comprehension.
+
+When you hold it, memories that aren't your own briefly flash through your mind: a grand ritual, Maera standing before the complete Immortal Sun, Vesper attempting to intervene and being struck down, and finally Maera's transformation into the Duskrose as she accepted the artifact's burden.
+
+The last memory lingers - a warning that even a fragment of true immortality carries both power and curse. Those who bear it exist partially outside time's flow, observing but rarely able to directly intervene in the world's affairs."
+
+Section - Examining Lore
+
+The examining-focus is an object that varies.
+
+After examining a lore item (called the target):
+	now the examining-focus is the target;
+	say "Would you like to examine it more closely? (YES or NO)";
+
+After reading a command when the examining-focus is a lore item:
+	if the player's command matches "yes":
+		say "[lore text of the examining-focus][paragraph break]";
+	otherwise:
+		say "You set the item aside for now.";
+	now the examining-focus is nothing;
+	reject the player's command;
