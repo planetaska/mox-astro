@@ -669,6 +669,19 @@ Section - Movement Restrictions
 Before going from a room (called origin) when origin is combat-locked:
 	say "You cannot leave while enemies block your path!" instead.
 
+[Store player's from direction]
+From direction is a direction that varies.
+
+Carry out going a direction (called way):
+	now the from direction is the opposite of the way.
+
+[Allow player retreat to previous room if not encountered]
+Instead of going a direction (called way) from a room when an undefeated unencountered enemy (called the foe) is in the location:
+	if way is not the from direction:
+		now the foe is encountered;
+	otherwise:
+		continue the action.
+
 Section - Adjusted Damage
 
 To decide which number is the adjusted attack of (attacker - an enemy):
