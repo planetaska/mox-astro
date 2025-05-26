@@ -410,6 +410,19 @@ To replenish flask:
 	now the charges of the Flask of Crimson Tears is the max charges of the Flask of Crimson Tears;
 	say "Your Flask of Crimson Tears is replenished to [charges of the Flask of Crimson Tears] uses.".
 
+Section - Using Things
+
+Understand "use [something]" as using.
+
+Using is an action applying to one thing.
+
+Check using something:
+	if the noun is the Flask of Crimson Tears:
+		try drinking the noun instead;
+		stop the action;
+	say "You can't use [the noun] like that.";
+	stop the action.
+
 Section - Player Status
 
 Instead of examining the player:
