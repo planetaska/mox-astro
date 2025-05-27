@@ -544,8 +544,8 @@ Check slashing:
 
 Carry out slashing:
 	let target be a random alive undefeated enemy in the location;
-	let damage be the damage of a random weapon that is wielded;
-	decrease the stamina of the player by the stamina cost of slashing + 6;
+	let damage be the damage of a random weapon that is wielded + 6;
+	decrease the stamina of the player by the stamina cost of slashing;
 	say "You slash at [the target] for [damage] damage!";
 	decrease the hit points of the target by damage;
 	say "[health-status of target]";
@@ -654,10 +654,6 @@ When Combat begins:
 		say "[The foe] immediately moves to attack you!";
 		try the foe attacking the player.
 
-[Every turn during Combat:
-	repeat with foe running through alive undefeated enemies in the location of the player:
-		try the foe attacking the player.]
-
 [Ensure combat state is properly reset after the player dies and returns]
 After looking when the player is in a room (called R) and the player-deaths > 0 and Combat is not happening:
 	repeat with foe running through enemies in R:
@@ -666,15 +662,6 @@ After looking when the player is in a room (called R) and the player-deaths > 0 
 			now all special attacks are untelegraphed;
 			now combat turn counter is 0;
 	continue the action.
-
-[After going to a room (called destination) when an alive undefeated enemy is in destination:
-	if destination is combat-unlocked:
-		let foe be a random alive undefeated enemy in destination;
-		if the waiting description of foe is not "":
-			say "[waiting description of foe][paragraph break]";
-		if foe is aggressive:
-			say "[The foe] immediately notices your presence and moves to attack!";
-	continue the action.]
 
 Section - Movement Restrictions
 
