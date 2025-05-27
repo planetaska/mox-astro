@@ -410,19 +410,6 @@ To replenish flask:
 	now the charges of the Flask of Crimson Tears is the max charges of the Flask of Crimson Tears;
 	say "Your Flask of Crimson Tears is replenished to [charges of the Flask of Crimson Tears] uses.".
 
-Section - Using Things
-
-Understand "use [something]" as using.
-
-Using is an action applying to one thing.
-
-Check using something:
-	if the noun is the Flask of Crimson Tears:
-		try drinking the noun instead;
-		stop the action;
-	say "You can't use [the noun] like that.";
-	stop the action.
-
 Section - Player Status
 
 Instead of examining the player:
@@ -443,13 +430,13 @@ Dark Moon Greatsword is a weapon. The description is "A Moon Greatsword, bestowe
 The Dark Moon Greatsword is two-handed.
 The damage of the Dark Moon Greatsword is 15.
 
-Section - Shield
+Section - Shields
 
 A shield is a kind of thing. A shield has a number called defense. The defense of a shield is usually 5.
 
 The Buckler is a shield. The description is "A sturdy wooden shield reinforced with metal bands."
 
-Section - Wielding Relation
+Section - Wielding and Equipping Relation
 
 Wielding relates one person to one weapon.
 The verb to wield means the wielding relation.
@@ -504,15 +491,6 @@ Instead of taking a weapon:
 	otherwise:
 		continue the action.
 
-Section - Player's Initial Inventory
-
-The player is carrying the Dark Moon Greatsword.
-The player is wielding the Dark Moon Greatsword.
-
-The player is carrying the Buckler.
-
-The player is carrying the Flask of Crimson Tears.
-
 Section - Unwielding
 
 Unwielding is an action applying to one thing.
@@ -555,7 +533,7 @@ After dropping a shield (called item):
 		now the player does not equip the item;
 		say "(You removed [the item] as you drop it.)"
 
-Section - Equipment Misc
+Section - Equipment Listing
 
 Rule for printing the name of a weapon (called item) while taking inventory:
 	say "[printed name of item]";	
@@ -1283,7 +1261,33 @@ When Combat ends:
 			now the hit points of foe is 120;
 			now the attack power of foe is 36.
 
+Part - Initial Values
+
+Section - Player's Initial Inventory
+
+The player is carrying the Dark Moon Greatsword.
+The player is wielding the Dark Moon Greatsword.
+
+The player is carrying the Buckler.
+
+The player is carrying the Flask of Crimson Tears.
+
 Part - Misc
+
+Section - Using Things
+
+Understand "use [something]" as using.
+
+Using is an action applying to one thing.
+
+Check using something:
+	if the noun is the Flask of Crimson Tears:
+		try drinking the noun instead;
+		stop the action;
+	say "You can't use [the noun] like that.";
+	stop the action.
+
+Section - Help Command
 
 Understand "help" as asking for help.
 Asking for help is an action out of world.
@@ -1304,6 +1308,8 @@ Combat Commands:[line break]
 - [italic type]*all combat actions require stamina to perform[roman type][line break]".
 [- 'attack enemy with weapon': alternative attack syntax[line break]
 - 'equip shield' / 'unequip shield': ready or lower your shield[line break]".]
+
+Section - Test Command
 
 [Testing commands]
 Understand "test combat" as testing combat. Testing combat is an action out of world.
