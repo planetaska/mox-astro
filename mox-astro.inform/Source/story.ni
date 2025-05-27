@@ -380,11 +380,13 @@ Instead of breathing during Combat:
 
 Section - Flask of Crimson Tears
 
-The Flask of Crimson Tears is a thing carried by the player. The description is "A sacred flask modelled after a golden holy chalice that was once graced by a tear of life.
+The Flask of Crimson Tears is a thing. The description is "A sacred flask modelled after a golden holy chalice that was once graced by a tear of life.
 
 Filled with crimson tears, this flask restores HP with use. Rest at a site of grace to replenish.
 
 [italic type]The one washed up on the gravesite was sure to die, until this flask offered its gift of rejuvenation. To seek the Elden Ring.[roman type]"
+
+The player is carrying the Flask of Crimson Tears.
 
 The Flask of Crimson Tears has a number called charges. The charges of the Flask of Crimson Tears is 3.
 The Flask of Crimson Tears has a number called max charges. The max charges of the Flask of Crimson Tears is 3.
@@ -434,20 +436,136 @@ To say player-status:
 Section - Weapons
 
 A weapon is a kind of thing. A weapon has a number called damage. The damage of a weapon is usually 10.
-A weapon can be wielded or unwielded. A weapon is usually unwielded.
+A weapon can be one-handed or two-handed. A weapon is usually one-handed.
 
 Dark Moon Greatsword is a weapon. The description is "A Moon Greatsword, bestowed by a Carian queen upon her spouse to honor long-standing tradition. One of the legendary armaments.
 
 [italic type]Ranni's sigil is a full moon, cold and leaden, and this sword is but a beam of its light.[roman type]".
+
+The Dark Moon Greatsword is two-handed.
 The damage of the Dark Moon Greatsword is 15.
 
 The player is carrying the Dark Moon Greatsword.
-The Dark Moon Greatsword is wielded.
+The player is wielding the Dark Moon Greatsword.
+
+Section - Shield
+
+A shield is a kind of thing. A shield has a number called defense. The defense of a shield is usually 5.
+
+The Buckler is a shield. The description is "A sturdy wooden shield reinforced with metal bands."
+
+The player is carrying the Buckler.
+
+Section - Wielding Relation
+
+Wielding relates one person to one weapon.
+The verb to wield means the wielding relation.
+
+Equipping relates one person to one shield.
+The verb to equip means the equipping relation.
+
+Understand the command "wield" as something new.
+Wielding it with is an action applying to one thing.
+Understand "wield [thing]", "equip [thing]" as wielding it with.
+
+Check wielding it with:
+	if the noun is not a weapon and the noun is not a shield:
+		say "You can't wield that." instead;
+	if the player does not carry the noun:
+		say "You're not holding [the noun]." instead;
+	[ If trying to wield a shield ]
+	if the noun is a shield:
+		if the player is wielding a two-handed weapon (called the weapon):
+			say "You can't equip a shield while wielding a two-handed weapon ([the weapon])." instead;
+	[ If trying to wield a weapon ]
+	if the noun is a weapon:
+		if the player wields a weapon (called held):
+			now the player does not wield the held;
+			say "(You stop wielding [the held].) [run paragraph on]";
+		if the noun is two-handed and the player equips a shield (called shielded):
+			say "(You unequip [the shielded] to wield a two-handed weapon.) [run paragraph on]";
+			now the player does not equip the shielded.
+
+Carry out wielding it with:
+	[ wield a shield ]
+	if the noun is a shield:
+		if the player equips a shield (called old):
+			now the player does not equip the old;
+			say "(You unequip [the old].) [run paragraph on]";
+		now the player equips the noun;
+		stop the action;
+	otherwise:
+		now the player wields the noun.
+
+Report wielding it with:
+	if the noun is a shield:
+		say "You equip [the noun].";
+	otherwise:
+		say "You wield [the noun]."
 
 Instead of taking a weapon:
-	now the noun is carried by the player;
-	now the noun is wielded;
-	say "You pick up [the noun] and ready it for battle."
+	if the player is not wielding a weapon:
+		now the noun is carried by the player;
+		now the player is wielding the noun;
+		say "You pick up [the noun] and wield it for battle.";
+	otherwise:
+		continue the action.
+
+Section - Unwielding
+
+Unwielding is an action applying to one thing.
+Understand "unwield [thing]" as unwielding.
+
+Check unwielding:
+	if the player does not wield the noun:
+		say "You're not wielding [the noun]." instead.
+
+Carry out unwielding:
+	now the player does not wield the noun.
+
+Report unwielding:
+	say "You stop wielding [the noun]."
+
+Section - Unequipping
+
+Unequipping is an action applying to one thing.
+Understand "unequip [thing]" as unequipping.
+
+Check unequipping:
+	if the player does not equip the noun:
+		say "You're not equipping [the noun]." instead.
+
+Carry out unequipping:
+	now the player does not equip the noun.
+
+Report unequipping:
+	say "You removed [the noun]."
+
+Section - Dropping Weapons
+
+After dropping a weapon (called item):
+	if the player wields the item:
+		now the player does not wield the item;
+		say "(You stop wielding [the item] as you drop it.)"
+
+After dropping a shield (called item):
+	if the player equips the item:
+		now the player does not equip the item;
+		say "(You removed [the item] as you drop it.)"
+
+Section - Equipment Misc
+
+Rule for printing the name of a weapon (called item) while taking inventory:
+	say "[printed name of item]";	
+	if the player wields the item:
+		say " (wielded)";
+
+Rule for printing the name of a shield (called item) while taking inventory:
+	say "[printed name of item]";	
+	if the player equips the item:
+		say " (equipped)";
+
+Chapter - Combat System
 
 Section - Enemies
 
@@ -502,6 +620,33 @@ The waiting description of the Spirit of Vesper is "As you move among the biers,
 
 Section - Combat
 
+[Attack command]
+The block attacking rule is not listed in any rulebook.
+
+Check attacking something:
+	if the player does not carry a weapon:
+		say "You have no weapon to attack with." instead;
+	if the player is not wielding a weapon:
+		say "You can't attack with that." instead;
+	if the noun is not an enemy:
+		say "You can only attack enemies." instead;
+	if the noun is defeated:
+		say "[The noun] is already defeated." instead.
+
+Carry out attacking an enemy (called the foe):
+	let the weapon be a random weapon that is wielded by the player;
+	let damage be the damage of the weapon;
+	say "You attack [the foe] with [the weapon] for [damage] damage!".
+
+Report attacking an enemy (called the foe):
+	if the hit points of the noun <= 0:
+		now the noun is dead;
+		now the noun is defeated;
+		say "[line break]You have defeated [the noun]!";
+	otherwise:
+		say "[health-status of noun]".
+
+[Attack foe with weapon command]
 Attacking it with is an action applying to one thing and one carried thing. Understand "attack [something] with [something]" as attacking it with.
 
 Check attacking something with something:
@@ -532,7 +677,7 @@ Thrusting is an action applying to nothing. Understand "thrust" as thrusting.
 Heavy swinging is an action applying to nothing. Understand "swing" or "heavy swing" as heavy swinging.
 
 Check slashing:
-	if the player does not carry a weapon that is wielded:
+	if the player is not wielding a weapon:
 		say "You need to wield a weapon first." instead;
 	if the stamina of the player < the stamina cost of slashing:
 		say "You don't have enough stamina to perform this action." instead;
@@ -544,7 +689,8 @@ Check slashing:
 
 Carry out slashing:
 	let target be a random alive undefeated enemy in the location;
-	let damage be the damage of a random weapon that is wielded + 6;
+	let the weapon be a random weapon that is wielded by the player;
+	let damage be the damage of the weapon + 6;
 	decrease the stamina of the player by the stamina cost of slashing;
 	say "You slash at [the target] for [damage] damage!";
 	decrease the hit points of the target by damage;
@@ -554,7 +700,7 @@ Carry out slashing:
 		say "[line break]You have slain [the target]!".
 
 Check thrusting:
-	if the player does not carry a weapon that is wielded:
+	if the player is not wielding a weapon:
 		say "You need to wield a weapon first." instead;
 	if the stamina of the player < the stamina cost of thrusting:
 		say "You don't have enough stamina to perform this action." instead;
@@ -566,7 +712,8 @@ Check thrusting:
 
 Carry out thrusting:
 	let target be a random alive undefeated enemy in the location;
-	let damage be the damage of a random weapon that is wielded - 3;
+	let the weapon be a random weapon that is wielded by the player;
+	let damage be the damage of the weapon - 3;
 	decrease the stamina of the player by the stamina cost of thrusting;
 	say "You thrust at [the target] for [damage] damage!";
 	decrease the hit points of the target by damage;
@@ -576,7 +723,7 @@ Carry out thrusting:
 		say "[line break]You have defeated [the target]!".
 
 Check heavy swinging:
-	if the player does not carry a weapon that is wielded:
+	if the player is not wielding a weapon:
 		say "You need to wield a weapon first." instead;
 	if the stamina of the player < the stamina cost of heavy swinging:
 		say "You don't have enough stamina to perform this action." instead;
@@ -588,7 +735,8 @@ Check heavy swinging:
 
 Carry out heavy swinging:
 	let target be a random alive undefeated enemy in the location;
-	let damage be the damage of a random weapon that is wielded + 15;
+	let the weapon be a random weapon that is wielded by the player;
+	let damage be the damage of the weapon + 15;
 	decrease the stamina of the player by the stamina cost of heavy swinging;
 	say "You swing heavily at [the target] for [damage] damage!";
 	decrease the hit points of the target by damage;
@@ -596,42 +744,6 @@ Carry out heavy swinging:
 	if the hit points of the target <= 0:
 		now the target is dead;
 		say "[line break]You have defeated [the target]!".
-
-Section - Shield
-
-The shield is a thing. The description is "A sturdy wooden shield reinforced with metal bands."
-The shield is in the Second Floor.
-
-The shield can be carried or not carried.
-The shield can be equipped or unequipped. The shield is unequipped.
-
-Understand "equip [something]" as equipping.
-Equipping is an action applying to one carried thing.
-
-Check equipping:
-	if the noun is not carried by the player:
-		say "You don't have [the noun]." instead;
-	if the noun is not the shield:
-		say "You can't equip that." instead;
-	if the shield is equipped:
-		say "You already have the shield equipped." instead.
-
-Carry out equipping the shield:
-	now the shield is equipped;
-	say "You ready your shield for battle."
-
-Understand "unequip [something]" as unequipping.
-Unequipping is an action applying to one carried thing.
-
-Check unequipping:
-	if the noun is not the shield:
-		say "You can't unequip that." instead;
-	if the shield is not equipped:
-		say "The shield is not equipped." instead.
-
-Carry out unequipping the shield:
-	now the shield is unequipped;
-	say "You lower your shield."
 
 Part - Combat Scene
 
@@ -691,7 +803,7 @@ To decide which number is the adjusted attack of (attacker - an enemy):
 		say "[line break]-> You successfully parry [the attacker]'s attack, reducing the damage!";
 		let adjusted attack be base attack / 2;
 		decide on adjusted attack;
-	if the shield is carried by the player and the shield is equipped and the player is blocking:
+	if the player is equipping a shield and the player is blocking:
 		now the player is not blocking;
 		say "[line break]-> Your shield absorbs much of [the attacker]'s blow!";
 		let adjusted attack be base attack / 3;
@@ -731,9 +843,9 @@ Carry out parrying:
 Blocking is an action applying to nothing. Understand "block" as blocking.
 
 Check blocking:
-	if the shield is not carried by the player:
+	if the player is not carrying a shield:
 		say "You have no shield to block with." instead;
-	if the shield is not equipped:
+	if the player is not equipping a shield:
 		say "Your shield is not ready. Try equipping it first." instead;
 	if an alive undefeated enemy is not in the location:
 		say "There's no attack to block." instead;
