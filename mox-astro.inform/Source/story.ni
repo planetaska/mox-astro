@@ -386,8 +386,6 @@ Filled with crimson tears, this flask restores HP with use. Rest at a site of gr
 
 [italic type]The one washed up on the gravesite was sure to die, until this flask offered its gift of rejuvenation. To seek the Elden Ring.[roman type]"
 
-The player is carrying the Flask of Crimson Tears.
-
 The Flask of Crimson Tears has a number called charges. The charges of the Flask of Crimson Tears is 3.
 The Flask of Crimson Tears has a number called max charges. The max charges of the Flask of Crimson Tears is 3.
 
@@ -445,16 +443,11 @@ Dark Moon Greatsword is a weapon. The description is "A Moon Greatsword, bestowe
 The Dark Moon Greatsword is two-handed.
 The damage of the Dark Moon Greatsword is 15.
 
-The player is carrying the Dark Moon Greatsword.
-The player is wielding the Dark Moon Greatsword.
-
 Section - Shield
 
 A shield is a kind of thing. A shield has a number called defense. The defense of a shield is usually 5.
 
 The Buckler is a shield. The description is "A sturdy wooden shield reinforced with metal bands."
-
-The player is carrying the Buckler.
 
 Section - Wielding Relation
 
@@ -510,6 +503,15 @@ Instead of taking a weapon:
 		say "You pick up [the noun] and wield it for battle.";
 	otherwise:
 		continue the action.
+
+Section - Player's Initial Inventory
+
+The player is carrying the Dark Moon Greatsword.
+The player is wielding the Dark Moon Greatsword.
+
+The player is carrying the Buckler.
+
+The player is carrying the Flask of Crimson Tears.
 
 Section - Unwielding
 
