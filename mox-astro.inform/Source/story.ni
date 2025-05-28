@@ -1295,8 +1295,12 @@ Part - Main Story
 
 Chapter - Cut Scenes
 
-After entering the Entrance Passage for the first time:
-	say ">>>>>>>>hi>>>>>>>";
+[Recall is a scene.
+
+Recall begins when the player is in the Entrance Passage for the first time.
+
+When Recall begins:
+	say ">>>>>>>>hi>>>>>>>".]
 
 Chapter - Final Scene
 
@@ -1318,6 +1322,7 @@ Chapter - Lore System
 Section - Backstory Items and Lore Discoveries
 
 A lore item is a kind of thing. A lore item has a text called lore text.
+A lore item can be viewed or unviewed. A lore item is usually unviewed.
 
 Memory Fragment is lore item. The description is "A small memory fragment of the Starbound and Ranni."
 The lore text of the Memory Fragment is "[bold type]The Starbound[roman type]
@@ -1389,8 +1394,9 @@ After examining a lore item (called the target):
 	say "Would you like to examine it more closely? (YES or NO)";
 
 After reading a command when the examining-focus is a lore item:
-	if the player's command matches "yes":
+	if the player's command matches "yes" or the player's command matches "y":
 		say "[lore text of the examining-focus][paragraph break]";
+		now the examining-focus is viewed;
 	otherwise:
 		say "You set the item aside for now.";
 	now the examining-focus is nothing;
@@ -1480,7 +1486,10 @@ Instead of taking inventory:
 		say "[line break][bold type]Memories:[roman type][line break]";
 		repeat with item running through things carried by the player:
 			if item is lore-item:
-				say "	[item][line break]";
+				if item is viewed:
+					say "	[item][line break]";
+				otherwise:
+					say "	[item] (unchecked)[line break]";
 	if consumable-count is 0 and equipment-count is 0 and lore-count is 0:
 		say "	nothing.[line break]";
 
