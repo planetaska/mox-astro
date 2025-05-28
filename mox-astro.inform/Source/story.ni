@@ -642,12 +642,14 @@ Check attacking something:
 Carry out attacking an enemy (called the foe):
 	let the weapon be a random weapon that is wielded by the player;
 	let damage be the damage of the weapon;
-	say "You attack [the foe] with [the weapon] for [damage] damage!".
+	decrease the hit points of the noun by damage;
+	say "You attack [the foe] with [the weapon] for [damage] damage!";
+	if the foe is unencountered:
+		now the foe is encountered.
 
 Report attacking an enemy (called the foe):
 	if the hit points of the noun <= 0:
 		now the noun is dead;
-		now the noun is defeated;
 		say "[line break]You have defeated [the noun]!";
 	otherwise:
 		say "[health-status of noun]".
@@ -671,9 +673,10 @@ Carry out attacking an enemy with a weapon:
 		say "You attack [the noun] with [the second noun] for [damage] damage!";
 		decrease the stamina of the player by the stamina cost of attacking;
 		decrease the hit points of the noun by damage;
+		if the noun is unencountered:
+			now the noun is encountered;
 		if the hit points of the noun <= 0:
 			now the noun is dead;
-			now the noun is defeated;
 			say "[line break]You have defeated [the noun]!";
 		otherwise:
 			say "[health-status of noun]";
@@ -701,6 +704,8 @@ Carry out slashing:
 	say "You slash at [the target] for [damage] damage!";
 	decrease the hit points of the target by damage;
 	say "[health-status of target]";
+	if the noun is unencountered:
+		now the noun is encountered;
 	if the hit points of the target <= 0:
 		now the target is dead;
 		say "[line break]You have slain [the target]!".
@@ -724,6 +729,8 @@ Carry out thrusting:
 	say "You thrust at [the target] for [damage] damage!";
 	decrease the hit points of the target by damage;
 	say "[health-status of target]";
+	if the noun is unencountered:
+		now the noun is encountered;
 	if the hit points of the target <= 0:
 		now the target is dead;
 		say "[line break]You have defeated [the target]!".
@@ -747,6 +754,8 @@ Carry out heavy swinging:
 	say "You swing heavily at [the target] for [damage] damage!";
 	decrease the hit points of the target by damage;
 	say "[health-status of target]";
+	if the noun is unencountered:
+		now the noun is encountered;
 	if the hit points of the target <= 0:
 		now the target is dead;
 		say "[line break]You have defeated [the target]!".
