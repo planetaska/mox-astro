@@ -553,18 +553,6 @@ After dropping a shield (called item):
 		now the player does not equip the item;
 		say "(You removed [the item] as you drop it.)"
 
-Section - Equipment Listing
-
-Rule for printing the name of a weapon (called item) while taking inventory:
-	say "[printed name of item]";	
-	if the player wields the item:
-		say " (wielded)";
-
-Rule for printing the name of a shield (called item) while taking inventory:
-	say "[printed name of item]";	
-	if the player equips the item:
-		say " (equipped)";
-
 Chapter - Combat System
 
 Section - Enemies
@@ -1303,68 +1291,6 @@ The player is carrying the Carian Knight's Shield.
 
 The player is carrying the Flask of Crimson Tears.
 
-Part - Misc
-
-Section - Story Mode
-
-Plot Armor is a wearable thing.
-
-The player is carrying the Plot Armor.
-
-Every turn when the player is wearing the Plot Armor:
-	now the hit points of the player is the max hit points of the player;
-	now the stamina of the player is the max stamina of the player.
-
-Section - Report Player Status
-
-Understand "stat" as reporting status.
-Reporting status is an action out of world.
-Carry out reporting status:
-	say "[player-status]".
-
-Section - Using Things
-
-Understand "use [something]" as using.
-
-Using is an action applying to one thing.
-
-Check using something:
-	if the noun is the Flask of Crimson Tears:
-		try drinking the noun instead;
-		stop the action;
-	say "You can't use [the noun] like that.";
-	stop the action.
-
-Section - Help Command
-
-Understand "help" as asking for help.
-Asking for help is an action out of world.
-Carry out asking for help:
-	say "Commands:[line break]
-- Standard movement: 'go north/south/east/west' or simply 'north/south/east/west'[line break]
-- 'drink flask', 'sip flask': drink flask to recover HP[line break]
-- 'touch bonfire' or 'light bonfire': Light a bonfire[line break]
-- 'rest at bonfire': rest at a bonfire to fully recover HP and flask charges.[line break]
-- 'x me' or 'l me': check player status[line break]
-Combat Commands:[line break]
-- 'slash', 'thrust', or 'heavy swing': different attacks with your weapon[line break]
-- 'attack enemy with weapon': attack with equpped weapon[line break]
-- 'parry': reduce incoming damage[line break]
-- 'block': reduce incoming damage (requires shield)[line break]
-- 'dodge': avoid damage[line break]
-- 'breathe': take a breathe and recover stamina[line break]
-- [italic type]*all combat actions require stamina to perform[roman type][line break]".
-[- 'attack enemy with weapon': alternative attack syntax[line break]
-- 'equip shield' / 'unequip shield': ready or lower your shield[line break]".]
-
-Section - Test Command
-
-[Testing commands]
-Understand "test combat" as testing combat. Testing combat is an action out of world.
-Carry out testing combat:
-	now combat turn counter is 0;
-	try looking.
-
 Part - Main Story
 
 Chapter - Cut Scenes
@@ -1469,3 +1395,152 @@ After reading a command when the examining-focus is a lore item:
 		say "You set the item aside for now.";
 	now the examining-focus is nothing;
 	reject the player's command;
+
+Part - Misc
+
+Section - Story Mode
+
+Plot Armor is a wearable thing.
+
+The player is carrying the Plot Armor.
+
+Every turn when the player is wearing the Plot Armor:
+	now the hit points of the player is the max hit points of the player;
+	now the stamina of the player is the max stamina of the player.
+
+Section - Report Player Status
+
+Understand "stat" as reporting status.
+Reporting status is an action out of world.
+Carry out reporting status:
+	say "[player-status]".
+
+Section - Using Things
+
+Understand "use [something]" as using.
+
+Using is an action applying to one thing.
+
+Check using something:
+	if the noun is the Flask of Crimson Tears:
+		try drinking the noun instead;
+		stop the action;
+	say "You can't use [the noun] like that.";
+	stop the action.
+
+Section - Item Categories
+
+A thing can be a consumable, equipment, or lore-item. A thing is usually equipment.
+
+[Categorize existing items]
+The Flask of Crimson Tears is a consumable.
+The Dark Moon Greatsword is equipment.
+The Carian Knight's Sword is equipment.
+The Buckler is equipment.
+The Carian Knight's Shield is equipment.
+The moonstone wedge is equipment.
+
+[All lore items are lore-item category]
+A lore item is always lore-item.
+
+Section - Custom Inventory Listing
+
+Instead of taking inventory:
+	say "You are carrying:[line break]";
+	let consumable-count be 0;
+	let equipment-count be 0;
+	let lore-count be 0;
+	repeat with item running through things carried by the player:
+		if item is consumable:
+			increase consumable-count by 1;
+		otherwise if item is equipment:
+			increase equipment-count by 1;
+		otherwise if item is lore-item:
+			increase lore-count by 1;
+	[Display Consumables]
+	if consumable-count > 0:
+		say "[line break][bold type]Consumables:[roman type][line break]";
+		repeat with item running through things carried by the player:
+			if item is consumable:
+				say "	[item]";
+				say "[line break]";
+	[Display Equipment]
+	if equipment-count > 0:
+		say "[line break][bold type]Equipment:[roman type][line break]";
+		repeat with item running through things carried by the player:
+			if item is equipment:
+				say "	[item]";
+				if item is a weapon and the player wields item:
+					say " (wielded)";
+				otherwise if item is a shield and the player equips item:
+					say " (equipped)";
+				say "[line break]";
+	[Display Lore Items]
+	if lore-count > 0:
+		say "[line break][bold type]Memories:[roman type][line break]";
+		repeat with item running through things carried by the player:
+			if item is lore-item:
+				say "	[item][line break]";
+	if consumable-count is 0 and equipment-count is 0 and lore-count is 0:
+		say "	nothing.[line break]";
+
+[Section - Equipment Listing
+
+Rule for printing the name of a weapon (called item) while taking inventory:
+	say "[printed name of item]";	
+	if the player wields the item:
+		say " (wielded)";
+	
+Rule for printing the name of a shield (called item) while taking inventory:
+	say "[printed name of item]";	
+	if the player equips the item:
+		say " (equipped)";]
+
+Section - Alternative Short Inventory
+
+[Quick status command that shows just equipped items]
+Understand "eq" or "equipped" as checking equipment.
+Checking equipment is an action out of world.
+
+Carry out checking equipment:
+	say "Currently equipped:[line break]";
+	let wielded-weapon be a random weapon wielded by the player;
+	let equipped-shield be a random shield equipped by the player;
+	if wielded-weapon is not nothing:
+		say "	Weapon: [wielded-weapon][line break]";
+	otherwise:
+		say "	Weapon: none[line break]";
+	if equipped-shield is not nothing:
+		say "	Shield: [equipped-shield][line break]";
+	otherwise:
+		say "	Shield: none[line break]";
+
+Section - Help Command
+
+Understand "help" as asking for help.
+Asking for help is an action out of world.
+Carry out asking for help:
+	say "Commands:[line break]
+- Standard movement: 'go north/south/east/west' or simply 'north/south/east/west'[line break]
+- 'drink flask', 'sip flask': drink flask to recover HP[line break]
+- 'touch bonfire' or 'light bonfire': Light a bonfire[line break]
+- 'rest at bonfire': rest at a bonfire to fully recover HP and flask charges.[line break]
+- 'x me' or 'l me': check player status[line break]
+Combat Commands:[line break]
+- 'slash', 'thrust', or 'heavy swing': different attacks with your weapon[line break]
+- 'attack enemy with weapon': attack with equpped weapon[line break]
+- 'parry': reduce incoming damage[line break]
+- 'block': reduce incoming damage (requires shield)[line break]
+- 'dodge': avoid damage[line break]
+- 'breathe': take a breathe and recover stamina[line break]
+- [italic type]*all combat actions require stamina to perform[roman type][line break]".
+[- 'attack enemy with weapon': alternative attack syntax[line break]
+- 'equip shield' / 'unequip shield': ready or lower your shield[line break]".]
+
+Section - Test Command
+
+[Testing commands]
+Understand "test combat" as testing combat. Testing combat is an action out of world.
+Carry out testing combat:
+	now combat turn counter is 0;
+	try looking.
