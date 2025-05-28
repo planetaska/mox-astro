@@ -1,6 +1,8 @@
 "Mox Astro" by aska
 
-Include Basic Screen Effects by Emily Short
+Include Basic Screen Effects by Emily Short.
+Include Exit Lister by Gavin Lambert.
+Include Modified Keyword Interface by Aaron Reed.
 
 Release along with an interpreter.
 
@@ -22,19 +24,11 @@ When Intro begins:
 
 The Starbound, a trusted Tarnished, have been chosen by Ranni for a crucial quest: seeking out Astrophyllite, also known as Star Leaf. This golden metallic gemstone, flashing like a cosmic explosion, is essential in forging the Mox Astro - an artifact prophesied to realize Ranni's dream of journeying into the darkness beneath the Dark Moon's wisdom.
 
-After arduous weeks of searching and traveling, the Tarnished have traced the gemstone's location to the Duskrose Labyrinth. Praying for the Moon's blessing, the Tarnished step towards the shadowed entrance.
-
 (press any key to continue)[line break]";
 	wait for any key;
 	now the left hand status line is "Lands Between";
 	redraw status line;
 	say "[line break][bold type]The Starbound[roman type][line break]";
-	say "[line break]The wind carries the scent of ash and forgotten promises as the Starbound gazes upon the horizon. The world has changed since the fall of the Elden Beast. Where once the Erdtree's golden light dominated the sky, now celestial bodies glimmer with newfound brilliance, heralding the dawn of the Age of Stars.
-
-Three moons hang in the twilight sky – pale sentinels watching over a realm in transition. Their light catches on the Starbound's armor, crafted from meteorite metal and imbued with cosmic resonance. Such material marks the Starbound as one chosen by Ranni the Starweaver, former princess and architect of this new age.
-
-'Find the Astrophyllite,' Ranni had whispered, her voice like frost crystallizing in still air. 'The Star Leaf that blooms only in darkness. With it, I shall craft the Mox Astro – the key to our journey beneath the wisdom of the Dark Moon.'";
-	wait for any key;
 	say "[line break]For weeks, the Starbound has traversed forgotten valleys and scaled treacherous peaks. Ancient texts and dying whispers have all pointed to one location: the Duskrose Labyrinth. A place spoken of in hushed tones by scholars and madmen alike, said to house treasures beyond mortal comprehension.
 
 The journey has not been without sacrifice. Blood has been spilled, oaths have been sworn, and companions have been lost to the shadows. Yet the Starbound perseveres, driven by devotion to Ranni's vision – a cosmic order free from the dictates of capricious gods.
@@ -1373,6 +1367,11 @@ Carry out testing combat:
 
 Part - Main Story
 
+Chapter - Cut Scenes
+
+After entering the Entrance Passage for the first time:
+	say ">>>>>>>>hi>>>>>>>";
+
 Chapter - Final Scene
 
 Final Scene is a scene.
@@ -1393,6 +1392,17 @@ Chapter - Lore System
 Section - Backstory Items and Lore Discoveries
 
 A lore item is a kind of thing. A lore item has a text called lore text.
+
+Memory Fragment is lore item. The description is "A small memory fragment of the Starbound and Ranni."
+The lore text of the Memory Fragment is "[bold type]The Starbound[roman type]
+
+The wind carries the scent of ash and forgotten promises as the Starbound gazes upon the horizon. The world has changed since the fall of the Elden Beast. Where once the Erdtree's golden light dominated the sky, now celestial bodies glimmer with newfound brilliance, heralding the dawn of the Age of Stars.
+
+Three moons hang in the twilight sky – pale sentinels watching over a realm in transition. Their light catches on the Starbound's armor, crafted from meteorite metal and imbued with cosmic resonance. Such material marks the Starbound as one chosen by Ranni the Starweaver, former princess and architect of this new age.
+
+'Find the Astrophyllite,' Ranni had whispered, her voice like frost crystallizing in still air. 'The Star Leaf that blooms only in darkness. With it, I shall craft the Mox Astro – the key to our journey beneath the wisdom of the Dark Moon.'"
+
+The player is carrying the Memory Fragment.
 
 The Torn Journal is a lore item in the Entrance Passage.
 The description of the Torn Journal is "A weathered journal with most pages missing. The remaining entries detail the early days of Maera's pilgrimage away from the Golden Order."
