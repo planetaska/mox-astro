@@ -413,7 +413,13 @@ To replenish flask:
 Section - Player Status
 
 Instead of examining the player:
-	say "[health-status of the player] / [stamina-status of the player]"
+	say "You are wearing the Carian Knight's armor.
+
+Armor of the enchanted knights that once served the Carian royal family.
+
+[italic type]The enchanted knights, anointed by the Lunar Queen, were heroes of the highest honors, but fell into disarray with the decline of the royal family.[roman type]
+
+[player-status]"
 
 To say player-status:
 	say "[health-status of the player] / [stamina-status of the player]"
@@ -430,11 +436,31 @@ Dark Moon Greatsword is a weapon. The description is "A Moon Greatsword, bestowe
 The Dark Moon Greatsword is two-handed.
 The damage of the Dark Moon Greatsword is 15.
 
+Carian Knight's Sword is a weapon. The description is "Straight sword embedded with a blue glintstone. 
+Weapon of knights sworn to Carian royalty.
+
+[italic type]These knights' swords could serve as catalysts, letting them wield sorcerous battle skills. Despite numbering fewer than twenty, this power made them a match for even the champions of gold in battle.[roman type]"
+
+The damage of the Carian Knight's Sword is 8.
+
 Section - Shields
 
 A shield is a kind of thing. A shield has a number called defense. The defense of a shield is usually 5.
 
-The Buckler is a shield. The description is "A sturdy wooden shield reinforced with metal bands."
+The Buckler is a shield. The description is "A small metal roundshield.
+The bump in the center enables parrying techniques.
+
+A well-timed parry can break an enemy's stance, allowing a critical
+hit.
+[line break][italic type]Best suited for those prepared to take the risk to reap their reward.[roman type]"
+
+Carian Knight's Shield is a shield. The description is "A teardrop-shaped shield embedded with blue glintstones.
+Carried by knights who served the Carian royal family.
+
+[italic type]Excels when facing magic or holy attacks. Just who were these
+knights preparing to fight?[roman type]"
+
+The defense of the Carian Knight's Shield is 10.
 
 Section - Wielding and Equipping Relation
 
@@ -1268,11 +1294,20 @@ Section - Player's Initial Inventory
 The player is carrying the Dark Moon Greatsword.
 The player is wielding the Dark Moon Greatsword.
 
+The player is carrying the Carian Knight's Sword.
 The player is carrying the Buckler.
+The player is carrying the Carian Knight's Shield.
 
 The player is carrying the Flask of Crimson Tears.
 
 Part - Misc
+
+Section - Report Player Status
+
+Understand "stat" as reporting status.
+Reporting status is an action out of world.
+Carry out reporting status:
+	say "[player-status]".
 
 Section - Using Things
 
