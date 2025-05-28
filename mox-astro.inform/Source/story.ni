@@ -1302,6 +1302,16 @@ The player is carrying the Flask of Crimson Tears.
 
 Part - Misc
 
+Section - Story Mode
+
+Plot Armor is a wearable thing.
+
+The player is carrying the Plot Armor.
+
+Every turn when the player is wearing the Plot Armor:
+	now the hit points of the player is the max hit points of the player;
+	now the stamina of the player is the max stamina of the player.
+
 Section - Report Player Status
 
 Understand "stat" as reporting status.
@@ -1353,6 +1363,21 @@ Carry out testing combat:
 	try looking.
 
 Part - Main Story
+
+Chapter - Final Scene
+
+Final Scene is a scene.
+
+When Final Scene begins:
+	end the story saying "As you emerge from the Duskrose Labyrinth into the fading daylight, the Astrophyllite pulses warmly in your grasp. Your quest has been successful - you have obtained the Star Leaf that Ranni requires to forge the Mox Astro.
+
+The journey home lies before you. As you mount your spectral steed and prepare to ride, you notice something unsettling. The distant mountains cast a long shadow across the valley - a shadow that seems to reach toward you like a grasping claw. Within that darkness, you glimpse flickers of yellow-orange light, reminiscent of the Frenzied Flame that the Duskrose warned you about.
+
+With the Duskrose's blessing and the precious Astrophyllite secured, you urge your steed forward, riding directly into the shadow's heart. Whatever challenges lie ahead, you face them willingly, driven by devotion to Ranni's vision - a cosmic order free from the dictates of capricious gods.
+
+The Age of Stars has only just begun, and your role in it is far from complete.
+
+THE END"; 
 
 Chapter - Lore System
 
