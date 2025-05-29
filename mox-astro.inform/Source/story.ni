@@ -1448,11 +1448,19 @@ Part - Misc
 
 Section - Story Mode
 
-Plot Armor is a wearable thing.
+Plot Armour is a wearable thing.
 
-The player is carrying the Plot Armor.
+[The player is carrying the Plot Armour.]
 
-Every turn when the player is wearing the Plot Armor:
+Understand "story mode" as enabling story mode.
+Enabling story mode is an action out of world.
+
+Carry out enabling story mode:
+	now the player is carrying the Plot Armour;
+	now the player is wearing the Plot Armour;
+	say "(Story mode enabled.)"
+
+Every turn when the player is wearing the Plot Armour:
 	now the hit points of the player is the max hit points of the player;
 	now the stamina of the player is the max stamina of the player.
 
