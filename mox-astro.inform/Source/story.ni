@@ -1301,16 +1301,14 @@ Recall begins when we have examined the carvings.
 Recall ends when Recall begins.
 
 When Recall begins:
-	say "The carvings makes you recall the journey to this point.
+	say "The carvings makes you recall the journey until this point.
 
-For weeks, the Starbound has traversed forgotten valleys and scaled treacherous peaks. Ancient texts and dying whispers have all pointed to one location: the Duskrose Labyrinth. A place spoken of in hushed tones by scholars and madmen alike, said to house treasures beyond mortal comprehension.
+For weeks, you have traversed forgotten valleys and scaled treacherous peaks. Ancient texts and dying whispers have all pointed to one location: the Duskrose Labyrinth. A place spoken of in hushed tones by scholars and madmen alike, said to house treasures beyond mortal comprehension.
 
-The journey has not been without sacrifice. Blood has been spilled, oaths have been sworn, and companions have been lost to the shadows. Yet the Starbound perseveres, driven by devotion to Ranni's vision – a cosmic order free from the dictates of capricious gods.
-
-The Starbound stands before the entrance to the Duskrose Labyrinth, a structure of black onyx stone that catches the golden rays of the setting sun. The carvings etched into its surface shimmer like celestial ornaments, creating an ethereal dance of shadow and light. With a whispered prayer to the Moon's wisdom, the Starbound steps into the shadowed entrance."
+The journey has not been without sacrifice. Blood has been spilled, oaths have been sworn, and companions have been lost to the shadows. Yet you persevere, driven by devotion to Ranni's vision – a cosmic order free from the dictates of capricious gods."
 
 [When Recall ends:
-	say "<<<<<hoo<<<".]
+	say "foo".]
 
 Chapter - Final Scene
 
