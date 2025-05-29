@@ -6,6 +6,8 @@ Include Modified Keyword Interface by Aaron Reed.
 
 Release along with an interpreter.
 
+When play begins: now every scenery thing is keyworded.
+
 Part - Opening
 
 Intro is a scene.
@@ -24,18 +26,9 @@ When Intro begins:
 
 The Starbound, a trusted Tarnished, have been chosen by Ranni for a crucial quest: seeking out Astrophyllite, also known as Star Leaf. This golden metallic gemstone, flashing like a cosmic explosion, is essential in forging the Mox Astro - an artifact prophesied to realize Ranni's dream of journeying into the darkness beneath the Dark Moon's wisdom.
 
-(press any key to continue)[line break]";
-	wait for any key;
-	now the left hand status line is "Lands Between";
-	redraw status line;
-	say "[line break][bold type]The Starbound[roman type][line break]";
-	say "[line break]For weeks, the Starbound has traversed forgotten valleys and scaled treacherous peaks. Ancient texts and dying whispers have all pointed to one location: the Duskrose Labyrinth. A place spoken of in hushed tones by scholars and madmen alike, said to house treasures beyond mortal comprehension.
+(The combat in this game can be very unforgiving. Use 'help' command for a list of possible actions to carry you through the battle. Death is to be expected.)
 
-The journey has not been without sacrifice. Blood has been spilled, oaths have been sworn, and companions have been lost to the shadows. Yet the Starbound perseveres, driven by devotion to Ranni's vision – a cosmic order free from the dictates of capricious gods.
-
-The Starbound stands before the entrance to the Duskrose Labyrinth, a structure of black onyx stone that catches the golden rays of the setting sun. The carvings etched into its surface shimmer like celestial ornaments, creating an ethereal dance of shadow and light. With a whispered prayer to the Moon's wisdom, the Starbound steps into the shadowed entrance.
-
-(The combat in this game can be very unforgiving. Use 'help' command for a list of possible actions to carry you through the battle. Death is to be expected.)";
+Press any key to continue[line break]";
 	wait for any key;		
 	now the left hand status line is "[the location]";
 	now the right hand status line is "Death: [player-deaths]";
@@ -49,7 +42,9 @@ Part - Locations
 Duskrose Labyrinth is a region.
 
 Entrance Passage is a room in Duskrose Labyrinth.
-"You stand in the Entrance Passage, where fading dusklight filters through cracks in the Onyx stone above, casting long golden veins across the dark floor. The air is cool and dry, untouched by time. Faint carvings shimmer faintly - celestial runes in praise of the Moon. To the north, an iron door lies slightly ajar, its hinges groaning like a beast slumbering too long."
+"You stand in the Entrance Passage, where fading dusklight filters through cracks in the Onyx stone above, casting long golden veins across the dark floor. The air is cool and dry, untouched by time. Faint [carvings] shimmer faintly - celestial runes in praise of the Moon. To the north, an iron door lies slightly ajar, its hinges groaning like a beast slumbering too long."
+
+The carvings is a scenery in the Entrance Passage. "The carvings shapes like celestial bodies."
 
 Guardroom is a room in Duskrose Labyrinth.
 "The Guardroom bears silent witness to forgotten duty. Weathered suits of armor - headless, some pierced through - stand slouched against the walls, their surfaces dulled by dust and disuse. A pale blue flame dances in a brazier at the center, casting distorted shadows that writhe like phantoms. The passage stretches west toward an antechamber, half-obscured by hanging moss and forgotten banners, and to the south back toward the entrance."
@@ -155,6 +150,10 @@ Instead of burning a lit bonfire:
 
 Instead of burning a bonfire when Combat is happening:
 	say "This is probably not the best timing."
+
+Instead of burning a bonfire when an undefeated unencountered enemy (called the foe) is in the location:
+	say "You tried to reach the bonfire, but [the foe] noticed you.";
+	now the foe is encountered.
 
 Resting at is an action applying to one visible thing. Understand "rest at [something]" or "rest by [something]" or "rest near [something]" or "rest beside [something]" as resting at.
 
@@ -1295,12 +1294,23 @@ Part - Main Story
 
 Chapter - Cut Scenes
 
-[Recall is a scene.
+Recall is a scene.
 
-Recall begins when the player is in the Entrance Passage for the first time.
+[Recall begins when the player is in the Entrance Passage for the first time.]
+Recall begins when we have examined the carvings.
+Recall ends when Recall begins.
 
 When Recall begins:
-	say ">>>>>>>>hi>>>>>>>".]
+	say "The carvings makes you recall the journey to this point.
+
+For weeks, the Starbound has traversed forgotten valleys and scaled treacherous peaks. Ancient texts and dying whispers have all pointed to one location: the Duskrose Labyrinth. A place spoken of in hushed tones by scholars and madmen alike, said to house treasures beyond mortal comprehension.
+
+The journey has not been without sacrifice. Blood has been spilled, oaths have been sworn, and companions have been lost to the shadows. Yet the Starbound perseveres, driven by devotion to Ranni's vision – a cosmic order free from the dictates of capricious gods.
+
+The Starbound stands before the entrance to the Duskrose Labyrinth, a structure of black onyx stone that catches the golden rays of the setting sun. The carvings etched into its surface shimmer like celestial ornaments, creating an ethereal dance of shadow and light. With a whispered prayer to the Moon's wisdom, the Starbound steps into the shadowed entrance."
+
+[When Recall ends:
+	say "<<<<<hoo<<<".]
 
 Chapter - Final Scene
 
