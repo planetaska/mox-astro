@@ -1309,30 +1309,55 @@ The journey has not been without sacrifice. Blood has been spilled, oaths have b
 Chapter - NPCs
 
 Maera is a woman in Duskrose Sanctum.
+Maera can be satisfied or unsatisfied. Maera is unsatisfied.
 
-Instead of asking Maera about a topic listed in the Table of Maera Topics:
-	say "[reply entry][paragraph break]".
+Understand "talk to [someone]" as talking to. Understand "talk to [something]" as talking to. Talking to is an action applying to one visible thing.
 
-Table of Maera Topics
-topic	reply
-"immortal sun"	"'I know many dozens of ciphers,' she replies, smiling in a disquieting way."
-"star leaf"	"'One letter is allowed to stand for another,' she explains, folding her hands together patiently. The backs of both hands are tattooed with silvery stars."
+Instead of talking to Maera:
+	now Maera is satisfied.
+
+Instead of asking Maera to try doing something:
+	repeat through Table of Maera's Commentary:
+		if player's command includes topic entry:
+			say "[commentary entry][paragraph break]";
+			rule succeeds;
+	say "'Hmm,' says Maera."
+
+Asking someone about something is speech.
+Telling someone about something is speech.
+Answering someone that something is speech.
+Asking someone for something is speech.
+
+Instead of speech when the noun is Maera:
+	repeat through Table of Maera's commentary:
+		if the topic understood includes topic entry:
+			say "[commentary entry][paragraph break]";
+			rule succeeds;
+	say "'Hmm,' says Maera."
+
+Table of Maera's Commentary
+topic	commentary
+"immortal sun"	"'Shuttles! I hate shuttles,' Aunt Martha grumbles. 'Give me an airplane! AIRPLANE.'"
+"star leaf"	"'Those were the days,' Aunt Martha agrees, plainly reliving the days when she wore a blue-and-white uniform and passed out packets of salted pretzels."
+"vesper"	"'Do you think there are any peanuts in there?' she asks in a wistful tone."
+"irina"	"Yes my follower"
+"ranni"	"She's my besties"
 
 
 Chapter - Final Scene
 
 Final Scene is a scene.
+Final Scene begins when Maera is satisfied.
 
 When Final Scene begins:
-	end the story saying "As you emerge from the Duskrose Labyrinth into the fading daylight, the Astrophyllite pulses warmly in your grasp. Your quest has been successful - you have obtained the Star Leaf that Ranni requires to forge the Mox Astro.
+	say "As you emerge from the Duskrose Labyrinth into the fading daylight, the Astrophyllite pulses warmly in your grasp. Your quest has been successful - you have obtained the Star Leaf that Ranni requires to forge the Mox Astro.
 
 The journey home lies before you. As you mount your spectral steed and prepare to ride, you notice something unsettling. The distant mountains cast a long shadow across the valley - a shadow that seems to reach toward you like a grasping claw. Within that darkness, you glimpse flickers of yellow-orange light, reminiscent of the Frenzied Flame that the Duskrose warned you about.
 
 With the Duskrose's blessing and the precious Astrophyllite secured, you urge your steed forward, riding directly into the shadow's heart. Whatever challenges lie ahead, you face them willingly, driven by devotion to Ranni's vision - a cosmic order free from the dictates of capricious gods.
 
-The Age of Stars has only just begun, and your role in it is far from complete.
-
-THE END"; 
+The Age of Stars has only just begun, and your role in it is far from complete.";
+	end the story saying "THE END"; 
 
 Chapter - Lore System
 
