@@ -271,7 +271,7 @@ Warned the player is a truth state that varies. Warned the player is false.
 
 Before going from the Antechamber when the Ghost Dancers is defeated:
 	if the player is not carrying the moonstone wedge and warned the player is false:
-		say "As you navigate the twisting stairway, something catches your eye - a glint of blue-white light from a small alcove. Upon inspection, you discover a thin, crescent-shaped moonstone wedge that has fallen between two stones. Something tells you this might prove useful...";
+		say "As you navigate the twisting stairway, something catches your eye - a glint of blue-white light from a small alcove. Upon inspection, you discover a thin, crescent-shaped moonstone wedge that has fallen between two stones. [bold type]Something tells you this might prove useful...[roman type]";
 		now warned the player is true;
 		stop the action.
 
