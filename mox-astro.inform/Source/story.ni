@@ -11,14 +11,9 @@ When play begins: now every scenery thing is keyworded.
 Part - Opening
 
 Intro is a scene.
-
 Intro begins when play begins.
-
 Intro played is a truth state that varies.
-
 Intro ends when intro played is true.
-
-To redraw status line: (- DrawStatusLine(); -).
 
 When Intro begins:
 	now the left hand status line is "Age of the Stars";
@@ -786,6 +781,7 @@ Carry out going a direction (called way):
 [Allow player retreat to previous room if not encountered]
 Instead of going a direction (called way) from a room when an undefeated unencountered enemy (called the foe) is in the location:
 	if way is not the from direction:
+		say "As you move forward, you noticed movement in [the foe]'s direction.";
 		now the foe is encountered;
 	otherwise:
 		continue the action.
@@ -1309,6 +1305,19 @@ The journey has not been without sacrifice. Blood has been spilled, oaths have b
 
 [When Recall ends:
 	say "foo".]
+
+Chapter - NPCs
+
+Maera is a woman in Duskrose Sanctum.
+
+Instead of asking Maera about a topic listed in the Table of Maera Topics:
+	say "[reply entry][paragraph break]".
+
+Table of Maera Topics
+topic	reply
+"immortal sun"	"'I know many dozens of ciphers,' she replies, smiling in a disquieting way."
+"star leaf"	"'One letter is allowed to stand for another,' she explains, folding her hands together patiently. The backs of both hands are tattooed with silvery stars."
+
 
 Chapter - Final Scene
 
