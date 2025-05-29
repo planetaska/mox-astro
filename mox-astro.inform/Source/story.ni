@@ -267,9 +267,13 @@ Instead of examining Burial Chamber Pressure Plate:
 
 The moonstone wedge is a thing. The description is "A thin, crescent-shaped piece of opalescent stone. Its edges glint with a silvery-blue light when moved, like moonlight on water. It seems sturdy despite its delicate appearance."
 
-After going to Winding Corridors for the first time:
-	say "As you navigate the twisting corridors, something catches your eye - a glint of blue-white light from a small alcove. Upon inspection, you discover a thin, crescent-shaped moonstone wedge that has fallen between two stones. Something tells you this might prove useful...";
-	move the moonstone wedge to the Winding Corridors.	
+Warned the player is a truth state that varies. Warned the player is false.
+
+Before going from the Antechamber when the Ghost Dancers is defeated:
+	if the player is not carrying the moonstone wedge and warned the player is false:
+		say "As you navigate the twisting stairway, something catches your eye - a glint of blue-white light from a small alcove. Upon inspection, you discover a thin, crescent-shaped moonstone wedge that has fallen between two stones. Something tells you this might prove useful...";
+		now warned the player is true;
+		stop the action.
 
 Part - Combat System
 
@@ -680,8 +684,8 @@ Carry out slashing:
 	say "You slash at [the target] for [damage] damage!";
 	decrease the hit points of the target by damage;
 	say "[health-status of target]";
-	if the noun is unencountered:
-		now the noun is encountered;
+	if the target is unencountered:
+		now the target is encountered;
 	if the hit points of the target <= 0:
 		now the target is dead;
 		say "[line break]You have slain [the target]!".
@@ -705,8 +709,8 @@ Carry out thrusting:
 	say "You thrust at [the target] for [damage] damage!";
 	decrease the hit points of the target by damage;
 	say "[health-status of target]";
-	if the noun is unencountered:
-		now the noun is encountered;
+	if the target is unencountered:
+		now the target is encountered;
 	if the hit points of the target <= 0:
 		now the target is dead;
 		say "[line break]You have defeated [the target]!".
@@ -730,8 +734,8 @@ Carry out heavy swinging:
 	say "You swing heavily at [the target] for [damage] damage!";
 	decrease the hit points of the target by damage;
 	say "[health-status of target]";
-	if the noun is unencountered:
-		now the noun is encountered;
+	if the target is unencountered:
+		now the target is encountered;
 	if the hit points of the target <= 0:
 		now the target is dead;
 		say "[line break]You have defeated [the target]!".
@@ -868,15 +872,20 @@ Section - Death Effects
 Every turn:
 	if the Headless Armor is in the location and the Headless Armor is dead and the Headless Armor is undefeated:
 		now the Headless Armor is defeated;
+		remove Headless Armor from play;
 		say "The Headless Armor shudders violently, then collapses in a heap of metal. A soft blue light rises from the remains, hovering momentarily before dissipating with a whisper that sounds almost like 'freedom.'";
 	if the Ghost Dancers are in the location and the Ghost Dancers are dead and the Ghost Dancers are undefeated:
 		now the Ghost Dancers are defeated;
+		remove Ghost Dancers from play;
+		now the moonstone wedge is in the Antechamber;
 		say "The spectral dancers pause in their eternal waltz, their forms growing increasingly transparent. They gather in a circle, hands joining one last time before they dissolve into motes of starlight that drift upward through the domed ceiling. In their absence, you hear fragments of their story - how they followed Maera the Devout in her quest for a new path beyond the Golden Order.";
 	if the Cursed Beast is in the location and the Cursed Beast is dead and the Cursed Beast is undefeated:
 		now the Cursed Beast is defeated;
+		remove Cursed Beast from play;
 		say "The Cursed Beast thrashes wildly as its form begins to come apart, the corruption that sustained it unraveling. With a final, agonized roar that echoes throughout the winding corridors, it explodes into fragments of shadow and corrupted light. As the last motes fade, a sense of ancient relief fills the air, as if something long tormented has finally found peace.";
 	if the Spirit of Vesper is in the location and the Spirit of Vesper is dead and the Spirit of Vesper is undefeated:
 		now the Spirit of Vesper is defeated;
+		remove Spirit of Vesper from play;
 		say "Vesper drops to one knee, his spectral sword clattering to the ground before dissolving into light. He looks up at you, a smile flickering across his translucent features.
 
 'Well fought, Starbound. Your purpose... it resonates with what we once sought.' His form begins to fade, but his voice remains steady.
@@ -1321,7 +1330,7 @@ Instead of asking Maera to try doing something:
 		if player's command includes topic entry:
 			say "[commentary entry][paragraph break]";
 			rule succeeds;
-	say "'Hmm,' says Maera."
+	say "'Hmm?' says Maera."
 
 Asking someone about something is speech.
 Telling someone about something is speech.
@@ -1333,7 +1342,7 @@ Instead of speech when the noun is Maera:
 		if the topic understood includes topic entry:
 			say "[commentary entry][paragraph break]";
 			rule succeeds;
-	say "'Hmm,' says Maera."
+	say "'Hmm?' says Maera."
 
 Table of Maera's Commentary
 topic	commentary
