@@ -1364,18 +1364,29 @@ topic	commentary
 
 Section - Star Leaf Altar
 
-Altar is a thing. Altar is fixed in place.
-Star Leaf is a thing.
-Star Leaf is on the Altar.
+The Celestial Altar is a thing. The Celestial Altar is fixed in place.
+The description of the Celestial Altar is "A low pedestal of black onyx inlaid with veins of silver that pulse with faint starlight. The altar's surface is carved with intricate astronomical symbols that seem to shift and realign as you watch them. At its center lies a shallow depression lined with what appears to be crystallized moonbeams."
+
+The Star Leaf is a thing.
+The Star Leaf is on the Celestial Altar.
+The description of the Star Leaf is "The Star Leaf pulses with inner fire, its golden metallic surface erupting in patterns that mirror cosmic explosions. Each facet catches and amplifies light in impossible ways, creating the illusion of distant galaxies swirling within the gemstone. When you look closely, you can almost see the birth and death of stars playing out in miniature across its surface. This is the legendary Astrophyllite - the key component Ranni requires to forge the Mox Astro."
 
 After taking the Star Leaf:
-	say "'Good.' says Maera 'Time is of essence. Talk to me when you are ready.'"
+	say "As your fingers close around the Astrophyllite, warmth spreads through your gauntlets and up your arms. The gemstone pulses in rhythm with your heartbeat, and for a moment you feel connected to something vast and ancient - the cosmic forces that Ranni seeks to harness.
+	
+	The Duskrose's voice carries a note of satisfaction. 'At last, the Star Leaf finds its way to worthy hands. The path you've walked through my trials proves your dedication to breaking the chains of predetermined fate.'
+	
+	She pauses, her ethereal form flickering between states of being. 'Time grows short, Starbound. The forces that oppose change gather strength even now. Return to Ranni with haste - the Age of Stars awaits, and your role in its dawning has only just begun.'";
 
 Portal is an enterable supporter. Portal is fixed in place.
-The description of the Portal is "You can see the entrance passage you came from and your spectral steed, waiting for you."
+The description of the Portal is "A swirling vortex of twilight energy hovers in the air, its edges crackling with silver and deep purple light. Through its shimmering surface, you can glimpse the entrance passage where your spectral steed waits patiently, its ethereal mane stirring in an unfelt wind. The portal's center shows not the labyrinth's stone passages, but a vista of star-filled sky - as if it opens not just to another place, but to another state of being."
 
 Instead of entering the portal:
-	say "You step into the shimmering light and feel your body dissolve...";
+	say "You step forward into the swirling twilight. The last thing you hear is the Duskrose's voice, carried on winds that taste of starlight and ancient promises:
+	
+	'Go well, Starbound. May the Dark Moon's wisdom guide you to the freedom we both have sought.'
+	
+	The portal's energy envelops you, and reality dissolves into streams of silver light...";
 	now Maera is satisfied.
 
 Chapter - Final Scene
@@ -1394,7 +1405,7 @@ When Final Scene begins:
 	say "TODO: Some conversation.";
 	wait for any key;
 	say "Maera raises her hand, an altar arise, and you can see the Astrophyllite glowing, the pattern on the surface like cosmic explosion. 'Take the Star Leaf, and finish what Ranni has started.'";
-	now the Altar is in Duskrose Sanctum.
+	now the Celestial Altar is in Duskrose Sanctum.
 
 Ending Scene is a scene.
 Ending Scene begins when Maera is satisfied.
