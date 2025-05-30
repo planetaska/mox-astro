@@ -1322,17 +1322,23 @@ Maera can be satisfied or unsatisfied. Maera is unsatisfied.
 Understand "talk to [someone]" as talking to. Understand "talk to [something]" as talking to. Talking to is an action applying to one visible thing.
 
 Instead of talking to Maera:
-	[now Maera is satisfied.]
-	say "Maera waves her hand. A portal appears in the sanctum.";
+	say "'Starbound...' Maera's voice carries the weight of centuries, each word carefully measured. 'You have proven yourself worthy by passing through my trials. Vesper spoke truly of your resolve before his spirit found peace.'
+
+Her form shifts between light and shadow as she continues, 'I sense Ranni's purpose burns within you like starfire. The Age of Stars she seeks to birth... it echoes the vision I once held. Where I became bound to eternal watching, perhaps she will succeed in breaking the chains that bind this realm to predetermined fate.'
+
+Maera raises her hand, and the air begins to shimmer with otherworldly energy. 'The Astrophyllite you seek has waited here for one such as you. Take it, along with my blessing, and tell Ranni the Witch that the Duskrose remembers what it means to choose freedom over servitude.'
+
+A portal of swirling twilight materializes in the sanctum, its edges crackling with cosmic energy. Through it, you can glimpse the entrance passage where your spectral steed awaits.
+
+'Go now, Starbound. The stars themselves await your return, and time grows short. May your journey beneath the Dark Moon's wisdom lead to the liberation we both have sought.' Her voice grows fainter as her form begins to fade. 'This is my final gift - safe passage from this place of memory and shadow.'";
 	now Portal is in Duskrose Sanctum;
-	say "'Enter the portal,' Maera used her last strength. 'I wish you best luck, Starbound.'"
 
 Instead of asking Maera to try doing something:
 	repeat through Table of Maera's Commentary:
 		if player's command includes topic entry:
 			say "[commentary entry][paragraph break]";
 			rule succeeds;
-	say "'Hmm?' says Maera."
+	say "'I cannot,' Maera says softly."
 
 Asking someone about something is speech.
 Telling someone about something is speech.
@@ -1344,15 +1350,17 @@ Instead of speech when the noun is Maera:
 		if the topic understood includes topic entry:
 			say "[commentary entry][paragraph break]";
 			rule succeeds;
-	say "'Hmm?' says Maera."
+	say "Maera tilts her head slightly. 'What is it, Starbound?'"
 
 Table of Maera's Commentary
 topic	commentary
-"immortal sun"	"TODO"
-"star leaf"	"TODO"
-"vesper"	"TODO"
-"irina"	"Yes my follower"
-"ranni"	"She's my besties"
+"immortal sun"	"'The Immortal Sun... the burden I accepted to protect this realm from its power. It grants true immortality, not the flawed cycle of rebirth offered by the Golden Order. But the price...' Her form flickers between light and shadow. 'To claim its power, one must sacrifice the ability to directly shape the world. I became an observer, a guardian of balance, watching centuries pass while unable to act. Few understand this terrible gift.'"
+"star leaf/astrophyllite/mox astro"	"'The Astrophyllite you seek pulses with cosmic resonance, like a star captured in crystal form. It is essential for Ranni's Mox Astro - the key to her journey beneath the Dark Moon's wisdom. I sense her vision resonates with my own desire for freedom from predetermined fate. Take it with my blessing, Starbound.'"
+"vesper"	"Her ethereal form grows dimmer, sadness washing over her features. 'Vesper... my most devoted follower, my dearest friend. His love for me was both his greatest strength and his ultimate downfall. When he discovered the Immortal Sun's true cost, he sought to claim its burden for himself, to spare me the weight of eternal watching. His betrayal cut deep, yet I understand it was born of devotion. I have kept his spirit here, both as guardian and penance for us both.'"
+"ranni/ranni the witch"	"'Ranni the Witch... another who seeks to break free from the Golden Order's strangling light. Her Age of Stars echoes my own vision - a cosmic order that honors both light and darkness, free from the dictates of capricious gods. Where I failed to establish balance, perhaps she will succeed. I see in her the same determination that once drove me to seek the Immortal Sun.'"
+"golden order"	"'The Golden Order... I once served faithfully as Maera the Devout, believing in its promise of eternal light. But I witnessed its corruption, how its light grew harsh and blinding, leaving no room for shadow or growth. True divinity lies not in absolute light, but in the sacred dusk - the threshold between light and dark where infinite possibility blooms.'"
+"duskrose/myself/you"	"'I am what remains of Maera the Devout, transformed by the Immortal Sun into something between mortal and divine. The Duskrose they call me now - a being of eternal twilight, forever suspended in the moment of transition. I guard the balance I once sought to create, watching over the threshold between light and shadow until one worthy comes to continue the work.'"
+"labyrinth"	"'This labyrinth is both my prison and my sanctuary. I constructed it to test those who would seek the Immortal Sun's power, filling it with guardians and trials. Each chamber reflects a part of our journey - the Guardroom holds Vesper's duty, the Antechamber preserves my followers' devotion, and the corridors contain the corruption we sought to cleanse. Only those with true purpose may reach the heart.'"
 
 Section - Star Leaf Altar
 
