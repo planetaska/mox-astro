@@ -276,7 +276,7 @@ Before going from the Antechamber when the Ghost Dancers is defeated:
 		now warned the player is true;
 		stop the action.
 
-Part - Combat System
+Part - Combat
 
 Section - Player and Health System
 
@@ -620,7 +620,7 @@ With these words, the Spirit of Vesper dissolves completely, leaving only a fain
 			decrease the hit points of the player by the attack power of foe;
 			say "[health-status of player]".]
 
-Section - Combat
+Section - Attack Commands
 
 [Attack command]
 The block attacking rule is not listed in any rulebook.
@@ -756,8 +756,6 @@ Carry out heavy swinging:
 		now the target is dead;
 		say "[line break]You have defeated [the target]!".
 
-Part - Combat Scene
-
 Section - Combat Scene
 
 Combat is a recurring scene.
@@ -884,9 +882,10 @@ Carry out dodging:
 
 Section - Boss Death Effects
 
-Every turn during combat:
+First every turn during combat:
 	if an enemy (called the foe) is in the location:
 		if the foe is dead and the foe is undefeated:
+			[This line ends combat scene]
 			now the foe is defeated;
 			remove foe from play;
 			say "[defeat description of the foe]";
@@ -1229,14 +1228,16 @@ To die and return:
 	now the player is alive;
 	now the hit points of the player is the max hit points of the player;
 	now the stamina of the player is the max stamina of the player;
+	replenish flask;
 	say "You awaken beside [if there is a lit bonfire in the location of the player]the[otherwise]an unlit[end if] bonfire, your body reformed by the strange magic that binds you to this world. The memory of your death lingers like a half-forgotten dream.[paragraph break][death status].[paragraph break]";
 
-[Update any damage-dealing code to use the centralized death check]
+[Centralized death check]
+[*We still need to manually check in places for the player to die "on the spot"]
 After an enemy (called attacker) attacking the player:
 	check for player death.
 
-Every turn when the player is alive and the hit points of the player <= 0:
-	check for player death.
+[Every turn when the player is alive and the hit points of the player <= 0:
+	check for player death.]
 
 Section - Combat Resets
 
