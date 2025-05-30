@@ -1398,13 +1398,29 @@ Final Scene ends when Ending Scene begins.
 
 When Final Scene begins:
 	now Maera is in Duskrose Sanctum;
-	say "As you lit the bonfire, you feel someone approching. You raise your head and saw a woman - or a shape of a woman - walk near the bonfire. This woman's image flickers in light and shadow. You realize this must be Maera, the Duskrose.
+	say "As you kindle the bonfire, its ethereal flames dance higher than before, casting long shadows that seem to move with purpose. The temperature drops, and the very air grows heavy with ancient power. From the darkness beyond the skylight, a figure begins to materialize.
 	
-(Press any key to continue)[paragraph break]";
+	She appears first as wisps of twilight, then gradually takes the form of a woman suspended between states of being. Her figure flickers constantly - one moment solid and regal, the next translucent as starlight. This is Maera, the Duskrose, caught eternally in the threshold between light and shadow.
+	
+	Her eyes, ancient and weary yet filled with quiet determination, fix upon you with recognition.
+	
+	(Press any key to continue)[line break]";
 	wait for any key;
-	say "TODO: Some conversation.";
+	say "'Starbound,' she speaks, her voice carrying the weight of centuries, each word measured and deliberate. 'You have proven yourself worthy by enduring my trials. Vesper spoke truly of your resolve before his spirit found peace at last.'
+	
+	The Duskrose moves closer, her form shifting between states of existence. 'I sense Ranni's purpose burns within you like cosmic fire. The Age of Stars she seeks to birth... it resonates with the vision I once held. Where I became bound to eternal watching, perhaps she will succeed in breaking the chains that bind this realm to predetermined fate.'
+	
+	She pauses, her expression growing both sorrowful and hopeful. 'Tell me, Starbound - do you truly understand what Ranni asks of you? The journey beneath the Dark Moon's wisdom is not merely about power, but about choosing freedom over the comfort of servitude.'
+	
+	(Press any key to continue)[line break]";
 	wait for any key;
-	say "Maera raises her hand, an altar arise, and you can see the Astrophyllite glowing, the pattern on the surface like cosmic explosion. 'Take the Star Leaf, and finish what Ranni has started.'";
+	say "Without waiting for your answer, she raises her hand, and the air begins to shimmer with otherworldly energy. The very stones of the sanctum respond to her will, and from the floor rises an altar of black onyx inlaid with veins of silver that pulse with faint starlight.
+	
+	'The Astrophyllite you seek has waited here through countless ages,' she intones as the gemstone materializes atop the altar, pulsing with inner fire. Its golden metallic surface erupts in patterns that mirror cosmic explosions, each facet catching and amplifying light in impossible ways.
+	
+	'This Star Leaf - this fragment of celestial essence - is the key component for Ranni's Mox Astro. With it, she may forge the artifact needed for her ascension. Take it, along with my blessing, and tell the Witch that the Duskrose remembers what it means to choose freedom over servitude.'
+	
+	The gemstone pulses brighter, as if responding to your presence, and you feel drawn to claim it.";
 	now the Celestial Altar is in Duskrose Sanctum.
 
 Ending Scene is a scene.
