@@ -1376,7 +1376,11 @@ After taking the Star Leaf:
 	
 	The Duskrose's voice carries a note of satisfaction. 'At last, the Star Leaf finds its way to worthy hands. The path you've walked through my trials proves your dedication to breaking the chains of predetermined fate.'
 	
-	She pauses, her ethereal form flickering between states of being. 'Time grows short, Starbound. The forces that oppose change gather strength even now. Return to Ranni with haste - the Age of Stars awaits, and your role in its dawning has only just begun.'";
+	She pauses, her ethereal form flickering between states of being. 'Time grows short, Starbound. The forces that oppose change gather strength even now. Yet I am willing to share what knowledge I possess, should you have questions about our journey or the path ahead.'
+	
+(You can ask Maera about things using sentences like 'Maera, tell me about [bracket]topic[close bracket]', or using commands like 'ask Maera about [bracket]topic[close bracket]'.)
+	
+	'When you are ready to depart, simply talk to me and I shall open the way. Return to Ranni with haste - the Age of Stars awaits, and your role in its dawning has only just begun.'";
 
 Portal is an enterable supporter. Portal is fixed in place.
 The description of the Portal is "A swirling vortex of twilight energy hovers in the air, its edges crackling with silver and deep purple light. Through its shimmering surface, you can glimpse the entrance passage where your spectral steed waits patiently, its ethereal mane stirring in an unfelt wind. The portal's center shows not the labyrinth's stone passages, but a vista of star-filled sky - as if it opens not just to another place, but to another state of being."
