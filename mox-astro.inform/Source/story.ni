@@ -1004,37 +1004,31 @@ The recovery message of the perfect thrust is "Vesper pulls back into a defensiv
 The telegraph message of the phantom duplicates is "Vesper's form begins to split and multiply, creating shadowy reflections that mirror his movements.".
 The recovery message of the phantom duplicates is "As the phantom duplicates fade, Vesper himself appears briefly more transparent, having extended his energy.".
 
-Section - Telegraph System Management
+Section - Telegraphed Combat System
 
 A special attack counter is a number that varies. Special attack counter is 0.
 The next special attack is a special attack that varies.
-
-To decide whether a telegraph is active:
-	if special attack counter is 1:
-		decide yes;
-	decide no.
 
 To decide whether in recovery phase:
 	if special attack counter is 3:
 		decide yes;
 	decide no.
 
-[Every turn during Combat:
-	if special attack counter > 0 and the player is not dead:
-		increase special attack counter by 1;
-		if special attack counter > 3:
-			now special attack counter is 0;
-			now all special attacks are untelegraphed;]
-
 [Use telegraph in the combat system]
 Every turn during Combat:
 	let foe be a random alive undefeated enemy in the location of the player;
-	if the foe is nothing or hit points of the foe <= 0:
+	if the foe is nothing or the player is dead:
 		stop the action;
-	if the combat turn counter > 1 and the player is not dead:
+	[Had to separate this check to avoid bugs]
+	if hit points of the foe <= 0:
+		stop the action;
+	otherwise if the combat turn counter > 1:
 		[Special attack counter]
 		if special attack counter > 0:
 			increase special attack counter by 1;
+			if in recovery phase:
+				say "[recovery message of the next special attack]";
+				say "[line break][player-status]";
 			if special attack counter > 3:
 				now special attack counter is 0;
 				now all special attacks are untelegraphed;
@@ -1053,20 +1047,11 @@ Every turn during Combat:
 				now special attack counter is 3;
 		otherwise if special attack counter is 0:
 			[Normal attack or preparation]
-			if a random chance of 1 in 3 succeeds:
+			if a random chance of 1 in 5 succeeds:
 				say "[The foe] is watching your movements carefully, waiting for an opening.";
 				say "[line break][player-status]";
 			otherwise:
 				try the foe attacking the player.
-
-[Show recovery message]
-Every turn during Combat:
-	if in recovery phase and the player is not dead:
-		say "[recovery message of the next special attack]";
-		say "[line break][player-status]";
-	otherwise if in recovery phase and the player is dead:
-		now special attack counter is 0;
-		now all special attacks are untelegraphed.
 
 
 [ Headless Armor special attacks ]
@@ -1214,19 +1199,6 @@ To decide which special attack is a random attack of (enemy - an enemy):
 			decide on the phantom duplicates;
 	decide on the overhead slash.
 
-[ Use the special attacks in the combat system ]
-[Every turn during Combat:
-	if the combat turn counter > 1:
-		let foe be a random alive undefeated enemy in the location of the player;
-		if a random chance of 1 in 3 succeeds:
-			let attack be a random attack of foe;
-			perform attack;
-		otherwise:
-			if a random chance of 1 in 3 succeeds:
-				say "The foe is preparing its next move. Get ready!";
-				say "[player-status]";
-			otherwise:
-				try the foe attacking the player.]
 
 Part - Death Handling
 
@@ -1277,7 +1249,7 @@ When Combat ends:
 	now special attack counter is 0;
 	now all special attacks are untelegraphed;
 	now the location of the player is combat-unlocked.
-
+	
 [Reset enemy attributes after combat if needed]
 When Combat ends:
 	repeat with foe running through enemies:
