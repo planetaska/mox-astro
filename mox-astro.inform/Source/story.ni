@@ -944,7 +944,7 @@ First every turn when Combat is happening and the combat turn counter > 2 and a 
 		now the attack power of active_enemy is 10;
 		say "The Spirit of Vesper's attacks grow weaker as recognition dawns in his spectral eyes.";
 
-Section - Special Attacks
+Section - Special Attack
 
 A special attack is a kind of thing.
 A special attack has a text called name.
@@ -967,92 +967,7 @@ To perform (attack - a special attack):
 		follow the effect rule of attack;
 		check for player death.
 
-Section - Special Attack Telegraph System
-
-A special attack can be telegraphed or untelegraphed. A special attack is usually untelegraphed.
-A special attack has a text called telegraph message. The telegraph message of a special attack is usually "".
-A special attack has a text called recovery message. The recovery message of a special attack is usually "".
-
-[Telegraph messages for each special attack]
-The telegraph message of the overhead slash is "The Headless Armor slowly raises its blade high above where its head should be, gathering strength for a powerful strike.".
-The recovery message of the overhead slash is "The Headless Armor struggles to recover its balance after the powerful swing.".
-
-The telegraph message of the sweeping attack is "The Headless Armor shifts its stance lower, blade held horizontally as it prepares for a wide attack.".
-The recovery message of the sweeping attack is "The momentum of the sweeping attack leaves the Headless Armor temporarily open.".
-
-The telegraph message of the spectral tornado is "The Ghost Dancers begin to circle more rapidly, their forms blurring as they build up ethereal energy.".
-The recovery message of the spectral tornado is "After their whirlwind assault, the Ghost Dancers drift apart momentarily, their forms less cohesive.".
-
-The telegraph message of the mournful dirge is "The Ghost Dancers slow their movements, spectral mouths opening in unison as they prepare to sing.".
-The recovery message of the mournful dirge is "The Ghost Dancers' forms flicker faintly after expending their energy in song.".
-
-The telegraph message of the corruption blast is "The Cursed Beast rears back, its chest cavity glowing with sickly golden light that builds in intensity.".
-The recovery message of the corruption blast is "The Cursed Beast staggers slightly, the corruption within momentarily destabilized after the powerful blast.".
-
-The telegraph message of the shifting limbs is "The Cursed Beast's form begins to ripple and distort violently, multiple appendages forming and dissolving rapidly.".
-The recovery message of the shifting limbs is "The Cursed Beast's form temporarily solidifies as it struggles to maintain its shifting nature.".
-
-The telegraph message of the corruption shockwave is "The Cursed Beast crouches low, corruption pooling beneath it and spreading outward in pulsing waves.".
-The recovery message of the corruption shockwave is "After releasing the shockwave, the Cursed Beast seems momentarily drained, its corrupted essence dimming.".
-
-The telegraph message of the moonlight slash is "Vesper raises his spectral blade skyward, where it begins to absorb pale moonlight, glowing with increasing brilliance.".
-The recovery message of the moonlight slash is "Vesper's form wavers slightly after channeling such concentrated moonlight energy.".
-
-The telegraph message of the perfect thrust is "Vesper assumes a fencer's stance, spectral blade pointed directly at your heart as he focuses intently.".
-The recovery message of the perfect thrust is "Vesper pulls back into a defensive posture after his precise strike, momentarily reassessing his strategy.".
-
-The telegraph message of the phantom duplicates is "Vesper's form begins to split and multiply, creating shadowy reflections that mirror his movements.".
-The recovery message of the phantom duplicates is "As the phantom duplicates fade, Vesper himself appears briefly more transparent, having extended his energy.".
-
-Section - Telegraphed Combat System
-
-A special attack counter is a number that varies. Special attack counter is 0.
-The next special attack is a special attack that varies.
-
-To decide whether in recovery phase:
-	if special attack counter is 3:
-		decide yes;
-	decide no.
-
-[Use telegraph in the combat system]
-Every turn during Combat:
-	let foe be a random alive undefeated enemy in the location of the player;
-	if the foe is nothing or the player is dead:
-		stop the action;
-	[Had to separate this check to avoid bugs]
-	if hit points of the foe <= 0:
-		stop the action;
-	otherwise if the combat turn counter > 1:
-		[Special attack counter]
-		if special attack counter > 0:
-			increase special attack counter by 1;
-			if in recovery phase:
-				say "[recovery message of the next special attack]";
-				say "[line break][player-status]";
-			if special attack counter > 3:
-				now special attack counter is 0;
-				now all special attacks are untelegraphed;
-		if special attack counter is 0 and a random chance of 1 in 3 succeeds:
-			[Begin telegraph sequence]
-			let attack be a random attack of foe;
-			now the next special attack is attack;
-			now attack is telegraphed;
-			now special attack counter is 1;
-			say "[telegraph message of attack]";
-			say "[line break][player-status]";
-		otherwise if special attack counter is 2:
-			[Execute the telegraphed attack]
-			if the next special attack is telegraphed:
-				perform the next special attack;
-				now special attack counter is 3;
-		otherwise if special attack counter is 0:
-			[Normal attack or preparation]
-			if a random chance of 1 in 5 succeeds:
-				say "[The foe] is watching your movements carefully, waiting for an opening.";
-				say "[line break][player-status]";
-			otherwise:
-				try the foe attacking the player.
-
+Section - Enemy Special Attacks
 
 [ Headless Armor special attacks ]
 The overhead slash is a special attack.
@@ -1198,6 +1113,92 @@ To decide which special attack is a random attack of (enemy - an enemy):
 		otherwise:
 			decide on the phantom duplicates;
 	decide on the overhead slash.
+
+Section - Special Attack Telegraph System
+
+A special attack can be telegraphed or untelegraphed. A special attack is usually untelegraphed.
+A special attack has a text called telegraph message. The telegraph message of a special attack is usually "".
+A special attack has a text called recovery message. The recovery message of a special attack is usually "".
+
+[Telegraph messages for each special attack]
+The telegraph message of the overhead slash is "The Headless Armor slowly raises its blade high above where its head should be, gathering strength for a powerful strike.".
+The recovery message of the overhead slash is "The Headless Armor struggles to recover its balance after the powerful swing.".
+
+The telegraph message of the sweeping attack is "The Headless Armor shifts its stance lower, blade held horizontally as it prepares for a wide attack.".
+The recovery message of the sweeping attack is "The momentum of the sweeping attack leaves the Headless Armor temporarily open.".
+
+The telegraph message of the spectral tornado is "The Ghost Dancers begin to circle more rapidly, their forms blurring as they build up ethereal energy.".
+The recovery message of the spectral tornado is "After their whirlwind assault, the Ghost Dancers drift apart momentarily, their forms less cohesive.".
+
+The telegraph message of the mournful dirge is "The Ghost Dancers slow their movements, spectral mouths opening in unison as they prepare to sing.".
+The recovery message of the mournful dirge is "The Ghost Dancers' forms flicker faintly after expending their energy in song.".
+
+The telegraph message of the corruption blast is "The Cursed Beast rears back, its chest cavity glowing with sickly golden light that builds in intensity.".
+The recovery message of the corruption blast is "The Cursed Beast staggers slightly, the corruption within momentarily destabilized after the powerful blast.".
+
+The telegraph message of the shifting limbs is "The Cursed Beast's form begins to ripple and distort violently, multiple appendages forming and dissolving rapidly.".
+The recovery message of the shifting limbs is "The Cursed Beast's form temporarily solidifies as it struggles to maintain its shifting nature.".
+
+The telegraph message of the corruption shockwave is "The Cursed Beast crouches low, corruption pooling beneath it and spreading outward in pulsing waves.".
+The recovery message of the corruption shockwave is "After releasing the shockwave, the Cursed Beast seems momentarily drained, its corrupted essence dimming.".
+
+The telegraph message of the moonlight slash is "Vesper raises his spectral blade skyward, where it begins to absorb pale moonlight, glowing with increasing brilliance.".
+The recovery message of the moonlight slash is "Vesper's form wavers slightly after channeling such concentrated moonlight energy.".
+
+The telegraph message of the perfect thrust is "Vesper assumes a fencer's stance, spectral blade pointed directly at your heart as he focuses intently.".
+The recovery message of the perfect thrust is "Vesper pulls back into a defensive posture after his precise strike, momentarily reassessing his strategy.".
+
+The telegraph message of the phantom duplicates is "Vesper's form begins to split and multiply, creating shadowy reflections that mirror his movements.".
+The recovery message of the phantom duplicates is "As the phantom duplicates fade, Vesper himself appears briefly more transparent, having extended his energy.".
+
+Section - Telegraphed Combat System
+
+A special attack counter is a number that varies. Special attack counter is 0.
+The next special attack is a special attack that varies.
+
+To decide whether in recovery phase:
+	if special attack counter is 3:
+		decide yes;
+	decide no.
+
+[Use telegraph in the combat system]
+Every turn during Combat:
+	let foe be a random alive undefeated enemy in the location of the player;
+	if the foe is nothing or the player is dead:
+		stop the action;
+	[Had to separate this check to avoid bugs]
+	if hit points of the foe <= 0:
+		stop the action;
+	otherwise if the combat turn counter > 1:
+		[Special attack counter]
+		if special attack counter > 0:
+			increase special attack counter by 1;
+			if in recovery phase:
+				say "[recovery message of the next special attack]";
+				say "[line break][player-status]";
+			if special attack counter > 3:
+				now special attack counter is 0;
+				now all special attacks are untelegraphed;
+		if special attack counter is 0 and a random chance of 1 in 3 succeeds:
+			[Begin telegraph sequence]
+			let attack be a random attack of foe;
+			now the next special attack is attack;
+			now attack is telegraphed;
+			now special attack counter is 1;
+			say "[telegraph message of attack]";
+			say "[line break][player-status]";
+		otherwise if special attack counter is 2:
+			[Execute the telegraphed attack]
+			if the next special attack is telegraphed:
+				perform the next special attack;
+				now special attack counter is 3;
+		otherwise if special attack counter is 0:
+			[Normal attack or preparation]
+			if a random chance of 1 in 5 succeeds:
+				say "[The foe] is watching your movements carefully, waiting for an opening.";
+				say "[line break][player-status]";
+			otherwise:
+				try the foe attacking the player.
 
 
 Part - Death Handling
