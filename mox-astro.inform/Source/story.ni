@@ -562,6 +562,7 @@ An enemy has a number called attack power. The attack power of an enemy is usual
 An enemy has a text called waiting description. The waiting description of an enemy is usually "".
 An enemy has a text called defeat description. The defeat description of an enemy is usually "".
 An enemy can be passive or aggressive. An enemy is usually passive.
+An enemy can be calm or frenzied. An enemy is usually calm.
 
 The Headless Armor is an enemy in the Guardroom.
 The Headless Armor is alive and undefeated.
@@ -927,24 +928,32 @@ Instead of examining an enemy for the first time:
 
 Section - Enemy Behaviors
 
-Every turn when Combat is happening and the combat turn counter > 2 and a random number from 1 to 10 is greater than 7:
+First every turn when Combat is happening and the combat turn counter > 2:
 	let foe be a random alive undefeated enemy in the location of the player;
-	let current_hp be the hit points of foe;
-	let max_hp be the max hit points of foe;
-	if foe is the Headless Armor and current_hp < (max_hp / 2):
-		say "The Headless Armor draws itself up to its full height, its empty armor rattling with renewed vigor. It raises its sword in a defensive stance, seeming to gather its strength.";
-		increase the hit points of foe by 30;
-		say "[The foe] recovers some health![line break][health-status of foe]";
-	if foe is the Ghost Dancers:
-		say "The Ghost Dancers' movements become frenzied, a whirling storm of spectral limbs and mournful faces that becomes almost impossible to track.";
-		now the attack power of the foe is the attack power of the foe + 10;
-	if foe is the Cursed Beast and current_hp < (max_hp / 3):
-		say "The Cursed Beast lets out a terrible roar, its form shifting wildly between light and shadow. The corruption within it seems to take fuller control!";
-		now the attack power of the foe is the attack power of the foe * 2;
-		say "The Cursed Beast's attacks become more powerful in its frenzy!";
-	if foe is the Spirit of Vesper and current_hp < (max_hp / 4):
-		say "Vesper's spectral form begins to flicker. 'Your resolve... it reminds me of her,' he whispers. His attacks become slower, more measured, as if testing rather than seeking to destroy.";
-		now the attack power of the foe is the attack power of the foe * 3;
+	if foe is nothing:
+		continue the action;
+	if foe is frenzied or special attack counter > 0:
+		continue the action;
+	otherwise:
+		let current_hp be the hit points of foe;
+		let max_hp be the max hit points of foe;
+		if foe is the Headless Armor and current_hp < (max_hp / 2):
+			say "The Headless Armor draws itself up to its full height, its empty armor rattling with renewed vigor. It raises its sword in a defensive stance, seeming to gather its strength.";
+			increase the hit points of foe by 30;
+			say "[The foe] recovers some health![line break][health-status of foe]";
+		if foe is the Ghost Dancers:
+			if a random chance of 1 in 3 succeeds:
+				say "The Ghost Dancers' movements become frenzied, a whirling storm of spectral limbs and mournful faces that becomes almost impossible to track.";
+				now the attack power of the foe is the attack power of the foe + 10;
+		if foe is the Cursed Beast and current_hp < (max_hp / 3):
+			say "The Cursed Beast lets out a terrible roar, its form shifting wildly between light and shadow. The corruption within it seems to take fuller control!";
+			now the attack power of the foe is the attack power of the foe * 2;
+			now the foe is frenzied;
+			say "The Cursed Beast's attacks become more powerful in its frenzy!";
+		if foe is the Spirit of Vesper and current_hp < (max_hp / 4):
+			say "Vesper's spectral form begins to flicker. 'Your resolve... it reminds me of her,' he whispers. 'Prove yourself.' His attacks become slower, more measured, yet far deadly.";
+			now the attack power of the foe is the attack power of the foe * 3;
+			now the foe is frenzied;
 
 Section - Special Attack
 
