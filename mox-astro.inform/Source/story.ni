@@ -1313,13 +1313,19 @@ The journey has not been without sacrifice. Blood has been spilled, oaths have b
 
 Chapter - NPCs
 
-Maera is a woman in Duskrose Sanctum.
+Section - Maera
+
+[Maera is a woman in Duskrose Sanctum.]
+Maera is a woman.
 Maera can be satisfied or unsatisfied. Maera is unsatisfied.
 
 Understand "talk to [someone]" as talking to. Understand "talk to [something]" as talking to. Talking to is an action applying to one visible thing.
 
 Instead of talking to Maera:
-	now Maera is satisfied.
+	[now Maera is satisfied.]
+	say "Maera waves her hand. A portal appears in the sanctum.";
+	now Portal is in Duskrose Sanctum;
+	say "'Enter the portal,' Maera used her last strength. 'I wish you best luck, Starbound.'"
 
 Instead of asking Maera to try doing something:
 	repeat through Table of Maera's Commentary:
@@ -1342,19 +1348,50 @@ Instead of speech when the noun is Maera:
 
 Table of Maera's Commentary
 topic	commentary
-"immortal sun"	"'Shuttles! I hate shuttles,' Aunt Martha grumbles. 'Give me an airplane! AIRPLANE.'"
-"star leaf"	"'Those were the days,' Aunt Martha agrees, plainly reliving the days when she wore a blue-and-white uniform and passed out packets of salted pretzels."
-"vesper"	"'Do you think there are any peanuts in there?' she asks in a wistful tone."
+"immortal sun"	"TODO"
+"star leaf"	"TODO"
+"vesper"	"TODO"
 "irina"	"Yes my follower"
 "ranni"	"She's my besties"
 
+Section - Star Leaf Altar
+
+Altar is a thing. Altar is fixed in place.
+Star Leaf is a thing.
+Star Leaf is on the Altar.
+
+After taking the Star Leaf:
+	say "'Good.' says Maera 'Time is of essence. Talk to me when you are ready.'"
+
+Portal is an enterable supporter. Portal is fixed in place.
+The description of the Portal is "You can see the entrance passage you came from and your spectral steed, waiting for you."
+
+Instead of entering the portal:
+	say "You step into the shimmering light and feel your body dissolve...";
+	now Maera is satisfied.
 
 Chapter - Final Scene
 
 Final Scene is a scene.
-Final Scene begins when Maera is satisfied.
+[Final Scene begins when Maera is satisfied.]
+Final Scene begins when the Sanctum Bonfire is lit.
+Final Scene ends when Ending Scene begins.
 
 When Final Scene begins:
+	now Maera is in Duskrose Sanctum;
+	say "As you lit the bonfire, you feel someone approching. You raise your head and saw a woman - or a shape of a woman - walk near the bonfire. This woman's image flickers in light and shadow. You realize this must be Maera, the Duskrose.
+	
+(Press any key to continue)[paragraph break]";
+	wait for any key;
+	say "TODO: Some conversation.";
+	wait for any key;
+	say "Maera raises her hand, an altar arise, and you can see the Astrophyllite glowing, the pattern on the surface like cosmic explosion. 'Take the Star Leaf, and finish what Ranni has started.'";
+	now the Altar is in Duskrose Sanctum.
+
+Ending Scene is a scene.
+Ending Scene begins when Maera is satisfied.
+
+When Ending Scene begins:
 	say "As you emerge from the Duskrose Labyrinth into the fading daylight, the Astrophyllite pulses warmly in your grasp. Your quest has been successful - you have obtained the Star Leaf that Ranni requires to forge the Mox Astro.
 
 The journey home lies before you. As you mount your spectral steed and prepare to ride, you notice something unsettling. The distant mountains cast a long shadow across the valley - a shadow that seems to reach toward you like a grasping claw. Within that darkness, you glimpse flickers of yellow-orange light, reminiscent of the Frenzied Flame that the Duskrose warned you about.
@@ -1603,8 +1640,4 @@ Combat Commands:[line break]
 
 Section - Test Command
 
-[Testing commands]
-Understand "test combat" as testing combat. Testing combat is an action out of world.
-Carry out testing combat:
-	now combat turn counter is 0;
-	try looking.
+Test me with "abstract me to duskrose sanctum / touch bonfire"
