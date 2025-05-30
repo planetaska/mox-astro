@@ -768,11 +768,19 @@ A room can be combat-locked or combat-unlocked. A room is usually combat-unlocke
 When Combat begins:
 	now the location of the player is combat-locked;
 	let foe be a random alive undefeated enemy in the location of the player;
-	if the waiting description of foe is not "":
-		say "[waiting description of foe][paragraph break]";
-		say "([The foe] has noticed you. Get ready.)";
-	if foe is aggressive:
-		say "[The foe] immediately moves to attack you!";
+	if the hit points of the foe is the max hit points of the foe:
+		[triggered by looking]
+		if the waiting description of foe is not "":
+			say "[waiting description of foe][paragraph break]";
+		if foe is aggressive:
+			say "[The foe] immediately moves to attack you!";
+			try the foe attacking the player;
+		otherwise:
+			say "([The foe] has noticed you. Get ready.)";
+	otherwise:
+		[triggered by attacking]
+		if the waiting description of foe is not "":
+			say "[waiting description of foe][paragraph break]";
 		try the foe attacking the player.
 
 [Ensure combat state is properly reset after the player dies and returns]
@@ -919,29 +927,24 @@ Instead of examining an enemy for the first time:
 
 Section - Enemy Behaviors
 
-First every turn when Combat is happening and the combat turn counter > 2 and a random number from 1 to 10 is greater than 7:
-	let active_enemy be a random alive undefeated enemy in the location of the player;
-	let current_hp be the hit points of active_enemy;
-	let max_hp be the max hit points of active_enemy;
-	if active_enemy is the Headless Armor and current_hp < (max_hp / 2):
+Every turn when Combat is happening and the combat turn counter > 2 and a random number from 1 to 10 is greater than 7:
+	let foe be a random alive undefeated enemy in the location of the player;
+	let current_hp be the hit points of foe;
+	let max_hp be the max hit points of foe;
+	if foe is the Headless Armor and current_hp < (max_hp / 2):
 		say "The Headless Armor draws itself up to its full height, its empty armor rattling with renewed vigor. It raises its sword in a defensive stance, seeming to gather its strength.";
-		increase the hit points of active_enemy by 30;
-		say "[The active_enemy] recovers some health![line break][health-status of active_enemy]";
-	if active_enemy is the Ghost Dancers:
-		if a random chance of 1 in 3 succeeds:
-			say "The Ghost Dancers' movements become frenzied, a whirling storm of spectral limbs and mournful faces that becomes almost impossible to track.";
-			now the attack power of active_enemy is 15;
-		otherwise:
-			say "The Ghost Dancers slow their movements, assuming a more measured rhythm as they circle you.";
-			now the attack power of active_enemy is 10;
-	if active_enemy is the Cursed Beast and current_hp < (max_hp / 3):
+		increase the hit points of foe by 30;
+		say "[The foe] recovers some health![line break][health-status of foe]";
+	if foe is the Ghost Dancers:
+		say "The Ghost Dancers' movements become frenzied, a whirling storm of spectral limbs and mournful faces that becomes almost impossible to track.";
+		now the attack power of the foe is the attack power of the foe + 10;
+	if foe is the Cursed Beast and current_hp < (max_hp / 3):
 		say "The Cursed Beast lets out a terrible roar, its form shifting wildly between light and shadow. The corruption within it seems to take fuller control!";
-		now the attack power of active_enemy is 22;
+		now the attack power of the foe is the attack power of the foe * 2;
 		say "The Cursed Beast's attacks become more powerful in its frenzy!";
-	if active_enemy is the Spirit of Vesper and current_hp < (max_hp / 4):
+	if foe is the Spirit of Vesper and current_hp < (max_hp / 4):
 		say "Vesper's spectral form begins to flicker. 'Your resolve... it reminds me of her,' he whispers. His attacks become slower, more measured, as if testing rather than seeking to destroy.";
-		now the attack power of active_enemy is 10;
-		say "The Spirit of Vesper's attacks grow weaker as recognition dawns in his spectral eyes.";
+		now the attack power of the foe is the attack power of the foe * 3;
 
 Section - Special Attack
 
