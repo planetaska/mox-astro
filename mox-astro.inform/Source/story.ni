@@ -958,12 +958,13 @@ To perform (attack - a special attack):
 	let actual damage be the adjusted attack of the owner of attack;
 	if actual damage is 0:
 		say "You completely avoid the attack!";
+		follow the effect rule of attack;
 	otherwise:
 		say "[line break]You take [actual damage] damage from [the name of attack]!";
 		decrease the hit points of the player by actual damage;
 		say "[player-status]";
-		check for player death;
-	follow the effect rule of attack.
+		follow the effect rule of attack;
+		check for player death.
 
 Section - Special Attack Telegraph System
 
@@ -1017,17 +1018,23 @@ To decide whether in recovery phase:
 		decide yes;
 	decide no.
 
-Every turn during Combat:
+[Every turn during Combat:
 	if special attack counter > 0 and the player is not dead:
 		increase special attack counter by 1;
 		if special attack counter > 3:
 			now special attack counter is 0;
-			now all special attacks are untelegraphed;
+			now all special attacks are untelegraphed;]
 
 [Use telegraph in the combat system]
 Every turn during Combat:
 	if the combat turn counter > 1 and the player is not dead:
 		let foe be a random alive undefeated enemy in the location of the player;
+		[Special attack counter]
+		if special attack counter > 0
+			increase special attack counter by 1;
+			if special attack counter > 3:
+				now special attack counter is 0;
+				now all special attacks are untelegraphed;
 		if special attack counter is 0 and a random chance of 1 in 3 succeeds:
 			[Begin telegraph sequence]
 			let attack be a random attack of foe;
@@ -1226,7 +1233,7 @@ To check for player death:
 	if the hit points of the player <= 0:
 		now the player is dead;
 		say "[line break]YOU DIED[line break]";
-		die and return.		
+		die and return.
 
 To die and return:
 	increase the player-deaths by 1;
