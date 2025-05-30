@@ -24,7 +24,7 @@ The Starbound, a trusted Tarnished, have been chosen by Ranni for a crucial ques
 (The combat in this game can be very unforgiving. Use 'help' command for a list of possible actions to carry you through the battle. Death is to be expected.)
 
 Press any key to continue[line break]";
-	wait for any key;		
+	wait for any key;
 	now the left hand status line is "[the location]";
 	now the right hand status line is "Death: [player-deaths]";
 	now intro played is true.
@@ -229,6 +229,7 @@ Before going to Duskrose Sanctum:
 			say "The stone beneath your feet sinks with a grinding sound. Too late, you notice the holes that open in the walls. Golden darts whistle through the air, piercing your body from multiple angles. A burning sensation spreads from each puncture, and your limbs grow heavy as you collapse...";
 			now the hit points of the player is 0;
 			check for player death;
+			stop the action;
 	continue the action.
 
 Disarming is an action applying to one visible thing. Understand "disarm [something]" or "disable [something]" or "deactivate [something]" as disarming.
@@ -559,6 +560,7 @@ An enemy is a kind of person. An enemy can be defeated or undefeated. An enemy i
 An enemy has a number called attack power. The attack power of an enemy is usually 10.
 
 An enemy has a text called waiting description. The waiting description of an enemy is usually "".
+An enemy has a text called defeat description. The defeat description of an enemy is usually "".
 An enemy can be passive or aggressive. An enemy is usually passive.
 
 The Headless Armor is an enemy in the Guardroom.
@@ -569,6 +571,7 @@ The max hit points of the Headless Armor is 75.
 The attack power of the Headless Armor is 25.
 The description of the Headless Armor is "Once Vesper in his mortal form, now an eternal guardian bound by oath to protect the labyrinth."
 The waiting description of the Headless Armor is "The Headless Armor stands motionless among its fallen brethren. As you approach, a ethereal blue glow begins to emanate from within its hollow chest. Slowly, methodically, it raises its ancient blade, the metal scraping against its armored form with a sound like distant thunder."
+The defeat description of the Headless Armor is "The Headless Armor shudders violently, then collapses in a heap of metal. A soft blue light rises from the remains, hovering momentarily before dissipating with a whisper that sounds almost like 'freedom.'"
 
 The Ghost Dancers are an enemy in the Antechamber.
 The Ghost Dancers are alive and undefeated.
@@ -578,6 +581,7 @@ The max hit points of the Ghost Dancers is 60.
 The attack power of the Ghost Dancers is 15.
 The description of the Ghost Dancers is "Spectral figures that weave through the air in a mournful dance. Their translucent forms shimmer with ethereal light, and their movements are both beautiful and deadly."
 The waiting description of the Ghost Dancers is "As you enter the Antechamber, the air grows cold. Motes of pale blue light begin to coalesce, forming the shapes of dancing specters. They circle you in a haunting ballet, their hollow eyes fixed upon your every movement."
+The defeat description of the Ghost Dancers is "The spectral dancers pause in their eternal waltz, their forms growing increasingly transparent. They gather in a circle, hands joining one last time before they dissolve into motes of starlight that drift upward through the domed ceiling. In their absence, you hear fragments of their story - how they followed Maera the Devout in her quest for a new path beyond the Golden Order."
 
 The Cursed Beast is an enemy in the Winding Corridors.
 The Cursed Beast is alive and undefeated.
@@ -587,6 +591,7 @@ The max hit points of the Cursed Beast is 100.
 The attack power of the Cursed Beast is 28.
 The description of the Cursed Beast is "A creature of pure golden light corrupted by shadow, sealed within the labyrinth by the Duskrose. Its form shifts constantly, part majestic stag, part serpent, part something wholly unknowable."
 The waiting description of the Cursed Beast is "A low growl echoes through the twisted corridors, seeming to come from everywhere and nowhere at once. The shadows before you congeal into a mass of writhing darkness shot through with veins of corrupted gold. The Cursed Beast manifests fully, its form a nightmarish amalgamation of beasts both familiar and alien."
+The defeat description of the Cursed Beast is "The Cursed Beast thrashes wildly as its form begins to come apart, the corruption that sustained it unraveling. With a final, agonized roar that echoes throughout the winding corridors, it explodes into fragments of shadow and corrupted light. As the last motes fade, a sense of ancient relief fills the air, as if something long tormented has finally found peace."
 
 The Spirit of Vesper is an enemy in the Burial Chamber.
 The Spirit of Vesper is alive and undefeated.
@@ -596,6 +601,17 @@ The max hit points of the Spirit of Vesper is 120.
 The attack power of the Spirit of Vesper is 36.
 The description of the Spirit of Vesper is "Unlike the mindless Headless Armor, this is Vesper's true consciousness preserved by the Duskrose's power. He appears as a noble knight wreathed in spectral blue flame, his eyes wells of ancient sorrow."
 The waiting description of the Spirit of Vesper is "As you move among the biers, a figure materializes beside the central sarcophagus. A knight in spectral armor, his form partially transparent yet somehow more substantial than mere ghost. 'Seeker of the Star Leaf,' he intones, his voice like wind through ancient ruins. 'I am Vesper, First Follower of the Duskrose. By my oath, none may pass who have not proven their worth. Draw your weapon, Starbound.'"
+The defeat description of the Spirit of Vesper is "Vesper drops to one knee, his spectral sword clattering to the ground before dissolving into light. He looks up at you, a smile flickering across his translucent features.
+
+'Well fought, Starbound. Your purpose... it resonates with what we once sought.' His form begins to fade, but his voice remains steady.
+
+'Listen well, for I would share truth with you. I was not merely the First Follower - I loved Maera, she who became the Duskrose. When we discovered the Immortal Sun, I sought to claim its burden for myself, to spare her its weight. My betrayal was born of devotion, yet it wounded her deeply.'
+
+He gestures toward the sanctum above.
+
+'She awaits, suspended between light and shadow. Tell her that Vesper has kept his vigil faithfully, and that I am ready for rest. The Astrophyllite you seek... she holds it close.'
+
+With these words, the Spirit of Vesper dissolves completely, leaving only a faint blue glow that slowly fades."
 
 [Every turn:
 	repeat with foe running through enemies in the location:
@@ -747,7 +763,7 @@ Section - Combat Scene
 Combat is a recurring scene.
 
 Combat begins when there is an alive encountered undefeated enemy in the location of the player.
-Combat ends when every enemy in the location of the player is defeated or every enemy in the location of the player is dead or the player is dead.
+Combat ends when every enemy in the location of the player is defeated or the player is dead.
 
 A room can be combat-locked or combat-unlocked. A room is usually combat-unlocked.
 
@@ -866,37 +882,22 @@ Carry out dodging:
 	decrease the stamina of the player by the stamina cost of dodging;
 	now the player is dodging.
 
-Section - Death Effects
+Section - Boss Death Effects
 
-[Boss Death Effects]
-Every turn:
-	if the Headless Armor is in the location and the Headless Armor is dead and the Headless Armor is undefeated:
-		now the Headless Armor is defeated;
-		remove Headless Armor from play;
-		say "The Headless Armor shudders violently, then collapses in a heap of metal. A soft blue light rises from the remains, hovering momentarily before dissipating with a whisper that sounds almost like 'freedom.'";
-	if the Ghost Dancers are in the location and the Ghost Dancers are dead and the Ghost Dancers are undefeated:
-		now the Ghost Dancers are defeated;
-		remove Ghost Dancers from play;
-		now the moonstone wedge is in the Antechamber;
-		say "The spectral dancers pause in their eternal waltz, their forms growing increasingly transparent. They gather in a circle, hands joining one last time before they dissolve into motes of starlight that drift upward through the domed ceiling. In their absence, you hear fragments of their story - how they followed Maera the Devout in her quest for a new path beyond the Golden Order.";
-	if the Cursed Beast is in the location and the Cursed Beast is dead and the Cursed Beast is undefeated:
-		now the Cursed Beast is defeated;
-		remove Cursed Beast from play;
-		say "The Cursed Beast thrashes wildly as its form begins to come apart, the corruption that sustained it unraveling. With a final, agonized roar that echoes throughout the winding corridors, it explodes into fragments of shadow and corrupted light. As the last motes fade, a sense of ancient relief fills the air, as if something long tormented has finally found peace.";
-	if the Spirit of Vesper is in the location and the Spirit of Vesper is dead and the Spirit of Vesper is undefeated:
-		now the Spirit of Vesper is defeated;
-		remove Spirit of Vesper from play;
-		say "Vesper drops to one knee, his spectral sword clattering to the ground before dissolving into light. He looks up at you, a smile flickering across his translucent features.
+Every turn during combat:
+	if an enemy (called the foe) is in the location:
+		if the foe is dead and the foe is undefeated:
+			now the foe is defeated;
+			remove foe from play;
+			say "[defeat description of the foe]";
+			say "[paragraph break](Press any key to continue)[line break]";
+			[Boss drops or triggered gimmicks]
+			if the foe is Ghost Dancers:
+				now the moonstone wedge is in the Antechamber;
+			[Wait for key and look]
+			wait for any key;
+			try looking.
 
-'Well fought, Starbound. Your purpose... it resonates with what we once sought.' His form begins to fade, but his voice remains steady.
-
-'Listen well, for I would share truth with you. I was not merely the First Follower - I loved Maera, she who became the Duskrose. When we discovered the Immortal Sun, I sought to claim its burden for myself, to spare her its weight. My betrayal was born of devotion, yet it wounded her deeply.'
-
-He gestures toward the sanctum above.
-
-'She awaits, suspended between light and shadow. Tell her that Vesper has kept his vigil faithfully, and that I am ready for rest. The Astrophyllite you seek... she holds it close.'
-
-With these words, the Spirit of Vesper dissolves completely, leaving only a faint blue glow that slowly fades.";
 
 Section - Combat Turn Counter
 
@@ -1027,10 +1028,12 @@ To decide whether in recovery phase:
 
 [Use telegraph in the combat system]
 Every turn during Combat:
+	let foe be a random alive undefeated enemy in the location of the player;
+	if the foe is nothing or hit points of the foe <= 0:
+		stop the action;
 	if the combat turn counter > 1 and the player is not dead:
-		let foe be a random alive undefeated enemy in the location of the player;
 		[Special attack counter]
-		if special attack counter > 0
+		if special attack counter > 0:
 			increase special attack counter by 1;
 			if special attack counter > 3:
 				now special attack counter is 0;
