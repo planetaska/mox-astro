@@ -1769,20 +1769,61 @@ Section - Help Command
 Understand "help" as asking for help.
 Asking for help is an action out of world.
 Carry out asking for help:
-	say "Commands:[line break]
-- Standard movement: 'go north/south/east/west' or simply 'north/south/east/west'[line break]
-- 'drink flask', 'sip flask': drink flask to recover HP[line break]
-- 'touch bonfire' or 'light bonfire': Light a bonfire[line break]
-- 'rest at bonfire': rest at a bonfire to fully recover HP and flask charges.[line break]
-- 'x me' or 'l me': check player status[line break]
-Combat Commands:[line break]
-- 'slash', 'thrust', or 'heavy swing': different attacks with your weapon[line break]
-- 'attack enemy with weapon': attack with equpped weapon[line break]
-- 'parry': reduce incoming damage[line break]
-- 'block': reduce incoming damage (requires shield)[line break]
-- 'dodge': avoid damage[line break]
-- 'breathe': take a breathe and recover stamina[line break]
-- [italic type]*all combat actions require stamina to perform[roman type][line break]".
+	say "MOX ASTRO HELP[line break]";
+	say "Movement commands:[line break]";
+	say "  GO [bracket]direction[close bracket] or just [bracket]direction[close bracket] - Move in that direction[line break]";
+	say "  LOOK [bracket]direction[close bracket] - Examine what lies in that direction[line break]";
+	say "[line break]";
+	say "Exploration commands:[line break]";
+	say "  LOOK/EXAMINE [bracket]object[close bracket] - Examine something in detail[line break]";
+	say "  INVENTORY - See what you're carrying[line break]";
+	say "  TOUCH/LIGHT BONFIRE - Light a bonfire[line break]";
+	say "  REST AT BONFIRE - Rest to recover HP, stamina, and flask charges[line break]";
+	say "[line break]";
+	say "Combat commands:[line break]";
+	say "  SLASH - Quick slashing attack[line break]";
+	say "  THRUST - Fast piercing attack[line break]";
+	say "  HEAVY SWING - Powerful heavy attack[line break]";
+	say "  ATTACK [bracket]enemy[close bracket] WITH [bracket]weapon[close bracket] - Attack with equipped weapon[line break]";
+	say "  PARRY - Prepare to parry next attack[line break]";
+	say "  BLOCK - Raise shield to block (requires shield)[line break]";
+	say "  DODGE - Roll to avoid damage[line break]";
+	say "  BREATHE - Recover stamina quickly[line break]";
+	say "  HELP COMBAT - Show attack damage and stamina costs[line break]";
+	say "[line break]";
+	say "Equipment commands:[line break]";
+	say "  WIELD/EQUIP [bracket]weapon/shield[close bracket] - Equip a weapon or shield[line break]";
+	say "  UNWIELD [bracket]weapon[close bracket] - Stop wielding a weapon[line break]";
+	say "  UNEQUIP [bracket]shield[close bracket] - Remove equipped shield[line break]";
+	say "  EQ/EQUIPPED - Show currently equipped items[line break]";
+	say "[line break]";
+	say "Other commands:[line break]";
+	say "  DRINK/USE/SIP FLASK - Drink Flask of Crimson Tears to recover HP[line break]";
+	say "  STAT - Check your current HP and stamina[line break]";
+	say "  DISARM [bracket]trap[close bracket] - Disable a trap (requires item)[line break]";
+	say "[line break]";
+	say "[italic type]Death is expected. Each death teaches you something new.[roman type]".
+
+Understand "help combat" as asking for combat help.
+Asking for combat help is an action out of world.
+Carry out asking for combat help:
+	let base-damage be 0;
+	if the player is wielding a weapon (called the weapon):
+		now base-damage is the damage of the weapon;
+	say "ATTACK ACTIONS:[line break]";
+	if base-damage > 0:
+		say "  Slash: [base-damage + 6] damage, [the stamina cost of slashing] stamina[line break]";
+		say "  Thrust: [base-damage - 3] damage, [the stamina cost of thrusting] stamina[line break]";
+		say "  Heavy Swing: [base-damage + 15] damage, [the stamina cost of heavy swinging] stamina[line break]";
+	otherwise:
+		say "  Slash: +6 damage, [the stamina cost of slashing] stamina[line break]";
+		say "  Thrust: -3 damage, [the stamina cost of thrusting] stamina[line break]";
+		say "  Heavy Swing: +15 damage, [the stamina cost of heavy swinging] stamina[line break]";
+	say "[line break]DEFENSE ACTIONS:[line break]";
+	say "  Parry: 50% damage reduction, [the stamina cost of parrying] stamina[line break]";
+	say "  Block: 67% damage reduction, [the stamina cost of blocking] stamina (shield required)[line break]";
+	say "  Dodge: 100% damage reduction, [the stamina cost of dodging] stamina[line break]";
+	say "  Breathe: +60 stamina recovery[line break]".
 
 Section - Test Command
 
