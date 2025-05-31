@@ -1502,7 +1502,7 @@ When Final Scene begins:
 	
 	Her eyes, ancient and weary yet filled with quiet determination, fix upon you with recognition.
 	
-	(Press any key to continue)[line break]";
+	(Press any key to continue)[paragraph break]";
 	wait for any key;
 	say "'Starbound,' she speaks, her voice carrying the weight of centuries, each word measured and deliberate. 'You have proven yourself worthy by enduring my trials. Vesper spoke truly of your resolve before his spirit found peace at last.'
 	
@@ -1510,7 +1510,7 @@ When Final Scene begins:
 	
 	She pauses, her expression growing both sorrowful and hopeful. 'The Astrophyllite you seek cannot simply be taken - it must be created. And I alone hold the power to forge it, through the Immortal Sun that I have guarded these long centuries.'
 	
-	(Press any key to continue)[line break]";
+	(Press any key to continue)[paragraph break]";
 	wait for any key;
 	say "Her form begins to glow with an inner light, golden threads of energy starting to weave around her. 'To create the Star Leaf requires cosmic energy beyond mortal comprehension. The Immortal Sun must give all of its power - and with it, I too shall fade. This is not curse, but purpose. Not ending, but transformation.'
 	
@@ -1522,7 +1522,7 @@ When Final Scene begins:
 	
 	'Tell Ranni...' her voice grows softer as the transformation continues, 'that the Duskrose chose this freely. That in the end, I found the action I was denied for so long.'
 	
-	(Press any key to continue)[line break]";
+	(Press any key to continue)[paragraph break]";
 	wait for any key;
 	say "The process reaches its crescendo. The Immortal Sun gives its final pulse of energy and collapses into nothingness. In its place, the Astrophyllite hovers above the altar - a perfect golden gemstone that pulses with the concentrated power of a star.
 	
