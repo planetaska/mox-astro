@@ -564,6 +564,7 @@ Chapter - Combat System
 Section - Enemies
 
 An enemy is a kind of person. An enemy can be defeated or undefeated. An enemy is usually undefeated.
+An enemy has a number called initial attack power. The initial attack power of an enemy is usually 10.
 An enemy has a number called attack power. The attack power of an enemy is usually 10.
 
 An enemy has a text called waiting description. The waiting description of an enemy is usually "".
@@ -576,7 +577,7 @@ The Headless Armor is alive and undefeated.
 The Headless Armor is passive.
 The hit points of the Headless Armor is 75.
 The max hit points of the Headless Armor is 75.
-The attack power of the Headless Armor is 25.
+The initial attack power of the Headless Armor is 25.
 The description of the Headless Armor is "Once Vesper in his mortal form, now an eternal guardian bound by oath to protect the labyrinth."
 The waiting description of the Headless Armor is "The Headless Armor stands motionless among its fallen brethren. As you approach, a ethereal blue glow begins to emanate from within its hollow chest. Slowly, methodically, it raises its ancient blade, the metal scraping against its armored form with a sound like distant thunder."
 The defeat description of the Headless Armor is "The Headless Armor shudders violently, then collapses in a heap of metal. A soft blue light rises from the remains, hovering momentarily before dissipating with a whisper that sounds almost like 'freedom.'"
@@ -586,7 +587,7 @@ The Ghost Dancers are alive and undefeated.
 The Ghost Dancers are aggressive.
 The hit points of the Ghost Dancers is 60.
 The max hit points of the Ghost Dancers is 60. 
-The attack power of the Ghost Dancers is 15.
+The initial attack power of the Ghost Dancers is 15.
 The description of the Ghost Dancers is "Spectral figures that weave through the air in a mournful dance. Their translucent forms shimmer with ethereal light, and their movements are both beautiful and deadly."
 The waiting description of the Ghost Dancers is "As you enter the Antechamber, the air grows cold. Motes of pale blue light begin to coalesce, forming the shapes of dancing specters. They circle you in a haunting ballet, their hollow eyes fixed upon your every movement."
 The defeat description of the Ghost Dancers is "The spectral dancers pause in their eternal waltz, their forms growing increasingly transparent. They gather in a circle, hands joining one last time before they dissolve into motes of starlight that drift upward through the domed ceiling. In their absence, you hear fragments of their story - how they followed Maera the Devout in her quest for a new path beyond the Golden Order."
@@ -596,7 +597,7 @@ The Cursed Beast is alive and undefeated.
 The Cursed Beast is aggressive.
 The hit points of the Cursed Beast is 100.
 The max hit points of the Cursed Beast is 100.
-The attack power of the Cursed Beast is 28.
+The initial attack power of the Cursed Beast is 28.
 The description of the Cursed Beast is "A creature of pure golden light corrupted by shadow, sealed within the labyrinth by the Duskrose. Its form shifts constantly, part majestic stag, part serpent, part something wholly unknowable."
 The waiting description of the Cursed Beast is "A low growl echoes through the twisted corridors, seeming to come from everywhere and nowhere at once. The shadows before you congeal into a mass of writhing darkness shot through with veins of corrupted gold. The Cursed Beast manifests fully, its form a nightmarish amalgamation of beasts both familiar and alien."
 The defeat description of the Cursed Beast is "The Cursed Beast thrashes wildly as its form begins to come apart, the corruption that sustained it unraveling. With a final, agonized roar that echoes throughout the winding corridors, it explodes into fragments of shadow and corrupted light. As the last motes fade, a sense of ancient relief fills the air, as if something long tormented has finally found peace."
@@ -606,7 +607,7 @@ The Spirit of Vesper is alive and undefeated.
 The Spirit of Vesper is passive.
 The hit points of the Spirit of Vesper is 120.
 The max hit points of the Spirit of Vesper is 120.
-The attack power of the Spirit of Vesper is 36.
+The initial attack power of the Spirit of Vesper is 36.
 The description of the Spirit of Vesper is "Unlike the mindless Headless Armor, this is Vesper's true consciousness preserved by the Duskrose's power. He appears as a noble knight wreathed in spectral blue flame, his eyes wells of ancient sorrow."
 The waiting description of the Spirit of Vesper is "As you move among the biers, a figure materializes beside the central sarcophagus. A knight in spectral armor, his form partially transparent yet somehow more substantial than mere ghost. 'Seeker of the Star Leaf,' he intones, his voice like wind through ancient ruins. 'I am Vesper, First Follower of the Duskrose. By my oath, none may pass who have not proven their worth. Draw your weapon, Starbound.'"
 The defeat description of the Spirit of Vesper is "Vesper drops to one knee, his spectral sword clattering to the ground before dissolving into light. He looks up at you, a smile flickering across his translucent features.
@@ -620,6 +621,11 @@ He gestures toward the sanctum above.
 'She awaits, suspended between light and shadow. Tell her that Vesper has kept his vigil faithfully, and that I am ready for rest. The Astrophyllite you seek... she holds it close.'
 
 With these words, the Spirit of Vesper dissolves completely, leaving only a faint blue glow that slowly fades."
+
+[Assign initial attack power to actual attack power]
+When play begins:
+	repeat with foe running through enemies:
+		now the attack power of the foe is the initial attack power of the foe.
 
 [Every turn:
 	repeat with foe running through enemies in the location:
@@ -1252,7 +1258,7 @@ To die and return:
 	say "You awaken beside [if there is a lit bonfire in the location of the player]the[otherwise]an unlit[end if] bonfire, your body reformed by the strange magic that binds you to this world. The memory of your death lingers like a half-forgotten dream.[paragraph break][death status].[paragraph break]";
 
 [Centralized death check]
-[*We still need to manually check in places for the player to die "on the spot"]
+[ *Still need to manually check in other places for the player to die "on the spot" ]
 After an enemy (called attacker) attacking the player:
 	check for player death.
 
@@ -1272,19 +1278,12 @@ When Combat ends:
 	now all special attacks are untelegraphed;
 	now the location of the player is combat-unlocked.
 	
-[Reset enemy attributes after combat if needed]
+[Reset enemy attributes after combat]
 When Combat ends:
-	repeat with foe running through enemies:
+	repeat with foe running through undefeated enemies:
 		now the hit points of foe is the max hit points of foe;
-		if foe is the Ghost Dancers:
-			now the hit points of foe is 60;
-			now the attack power of foe is 15;		
-		if foe is the Cursed Beast:
-			now the hit points of foe is 100;
-			now the attack power of foe is 28;
-		if foe is the Spirit of Vesper:
-			now the hit points of foe is 120;
-			now the attack power of foe is 36.
+		now the attack power of foe is the initial attack power of foe.
+
 
 Part - Initial Values
 
@@ -1682,8 +1681,6 @@ Combat Commands:[line break]
 - 'dodge': avoid damage[line break]
 - 'breathe': take a breathe and recover stamina[line break]
 - [italic type]*all combat actions require stamina to perform[roman type][line break]".
-[- 'attack enemy with weapon': alternative attack syntax[line break]
-- 'equip shield' / 'unequip shield': ready or lower your shield[line break]".]
 
 Section - Test Command
 
