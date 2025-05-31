@@ -804,7 +804,8 @@ Section - Movement Restrictions
 
 [Prevent player from leaving during combat]
 Before going from a room (called origin) when origin is combat-locked:
-	say "You cannot leave while enemies block your path!" instead.
+	let foe be a random enemy in the origin;
+	say "[one of][The foe] blocks your escape route![or]You cannot leave while enemies block your path![or]You tried to escape, but [the foe] blocks your way![at random]" instead.
 
 [Store player's from direction]
 From direction is a direction that varies.
