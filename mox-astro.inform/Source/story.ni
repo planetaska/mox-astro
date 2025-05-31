@@ -135,10 +135,17 @@ The block burning rule is not listed in the check burning rules.
 
 Understand "touch [a bonfire]" as burning.
 
+First bonfire lit is a truth state that varies. First bonfire lit is false.
+
 Instead of burning an unlit bonfire:
 	now the noun is lit;
 	now the last activated bonfire is the noun;
-	say "You press your palm against the cold ashes. The fragments of bone and wood tremble, then ignite with a soft whoosh. A strange, golden-blue flame rises, casting long shadows that dance like reverent worshippers. The warmth seeps into your very being, and for a moment, you feel connected to this place - anchored by the flame's promise of return. Should darkness claim you, it is to this light you shall return.";
+	if the noun is not Sanctum Bonfire:
+		if first bonfire lit is false:
+			say "You press your palm against the cold ashes. The fragments of bone and wood tremble, then ignite with a soft whoosh. A strange, golden-blue flame rises, casting long shadows that dance like reverent worshippers. The warmth seeps into your very being, and for a moment, you feel connected to this place - anchored by the flame's promise of return. Should darkness claim you, it is to this light you shall return.";
+			now the first bonfire lit is true;
+		otherwise:
+			say "You touch the cold ashes and they ignite once more with familiar golden-blue flames. The bonfire's warmth anchors you to this place.";
 
 Instead of burning a lit bonfire:
 	try resting at the noun.
@@ -1378,9 +1385,9 @@ After taking the Star Leaf:
 	
 	She pauses, her ethereal form flickering between states of being. 'Time grows short, Starbound. The forces that oppose change gather strength even now. Yet I am willing to share what knowledge I possess, should you have questions about our journey or the path ahead.'
 	
-(You can ask Maera about things using sentences like 'Maera, tell me about [bracket]topic[close bracket]', or using commands like 'ask Maera about [bracket]topic[close bracket]'.)
+	'When you are ready to depart, simply talk to me and I shall open the way. Return to Ranni with haste - the Age of Stars awaits, and your role in its dawning has only just begun.'
 	
-	'When you are ready to depart, simply talk to me and I shall open the way. Return to Ranni with haste - the Age of Stars awaits, and your role in its dawning has only just begun.'";
+(You can ask Maera about things using natural sentences like 'Maera, tell me about [bracket]topic[close bracket]', or using commands like 'ask Maera about [bracket]topic[close bracket]'. When you are done, you can 'talk to Maera'.)";
 
 Portal is an enterable supporter. Portal is fixed in place.
 The description of the Portal is "A swirling vortex of twilight energy hovers in the air, its edges crackling with silver and deep purple light. Through its shimmering surface, you can glimpse the entrance passage where your spectral steed waits patiently, its ethereal mane stirring in an unfelt wind. The portal's center shows not the labyrinth's stone passages, but a vista of star-filled sky - as if it opens not just to another place, but to another state of being."
