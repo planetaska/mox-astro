@@ -1408,11 +1408,9 @@ Instead of talking to Maera:
 	otherwise:
 		say "'Starbound...' Maera's voice is barely a whisper now, her form so faint you can barely make out her features. 'You have... what you came for. The Star Leaf pulses with the Immortal Sun's essence... and my own.'
 
-She flickers like a candle in wind. 'I am... grateful. After centuries of watching... I was finally able to act. To create rather than merely guard. This is... a better ending than I dared hope for.'
+She flickers like a candle in wind. 'I am... grateful. After centuries of watching... I was finally able to act. This is... a better ending than I dared hope for.'
 
-The portal behind her grows more stable even as she fades. 'Go now... while I still have strength to maintain the passage. Tell Ranni that one who failed to break fate's chains... gladly gave everything... so that she might succeed.'
-
-Her form is now just a suggestion of light and shadow. 'And tell Vesper... if spirits can hear across the veil... that I understood. That love... even misguided... is never truly wrong.'
+The portal behind her grows more stable even as she fades. 'Go now... while I still have strength to maintain the passage.' Her form is now just a suggestion of light and shadow. 'And tell Vesper... if spirits can hear across the veil... that I understood. That love... even misguided... is never truly wrong.'
 
 'Farewell... Starbound... May your journey beneath the Dark Moon's wisdom... lead to the liberation... we both have sought...'";
 		now Portal is in Duskrose Sanctum;
@@ -1466,9 +1464,7 @@ The description of the Star Leaf is "The Star Leaf pulses with inner fire, its g
 After taking the Star Leaf:
 	say "As your fingers close around the Astrophyllite, warmth spreads through your gauntlets and up your arms. The gemstone pulses in rhythm with your heartbeat, and for a moment you feel connected to something vast and ancient - the cosmic forces that Ranni seeks to harness.
 	
-	The Duskrose's voice carries a note of satisfaction. 'At last, the Star Leaf finds its way to worthy hands. The path you've walked through my trials proves your dedication to breaking the chains of predetermined fate.'
-	
-	She pauses, her ethereal form flickering between states of being. 'Time grows short, Starbound. The forces that oppose change gather strength even now. Yet I am willing to share what knowledge I possess, should you have questions about our journey or the path ahead.'
+	The Duskrose's voice carries a note of satisfaction. 'At last, the Star Leaf finds its way to worthy hands.' She pauses, her ethereal form flickering between states of being. 'Time grows short, Starbound. The forces that oppose change gather strength even now. Yet I am willing to share what knowledge I possess, should you have questions about our journey or the path ahead.'
 	
 	'When you are ready to depart, simply talk to me and I shall open the way. Return to Ranni with haste - the Age of Stars awaits, and your role in its dawning has only just begun.'
 	
@@ -1478,13 +1474,16 @@ Portal is an enterable supporter. Portal is fixed in place.
 The description of the Portal is "A swirling vortex of twilight energy hovers in the air, its edges crackling with silver and deep purple light. Through its shimmering surface, you can glimpse the entrance passage where your spectral steed waits patiently, its ethereal mane stirring in an unfelt wind. The portal's center shows not the labyrinth's stone passages, but a vista of star-filled sky - as if it opens not just to another place, but to another state of being."
 
 Instead of entering the portal:
-	say "You step forward into the swirling twilight, the Astrophyllite held carefully in your hands. Behind you, the last whisper of the Duskrose's voice drifts through the sanctum:
+	say "You step forward into the swirling twilight, the Star Leaf held carefully in your hands. Behind you, the last whisper of the Duskrose's voice drifts through the sanctum:
 	
 	'Freedom... at last...'
 	
 	The portal's energy envelops you, and as reality dissolves into streams of silver light, you catch a final glimpse of the sanctum. Where Maera stood, only motes of golden light remain, drifting upward through the skylight like prayers finally answered.
 	
-	The Immortal Sun is no more. The Duskrose has found her rest. And in your hands, their combined sacrifice has created the key to Ranni's ascension...";
+	The Immortal Sun is no more. The Duskrose has found her rest. And in your hands, their combined sacrifice has created the key to Ranni's ascension...
+	
+(Press any key)[line break]";
+	wait for any key;
 	now Maera is satisfied.
 
 Chapter - Final Scene
@@ -1496,7 +1495,7 @@ Final Scene ends when Ending Scene begins.
 
 When Final Scene begins:
 	now Maera is in Duskrose Sanctum;
-	say "As you kindle the bonfire, its ethereal flames dance higher than before, casting long shadows that seem to move with purpose. The temperature drops, and the very air grows heavy with ancient power. From the darkness beyond the skylight, a figure begins to materialize.
+	say "As you kindle the bonfire, its ethereal flames dance higher, but you feel the temperature drops, and the air grows heavy with ancient power. From the darkness beyond the skylight, a figure begins to materialize.
 	
 	She appears first as wisps of twilight, then gradually takes the form of a woman suspended between states of being. Her figure flickers constantly - one moment solid and regal, the next translucent as starlight. This is Maera, the Duskrose, caught eternally in the threshold between light and shadow.
 	
@@ -1506,7 +1505,7 @@ When Final Scene begins:
 	wait for any key;
 	say "'Starbound,' she speaks, her voice carrying the weight of centuries, each word measured and deliberate. 'You have proven yourself worthy by enduring my trials. Vesper spoke truly of your resolve before his spirit found peace at last.'
 	
-	The Duskrose moves closer, her form shifting between states of existence. 'I sense Ranni's purpose burns within you like cosmic fire. The Age of Stars she seeks to birth... it resonates with the vision I once held. Where I became bound to eternal watching, perhaps she will succeed in breaking the chains that bind this realm to predetermined fate.'
+	The Duskrose moves closer, her form shifting between states of existence. 'I sense Ranni's purpose burns within you like cosmic fire. The Age of Stars she seeks to birth... it resonates with the vision I once held. Where I became bound to eternal watching, perhaps she will succeed in breaking the chains that bind this realm.'
 	
 	She pauses, her expression growing both sorrowful and hopeful. 'The Astrophyllite you seek cannot simply be taken - it must be created. And I alone hold the power to forge it, through the Immortal Sun that I have guarded these long centuries.'
 	
@@ -1514,9 +1513,9 @@ When Final Scene begins:
 	wait for any key;
 	say "Her form begins to glow with an inner light, golden threads of energy starting to weave around her. 'To create the Star Leaf requires cosmic energy beyond mortal comprehension. The Immortal Sun must give all of its power - and with it, I too shall fade. This is not curse, but purpose. Not ending, but transformation.'
 	
-	Without waiting for protest, she raises both hands, and the sanctum fills with blinding radiance. The very stones respond to her will, and from the floor rises an altar of black onyx. Above it, reality tears open to reveal the Immortal Sun - a sphere of pure cosmic energy that makes your eyes water to behold.
+	Without waiting for protest, she raises both hands, and the sanctum fills with blinding radiance. The stones respond to her will, and from the floor rises an altar of black onyx with golden carvings. Above it, reality tears open to reveal the Immortal Sun - a sphere of pure cosmic energy that makes your eyes water to behold.
 	
-	'Watch now, Starbound, as centuries of vigil find their meaning!'
+	'Witness, Starbound, as centuries of vigil find their meaning!'
 	
 	The Immortal Sun begins to unravel, streams of golden light flowing from it into a growing crystalline form above the altar. With each thread of power drawn out, Maera's form grows fainter, more translucent.
 	
@@ -1524,27 +1523,31 @@ When Final Scene begins:
 	
 	(Press any key to continue)[paragraph break]";
 	wait for any key;
-	say "The process reaches its crescendo. The Immortal Sun gives its final pulse of energy and collapses into nothingness. In its place, the Astrophyllite hovers above the altar - a perfect golden gemstone that pulses with the concentrated power of a star.
+	say "The process reaches its crescendo. The Immortal Sun gives its final pulse of energy and collapses into nothingness. In its place, the Astrophyllite hovers above the altar - a crystalline gemstone of deep sapphire shot through with silver veins, its surface flashing with stellar radiance like a captured cosmic explosion.
 	
-	Maera, now barely visible, manages one last act. 'The Star Leaf is complete. Take it... and remember that true freedom sometimes requires... the ultimate sacrifice...'
+	Maera, now barely visible, manages one last act. 'The Star Leaf is complete. Take it...'
 	
 	She gestures weakly, and a portal of swirling twilight begins to form. 'My last gift... safe passage... Tell them all... the dusk has finally given way... to stars...'
 	
-	The Astrophyllite settles gently onto the altar, waiting to be claimed, as the Duskrose prepares to speak her final words.";
+	The Star Leaf settles gently onto the altar, waiting to be claimed.";
 	now the Celestial Altar is in Duskrose Sanctum.
 
 Ending Scene is a scene.
 Ending Scene begins when Maera is satisfied.
 
 When Ending Scene begins:
-	say "As you emerge from the Duskrose Labyrinth into the fading daylight, the Astrophyllite pulses warmly in your grasp. Your quest has been successful - you have obtained the Star Leaf that Ranni requires to forge the Mox Astro.
+	say "[bold type]Starborn Revelation[roman type]
 
-The journey home lies before you. As you mount your spectral steed and prepare to ride, you notice something unsettling. The distant mountains cast a long shadow across the valley - a shadow that seems to reach toward you like a grasping claw. Within that darkness, you glimpse flickers of yellow-orange light, reminiscent of the Frenzied Flame that the Duskrose warned you about.
+As you emerge into the fading daylight, the Star Leaf pulses with newfound intensity in your grasp. The Astrophyllite's cosmic energy flows through you, awakening senses you never knew you possessed.
 
-With the Duskrose's blessing and the precious Astrophyllite secured, you urge your steed forward, riding directly into the shadow's heart. Whatever challenges lie ahead, you face them willingly, driven by devotion to Ranni's vision - a cosmic order free from the dictates of capricious gods.
+Through this enhanced perception, you see what was hidden before - the distant mountains shadow is no mere trick of light. The Star Leaf's power reveals writhing tendrils of chaotic energy reaching across the valley like grasping fingers. Within that unnatural darkness, the Frenzied Flame writhes with malevolent hunger, its yellow-orange fires seeking to unravel the very fabric of reality.
 
-The Age of Stars has only just begun, and your role in it is far from complete.";
-	end the story saying "THE END"; 
+The revelation strikes you with crystalline clarity: this is why Ranni needed the Astrophyllite. Not merely as a key to the Age of Stars, but as a means to perceive and oppose the cosmic threats that lesser eyes cannot see. Where once you might have ridden unknowingly into danger, now you mount your spectral steed with full awareness of what awaits.
+
+With Maera's sacrifice, and your senses deepened by trials overcome, you ride deliberately toward the heart of encroaching chaos. The Age of Stars demands not just vision, but the courage to face what lurks in the spaces between light and shadow.
+
+Your journey as the Starbound has truly begun.";
+	end the story saying "THE END";
 
 Chapter - Lore System
 
