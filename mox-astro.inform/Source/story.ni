@@ -690,9 +690,9 @@ The defeat description of the Spirit of Vesper is "Vesper drops to one knee, his
 
 'Listen well, for I would share truth with you. I was not merely the First Follower - I loved Maera, she who became the Duskrose. When we discovered the Immortal Sun, I sought to claim its burden for myself, to spare her its weight. My betrayal was born of devotion, yet it wounded her deeply.'
 
-He gestures toward the sanctum above.
+He gestures toward the sanctum above, his expression growing sorrowful.
 
-'She awaits, suspended between light and shadow. Tell her that Vesper has kept his vigil faithfully, and that I am ready for rest. The Astrophyllite you seek... she holds it close.'
+'She awaits, suspended between light and shadow. Tell her that Vesper has kept his vigil faithfully, and that I am ready for rest. The Astrophyllite you seek... she holds it close.' His voice drops to a whisper. 'May you forgive her for what she must do to grant your wish.'
 
 With these words, the Spirit of Vesper dissolves completely, leaving only a faint blue glow that slowly fades."
 
@@ -1403,23 +1403,29 @@ Maera can be satisfied or unsatisfied. Maera is unsatisfied.
 Understand "talk to [someone]" as talking to. Understand "talk to [something]" as talking to. Talking to is an action applying to one visible thing.
 
 Instead of talking to Maera:
-	say "'Starbound...' Maera's voice carries the weight of centuries, each word carefully measured. 'You have proven yourself worthy by passing through my trials. Vesper spoke truly of your resolve before his spirit found peace.'
+	if the player is not carrying the Star Leaf:
+		say "Maera's fading form gestures weakly toward the altar. 'The Star Leaf... take it first, Starbound. It holds the Immortal Sun's essence... all that remains of its power. I cannot maintain this form much longer... please...'";
+	otherwise:
+		say "'Starbound...' Maera's voice is barely a whisper now, her form so faint you can barely make out her features. 'You have... what you came for. The Star Leaf pulses with the Immortal Sun's essence... and my own.'
 
-Her form shifts between light and shadow as she continues, 'I sense Ranni's purpose burns within you like starfire. The Age of Stars she seeks to birth... it echoes the vision I once held. Where I became bound to eternal watching, perhaps she will succeed in breaking the chains that bind this realm to predetermined fate.'
+She flickers like a candle in wind. 'I am... grateful. After centuries of watching... I was finally able to act. To create rather than merely guard. This is... a better ending than I dared hope for.'
 
-Maera raises her hand, and the air begins to shimmer with otherworldly energy. 'The Astrophyllite you seek has waited here for one such as you. Take it, along with my blessing, and tell Ranni the Witch that the Duskrose remembers what it means to choose freedom over servitude.'
+The portal behind her grows more stable even as she fades. 'Go now... while I still have strength to maintain the passage. Tell Ranni that one who failed to break fate's chains... gladly gave everything... so that she might succeed.'
 
-A portal of swirling twilight materializes in the sanctum, its edges crackling with cosmic energy. Through it, you can glimpse the entrance passage where your spectral steed awaits.
+Her form is now just a suggestion of light and shadow. 'And tell Vesper... if spirits can hear across the veil... that I understood. That love... even misguided... is never truly wrong.'
 
-'Go now, Starbound. The stars themselves await your return, and time grows short. May your journey beneath the Dark Moon's wisdom lead to the liberation we both have sought.' Her voice grows fainter as her form begins to fade. 'This is my final gift - safe passage from this place of memory and shadow.'";
-	now Portal is in Duskrose Sanctum;
+'Farewell... Starbound... May your journey beneath the Dark Moon's wisdom... lead to the liberation... we both have sought...'";
+		now Portal is in Duskrose Sanctum;
 
 Instead of asking Maera to try doing something:
-	repeat through Table of Maera's Commentary:
-		if player's command includes topic entry:
-			say "[commentary entry][paragraph break]";
-			rule succeeds;
-	say "'I cannot,' Maera says softly."
+	if the player is not carrying the Star Leaf:
+		say "Maera's fading form gestures weakly toward the altar. 'The Star Leaf... take it first, Starbound. It holds the Immortal Sun's essence... all that remains of its power. I cannot maintain this form much longer... please...'";
+	otherwise:
+		repeat through Table of Maera's Commentary:
+			if player's command includes topic entry:
+				say "[commentary entry][paragraph break]";
+				rule succeeds;
+		say "'I cannot,' Maera says softly."
 
 Asking someone about something is speech.
 Telling someone about something is speech.
@@ -1427,21 +1433,26 @@ Answering someone that something is speech.
 Asking someone for something is speech.
 
 Instead of speech when the noun is Maera:
-	repeat through Table of Maera's commentary:
-		if the topic understood includes topic entry:
-			say "[commentary entry][paragraph break]";
-			rule succeeds;
-	say "Maera tilts her head slightly. 'What is it, Starbound?'"
+	if the player is not carrying the Star Leaf:
+		say "Maera's fading form gestures weakly toward the altar. 'The Star Leaf... take it first, Starbound. It holds the Immortal Sun's essence... all that remains of its power. I cannot maintain this form much longer... please...'";
+	otherwise:
+		repeat through Table of Maera's commentary:
+			if the topic understood includes topic entry:
+				say "[commentary entry][paragraph break]";
+				rule succeeds;
+		say "Maera tilts her head slightly. 'What is it, Starbound?'"
 
 Table of Maera's Commentary
 topic	commentary
-"immortal sun"	"'The Immortal Sun... the burden I accepted to protect this realm from its power. It grants true immortality, not the flawed cycle of rebirth offered by the Golden Order. But the price...' Her form flickers between light and shadow. 'To claim its power, one must sacrifice the ability to directly shape the world. I became an observer, a guardian of balance, watching centuries pass while unable to act. Few understand this terrible gift.'"
-"star leaf/astrophyllite/mox astro"	"'The Astrophyllite you seek pulses with cosmic resonance, like a star captured in crystal form. It is essential for Ranni's Mox Astro - the key to her journey beneath the Dark Moon's wisdom. I sense her vision resonates with my own desire for freedom from predetermined fate. Take it with my blessing, Starbound.'"
-"vesper"	"Her ethereal form grows dimmer, sadness washing over her features. 'Vesper... my most devoted follower, my dearest friend. His love for me was both his greatest strength and his ultimate downfall. When he discovered the Immortal Sun's true cost, he sought to claim its burden for himself, to spare me the weight of eternal watching. His betrayal cut deep, yet I understand it was born of devotion. I have kept his spirit here, both as guardian and penance for us both.'"
+"immortal sun"	"'The Immortal Sun... the burden I accepted to protect this realm from its power. It grants true immortality, not the flawed cycle of rebirth offered by the Golden Order. But the price...' Her form flickers between light and shadow. 'To claim its power, one must sacrifice the ability to directly shape the world. I became an observer, a guardian of balance, watching centuries pass while unable to act. Yet there is one final act it can perform - one last gift it can grant, though the cost...' She trails off, her expression unreadable."
+"star leaf/astrophyllite/mox astro"	"'The Astrophyllite you seek cannot simply be found - it must be created. The Star Leaf requires cosmic energy beyond mortal comprehension to forge.' Her voice grows heavy with unspoken knowledge. 'The Immortal Sun holds such power within its core. To create what Ranni needs, I must channel all of the Sun's energy into this crystallization. The process will consume everything - the Immortal Sun will be destroyed, and I...' She pauses, then continues with quiet resolve. 'This is the true purpose of my vigil. Not to guard, but to sacrifice when the worthy one arrives.'"
+"vesper"	"Her ethereal form grows dimmer, sadness washing over her features. 'Vesper... my most devoted follower, my dearest friend. His love for me was both his greatest strength and his ultimate downfall. When he discovered the Immortal Sun's true cost, he sought to claim its burden for himself, to spare me the weight of eternal watching. Later, when he learned what creating the Star Leaf would mean, he tried again to intervene. Both times, his betrayal cut deep, yet I understand it was born of devotion. I have kept his spirit here, both as guardian and penance for us both.'"
+"sacrifice/price/cost"	"'Every transformation demands sacrifice. The Golden Order taught this, though they perverted the lesson. To create the Astrophyllite - to forge a key to the Age of Stars - requires more than skill or knowledge. It demands the total consumption of cosmic energy.' She looks directly at you. 'The Immortal Sun will cease to exist. And I, bound to it as I am, will fade with its light. But this is not tragedy, Starbound. It is liberation. After centuries of watching, I will finally act. My last deed will be one of creation, not mere observation.'"
 "ranni/ranni the witch"	"'Ranni the Witch... another who seeks to break free from the Golden Order's strangling light. Her Age of Stars echoes my own vision - a cosmic order that honors both light and darkness, free from the dictates of capricious gods. Where I failed to establish balance, perhaps she will succeed. I see in her the same determination that once drove me to seek the Immortal Sun.'"
 "golden order"	"'The Golden Order... I once served faithfully as Maera the Devout, believing in its promise of eternal light. But I witnessed its corruption, how its light grew harsh and blinding, leaving no room for shadow or growth. True divinity lies not in absolute light, but in the sacred dusk - the threshold between light and dark where infinite possibility blooms.'"
 "duskrose/myself/you"	"'I am what remains of Maera the Devout, transformed by the Immortal Sun into something between mortal and divine. The Duskrose they call me now - a being of eternal twilight, forever suspended in the moment of transition. I guard the balance I once sought to create, watching over the threshold between light and shadow until one worthy comes to continue the work.'"
 "labyrinth"	"'This labyrinth is both my prison and my sanctuary. I constructed it to test those who would seek the Immortal Sun's power, filling it with guardians and trials. Each chamber reflects a part of our journey - the Guardroom holds Vesper's duty, the Antechamber preserves my followers' devotion, and the corridors contain the corruption we sought to cleanse. Only those with true purpose may reach the heart.'"
+
 
 Section - Star Leaf Altar
 
@@ -1467,11 +1478,13 @@ Portal is an enterable supporter. Portal is fixed in place.
 The description of the Portal is "A swirling vortex of twilight energy hovers in the air, its edges crackling with silver and deep purple light. Through its shimmering surface, you can glimpse the entrance passage where your spectral steed waits patiently, its ethereal mane stirring in an unfelt wind. The portal's center shows not the labyrinth's stone passages, but a vista of star-filled sky - as if it opens not just to another place, but to another state of being."
 
 Instead of entering the portal:
-	say "You step forward into the swirling twilight. The last thing you hear is the Duskrose's voice, carried on winds that taste of starlight and ancient promises:
+	say "You step forward into the swirling twilight, the Astrophyllite held carefully in your hands. Behind you, the last whisper of the Duskrose's voice drifts through the sanctum:
 	
-	'Go well, Starbound. May the Dark Moon's wisdom guide you to the freedom we both have sought.'
+	'Freedom... at last...'
 	
-	The portal's energy envelops you, and reality dissolves into streams of silver light...";
+	The portal's energy envelops you, and as reality dissolves into streams of silver light, you catch a final glimpse of the sanctum. Where Maera stood, only motes of golden light remain, drifting upward through the skylight like prayers finally answered.
+	
+	The Immortal Sun is no more. The Duskrose has found her rest. And in your hands, their combined sacrifice has created the key to Ranni's ascension...";
 	now Maera is satisfied.
 
 Chapter - Final Scene
@@ -1495,17 +1508,29 @@ When Final Scene begins:
 	
 	The Duskrose moves closer, her form shifting between states of existence. 'I sense Ranni's purpose burns within you like cosmic fire. The Age of Stars she seeks to birth... it resonates with the vision I once held. Where I became bound to eternal watching, perhaps she will succeed in breaking the chains that bind this realm to predetermined fate.'
 	
-	She pauses, her expression growing both sorrowful and hopeful. 'Tell me, Starbound - do you truly understand what Ranni asks of you? The journey beneath the Dark Moon's wisdom is not merely about power, but about choosing freedom over the comfort of servitude.'
+	She pauses, her expression growing both sorrowful and hopeful. 'The Astrophyllite you seek cannot simply be taken - it must be created. And I alone hold the power to forge it, through the Immortal Sun that I have guarded these long centuries.'
 	
 	(Press any key to continue)[line break]";
 	wait for any key;
-	say "Without waiting for your answer, she raises her hand, and the air begins to shimmer with otherworldly energy. The very stones of the sanctum respond to her will, and from the floor rises an altar of black onyx inlaid with veins of silver that pulse with faint starlight.
+	say "Her form begins to glow with an inner light, golden threads of energy starting to weave around her. 'To create the Star Leaf requires cosmic energy beyond mortal comprehension. The Immortal Sun must give all of its power - and with it, I too shall fade. This is not curse, but purpose. Not ending, but transformation.'
 	
-	'The Astrophyllite you seek has waited here through countless ages,' she intones as the gemstone materializes atop the altar, pulsing with inner fire. Its golden metallic surface erupts in patterns that mirror cosmic explosions, each facet catching and amplifying light in impossible ways.
+	Without waiting for protest, she raises both hands, and the sanctum fills with blinding radiance. The very stones respond to her will, and from the floor rises an altar of black onyx. Above it, reality tears open to reveal the Immortal Sun - a sphere of pure cosmic energy that makes your eyes water to behold.
 	
-	'This Star Leaf - this fragment of celestial essence - is the key component for Ranni's Mox Astro. With it, she may forge the artifact needed for her ascension. Take it, along with my blessing, and tell the Witch that the Duskrose remembers what it means to choose freedom over servitude.'
+	'Watch now, Starbound, as centuries of vigil find their meaning!'
 	
-	The gemstone pulses brighter, as if responding to your presence, and you feel drawn to claim it.";
+	The Immortal Sun begins to unravel, streams of golden light flowing from it into a growing crystalline form above the altar. With each thread of power drawn out, Maera's form grows fainter, more translucent.
+	
+	'Tell Ranni...' her voice grows softer as the transformation continues, 'that the Duskrose chose this freely. That in the end, I found the action I was denied for so long.'
+	
+	(Press any key to continue)[line break]";
+	wait for any key;
+	say "The process reaches its crescendo. The Immortal Sun gives its final pulse of energy and collapses into nothingness. In its place, the Astrophyllite hovers above the altar - a perfect golden gemstone that pulses with the concentrated power of a star.
+	
+	Maera, now barely visible, manages one last act. 'The Star Leaf is complete. Take it... and remember that true freedom sometimes requires... the ultimate sacrifice...'
+	
+	She gestures weakly, and a portal of swirling twilight begins to form. 'My last gift... safe passage... Tell them all... the dusk has finally given way... to stars...'
+	
+	The Astrophyllite settles gently onto the altar, waiting to be claimed, as the Duskrose prepares to speak her final words.";
 	now the Celestial Altar is in Duskrose Sanctum.
 
 Ending Scene is a scene.
