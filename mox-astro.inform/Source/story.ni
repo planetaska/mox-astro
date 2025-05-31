@@ -48,7 +48,10 @@ Antechamber is a room in Duskrose Labyrinth.
 "A circular room with domed ceilings inlaid with faded constellations, the Antechamber feels almost reverent. Cracked murals depict a figure cloaked in midnight blue reaching for a falling star. The floor bears scuffs from countless rituals long past. A faint hum lingers in the air—melancholic, celestial. A narrow stairway descends southward into darkness, while the way back is to the east."
 
 Winding Corridors is a room in Duskrose Labyrinth.
-"This maze-like passage twists and coils with no sense of logic, as if shaped by a dreaming god. The walls here are covered in inscriptions that shift subtly when not watched directly. Echoes bounce at odd intervals, often repeating things you haven’t said. Occasionally, something brushes past you in the dark, but there’s nothing there. East leads deeper toward burial grounds. The only clear way back leads nouth."
+"[if maze completed is false]This maze-like passage twists and coils with no sense of logic, as if shaped by a dreaming god. The walls here are covered in inscriptions that shift subtly when not watched directly. Echoes bounce at odd intervals, often repeating things you haven't said. Occasionally, something brushes past you in the dark, but there's nothing there. [otherwise]Having mastered the maze's pattern, you notice the subtle differences in the passages that mark the true path forward. [end if][if maze completed is true]East leads toward strange sounds and disturbing growls of something large. [end if]The only clear way back leads north."
+
+Beast's Nest is a room in Duskrose Labyrinth.
+"A cavernous chamber where the labyrinth's ordered stone gives way to something more primal. The walls here are scarred by massive claws, and patches of corrupted golden light seep through cracks in the ceiling like infected wounds. The air feels thick and oppressive, charged with malevolent energy. Strange growls and the sound of something large moving in the shadows echo from the darkness ahead. To the west lies the relative safety of the winding corridors, while a narrow passage continues east toward the burial grounds."
 
 Burial Chamber is a room in Duskrose Labyrinth.
 "Rows of biers made from stone and silver line the chamber, each cradling a body wrapped in cloth of starless black. Their faces are covered by masks shaped like waning moons. The scent of dry rose and ancient incense fills the air. One sarcophagus in the center is sealed in gold and onyx - untouched. A staircase of pale glass ascends north into still silence. The corridor continues west."
@@ -72,14 +75,20 @@ Instead of examining east in Antechamber:
 Instead of examining south in Antechamber:
 	say "A descending stair curves into the black, its steps worn smooth by ancient processions and fading prayers.";
 
-Instead of examining south in Winding Corridors:
-	say "The corridor bends down into shadow, carrying echoes that don’t quite match your movements. Something cold stirs in the distance.";
+Instead of examining north in Winding Corridors:
+	say "The corridor bends back toward the antechamber, carrying echoes that don't quite match your movements.";
 
 Instead of examining east in Winding Corridors:
-	say "The air ahead grows heavy and still, like a held breath. The corridor leads into a room where memory and mourning lie entombed.";
+	say "The passage ahead grows darker and more menacing. You can hear disturbing sounds echoing from what seems like a beast's lair.";
+
+Instead of examining west in Beast's Nest:
+	say "The winding corridor offers escape from this corrupted chamber, its twisting passages suddenly seeming welcoming by comparison.";
+
+Instead of examining east in Beast's Nest:
+	say "A narrow passage leads deeper into the labyrinth, toward what appears to be ancient burial grounds. The air grows heavier with the scent of dry roses and incense.";
 
 Instead of examining west in Burial Chamber:
-	say "A winding path coils back into the maze, the walls shifting slightly in your peripheral vision, as if reshaping themselves.";
+	say "The passage leads back toward the beast's nest, where corrupted growls and the sound of claws on stone can still be heard.";
 
 Instead of examining north in Burial Chamber:
 	say "Glasslike stairs rise toward a pale glow, where silence reigns and time seems suspended above a sanctum of stillness.";
@@ -91,8 +100,71 @@ Instead of examining south in Duskrose Sanctum:
 Entrance Passage is south of Guardroom.
 Guardroom is east of Antechamber.
 Antechamber is north of Winding Corridors.
-Winding Corridors is west of Burial Chamber.
+Winding Corridors is west of Beast's Nest.
+Beast's Nest is west of Burial Chamber.
 Burial Chamber is south of Duskrose Sanctum.
+
+Section - Winding Corridors Maze Effect
+
+[Add fake exits to allow movement in all directions]
+South of Winding Corridors is Winding Corridors.
+West of Winding Corridors is Winding Corridors.
+Southwest of Winding Corridors is Winding Corridors.
+Southeast of Winding Corridors is Winding Corridors.
+Northwest of Winding Corridors is Winding Corridors.
+Northeast of Winding Corridors is Winding Corridors.
+
+A maze counter is a number that varies. The maze counter is 0.
+A north counter is a number that varies. The north counter is 0.
+Maze completed is a truth state that varies. Maze completed is false.
+
+Before going to Winding Corridors:
+	if maze completed is false:
+		now list exits is false;
+
+Instead of going a direction (called the way) from Winding Corridors:
+	if maze completed is true and the way is east:
+		say "Having mastered the labyrinth's pattern, you quickly navigate the familiar passages toward the Beast's Nest.";
+		now list exits is true;
+		move the player to Beast's Nest;
+	otherwise if the way is north:
+		increase the north counter by 1;
+		if the north counter is 1:
+			say "You follow a corridor northward, but it curves and deposits you back where you started.";
+		otherwise:
+			say "You try north again, carefully feeling along the wall. This time you discover a hidden passage concealed behind loose stones - the true way back.";
+			now the north counter is 0;
+			now the maze counter is 0;
+			now list exits is true;
+			move the player to Antechamber;
+	otherwise:
+		increase the maze counter by 1;
+		if the maze counter is 1:
+			say "You turn down a twisting passage. The walls seem to guide your steps, funneling you forward through carved channels.";
+		otherwise if the maze counter is 2:
+			say "Another corridor beckons. The design feels deliberate - wide openings leading inward, narrower exits leading out.";
+		otherwise if the maze counter is 3:
+			say "The passages continue to twist. You begin to suspect this maze was built as a trap - easy to enter, difficult to escape.";
+		otherwise:
+			say "The labyrinth's intent becomes clear: every path leads deeper, while escape routes remain hidden. You press forward.";
+			now the maze counter is 0;
+			now the north counter is 0;
+			now maze completed is true;
+			now list exits is true;
+			now list exits is true;
+			[Remove the fake maze exits]
+			change the south exit of Winding Corridors to nothing;
+			change the west exit of Winding Corridors to nothing;
+			change the southwest exit of Winding Corridors to nothing;
+			change the southeast exit of Winding Corridors to nothing;
+			change the northwest exit of Winding Corridors to nothing;
+			change the northeast exit of Winding Corridors to nothing;
+			say "[line break]The twisting passages seem to straighten and clarify now that you understand their true nature. The false paths that once confused you have faded away.";
+			say "[line break]As you emerge from the maze's final passage, you notice a small alcove carved into the wall. Within it, arranged bones and kindling await.";
+			say "[line break](Press any key to continue)[line break]";
+			now Corridors Bonfire is in Winding Corridors;
+			wait for any key;
+			try looking.
 
 Part - Bonfire
 [Implementation helped by Claude.ai]
@@ -188,6 +260,8 @@ To die and return:
 Entrance Bonfire is a bonfire in Entrance Passage. "A bonfire arrangement rests against the wall, [if unlit]its ashes cold and waiting[otherwise]burning with an ethereal golden-blue flame[end if]."
 
 Antechamber Bonfire is a bonfire in Antechamber. "Against the far wall, a bonfire [if unlit]lies dormant, its bones arranged in solemn ceremony[otherwise]dances with strange blue-gold flames that cast shifting constellation patterns across the dome above[end if]."
+
+Corridors Bonfire is a bonfire. "Hidden in a small alcove, a bonfire [if unlit]waits to be rekindled, its placement suggesting the labyrinth itself recognizes those who master its patterns[otherwise]burns with gentle flames[end if]."
 
 Sanctum Bonfire is a bonfire in Duskrose Sanctum. "Beside the pedestal, a bonfire [if unlit]waits in silent vigil, its arrangement more intricate than the others you've encountered[otherwise]burns with unusual intensity, its flames reaching higher as if straining toward the skylight above[end if]."
 
@@ -592,7 +666,7 @@ The description of the Ghost Dancers is "Spectral figures that weave through the
 The waiting description of the Ghost Dancers is "As you enter the Antechamber, the air grows cold. Motes of pale blue light begin to coalesce, forming the shapes of dancing specters. They circle you in a haunting ballet, their hollow eyes fixed upon your every movement."
 The defeat description of the Ghost Dancers is "The spectral dancers pause in their eternal waltz, their forms growing increasingly transparent. They gather in a circle, hands joining one last time before they dissolve into motes of starlight that drift upward through the domed ceiling. In their absence, you hear fragments of their story - how they followed Maera the Devout in her quest for a new path beyond the Golden Order."
 
-The Cursed Beast is an enemy in the Winding Corridors.
+The Cursed Beast is an enemy in Beast's Nest.
 The Cursed Beast is alive and undefeated.
 The Cursed Beast is aggressive.
 The hit points of the Cursed Beast is 100.
@@ -1685,3 +1759,5 @@ Combat Commands:[line break]
 Section - Test Command
 
 Test me with "abstract me to duskrose sanctum / touch bonfire"
+
+Test maze with "n / swing / swing/ swing / w / swing / swing / s / s"
