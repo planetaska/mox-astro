@@ -163,6 +163,7 @@ Instead of going a direction (called the way) from Winding Corridors:
 			say "[line break]As you emerge from the maze's final passage, you notice a small alcove carved into the wall. Within it, arranged bones and kindling await.";
 			say "[line break](Press any key to continue)[line break]";
 			now Corridors Bonfire is in Winding Corridors;
+			now the Star Chart is in Winding Corridors;
 			wait for any key;
 			try looking.
 
@@ -1612,7 +1613,19 @@ Below, in smaller text:
 
 'My oath binds me beyond death. Though my body may fail and my mind may fade, this armor shall continue my vigil. Let none pass who are unworthy of Her grace.'"
 
-The Star Chart is a lore item in the Antechamber.
+Maera's Portrait is a lore item in the Antechamber.
+The description of Maera's Portrait is "A faded oil painting that somehow retains its luminous quality despite the ages. The portrait depicts a woman in flowing robes, surrounded by swirling celestial energy."
+The lore text of Maera's Portrait is "The portrait captures a moment of transcendent beauty. A woman stands with arms gracefully extended, her flowing robes - once pure white with golden trim - seem to move despite being mere paint on canvas.
+
+Her face is serene yet intense, with pale skin that seems to glow from within as if lit by moonlight. Long, dark hair streams behind her as though caught in an otherworldly wind. Most striking are her eyes - they burn with inner light, whispering one who has gazed upon truth.
+
+The background swirls with abstract representations of stars and nebulae, and where her bare feet should touch the ground, the artist has painted not stone but stardust dissolving into shadow. Small motes of light drift around her like captive stars.
+
+A brass nameplate at the bottom reads: 'Maera the Seeker, First Year of Pilgrimage'
+
+Below, in smaller script: 'She who abandoned the golden throne to walk among the stars. May her journey lead to wisdom beyond the Order's reach.'"
+
+The Star Chart is a lore item.
 The description of the Star Chart is "A complex astronomical chart mapping constellations unknown to modern stargazers. It seems to predict celestial alignments across vast spans of time."
 The lore text of the Star Chart is "The chart shows the alignment that occurred during the Convergence, when multiple moons crossed paths in the night sky. Notes in faded ink mark this as 'The Threshold Moment' when 'the veil between ordered light and formless shadow grows thin enough to perceive greater truths.'
 
