@@ -713,6 +713,14 @@ Section - Attack Commands
 [Attack command]
 The block attacking rule is not listed in any rulebook.
 
+[This allows the player to simply type 'attack' to attack]
+Understand "attack" as attacking generally.
+Attacking generally is an action applying to nothing.
+
+Carry out attacking generally:
+	let target be a random alive undefeated enemy in the location;
+	try attacking the target.
+
 Check attacking something:
 	if the player does not carry a weapon:
 		say "You have no weapon to attack with." instead;
