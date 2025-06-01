@@ -787,25 +787,26 @@ Carry out attacking an enemy with a weapon:
 		otherwise:
 			say "└[health-status of noun][line break]";
 
+Section - Attack Skill Commands
+
 Slashing is an action applying to nothing. Understand "slash" as slashing.
 Thrusting is an action applying to nothing. Understand "thrust" as thrusting.
+[Required to override default action "swing"]
+Understand the command "swing" as something new.
 Heavy swinging is an action applying to nothing. Understand "swing" or "heavy swing" as heavy swinging.
 
-Slashing something is an action applying to one visible thing.
-Understand "slash [something]" as slashing something.
+The slash modifier is a number that varies. The slash modifier is 6.
+The thrust modifier is a number that varies. The thrust modifier is -3.
+The heavy swing modifier is a number that varies. The heavy swing modifier is 15.
 
-Carry out slashing something:
-	try slashing instead.
+To decide what number is the modified damage of (weapon - a weapon) with (modifier - a number):
+	decide on the damage of weapon + modifier.
 
-Check slashing:
-	if not (attack is valid for the stamina cost of slashing):
-		stop the action.
-
-Carry out slashing:
+To perform attack skill with (modifier - a number) costing (cost - a number):
 	let target be a random alive undefeated enemy in the location;
 	let the weapon be a random weapon that is wielded by the player;
-	let damage be the damage of the weapon + 6;
-	decrease the stamina of the player by the stamina cost of slashing;
+	let damage be the modified damage of the weapon with modifier;
+	decrease the stamina of the player by cost;
 	say "You slash at [the target] for [damage] damage!";
 	decrease the hit points of the target by damage;
 	say "└[health-status of target][line break]";
@@ -815,41 +816,43 @@ Carry out slashing:
 		now the target is dead;
 		say "You have slain [the target]!".
 
+Check slashing:
+	if not (attack is valid for the stamina cost of slashing):
+		stop the action.
+
+Carry out slashing:
+	perform attack skill with the slash modifier costing the stamina cost of slashing.
+
 Check thrusting:
 	if not (attack is valid for the stamina cost of thrusting):
 		stop the action.
 
 Carry out thrusting:
-	let target be a random alive undefeated enemy in the location;
-	let the weapon be a random weapon that is wielded by the player;
-	let damage be the damage of the weapon - 3;
-	decrease the stamina of the player by the stamina cost of thrusting;
-	say "You thrust at [the target] for [damage] damage!";
-	decrease the hit points of the target by damage;
-	say "└[health-status of target][line break]";
-	if the target is unencountered:
-		now the target is encountered;
-	if the hit points of the target <= 0:
-		now the target is dead;
-		say "You have defeated [the target]!".
+	perform attack skill with the thrust modifier costing the stamina cost of thrusting.
 
 Check heavy swinging:
 	if not (attack is valid for the stamina cost of heavy swinging):
 		stop the action.
 
 Carry out heavy swinging:
-	let target be a random alive undefeated enemy in the location;
-	let the weapon be a random weapon that is wielded by the player;
-	let damage be the damage of the weapon + 15;
-	decrease the stamina of the player by the stamina cost of heavy swinging;
-	say "You swing heavily at [the target] for [damage] damage!";
-	decrease the hit points of the target by damage;
-	say "└[health-status of target][line break]";
-	if the target is unencountered:
-		now the target is encountered;
-	if the hit points of the target <= 0:
-		now the target is dead;
-		say "You have defeated [the target]!".
+	perform attack skill with the heavy swing modifier costing the stamina cost of heavy swinging.
+
+[Allow "slash/thrust/swing target" command]
+Slashing something is an action applying to one visible thing.
+Understand "slash [something]" as slashing something.
+Carry out slashing something:
+	try slashing instead.
+
+Thrusting something is an action applying to one visible thing.
+Understand "thrust [something]" as thrusting something.
+Carry out thrusting something:
+	try thrusting instead.
+
+Heavy swinging something is an action applying to one visible thing.
+Understand "swing [something]" or "heavy swing [something]" as heavy swinging something.
+Carry out heavy swinging something:
+	try heavy swinging instead.
+
 
 Section - Combat Scene
 
