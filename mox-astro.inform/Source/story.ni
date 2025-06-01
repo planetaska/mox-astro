@@ -652,7 +652,7 @@ The Headless Armor is passive.
 The hit points of the Headless Armor is 75.
 The max hit points of the Headless Armor is 75.
 The initial attack power of the Headless Armor is 25.
-The description of the Headless Armor is "Once Vesper in his mortal form, now an eternal guardian bound by oath to protect the labyrinth."
+The description of the Headless Armor is "An ancient suit of armor animated by ethereal blue energy. Where its head should be, only darkness remains."
 The waiting description of the Headless Armor is "The Headless Armor stands motionless among its fallen brethren. As you approach, a ethereal blue glow begins to emanate from within its hollow chest. Slowly, methodically, it raises its ancient blade, the metal scraping against its armored form with a sound like distant thunder."
 The defeat description of the Headless Armor is "The Headless Armor shudders violently, then collapses in a heap of metal. A soft blue light rises from the remains, hovering momentarily before dissipating with a whisper that sounds almost like 'freedom.'"
 
@@ -1594,18 +1594,23 @@ Vesper, her closest confidant, never leaves her side. His devotion is absolute, 
 
 Tomorrow we journey to the ancient ruins where texts speak of the Immortal Sun. Lady Maera believes this artifact predates even the Elden Ring and holds the key to establishing a new covenant that honors both light and dark.
 
-May the moonlight guide our—"
+May the moonlight guide our—
 
-The Ritual Dagger is a lore item in the Guardroom.
-The description of the Ritual Dagger is "A ceremonial blade with a crescent-shaped edge. The handle bears inscription in an ancient script."
-The lore text of the Ritual Dagger is "The inscription on the handle reads:
+(The remaining pages have been torn away, fragments too damaged to read.)"
 
-'To part the veil between dusk and dawn,
-Blood of the devoted must be drawn.
-Neither light nor dark, but the threshold between,
-Reveals the path to what remains unseen.'
+The Devoted's Emblem is a lore item in the Guardroom.
+The description of the Devoted's Emblem is "A military badge of the Duskrose's guard, its surface dulled by age. The name 'Vesper' is engraved beneath the insignia."
+The lore text of the Devoted's Emblem is "The badge bears the emblem of the First Guard - an honor given only to the most trusted protector of the Duskrose. 
 
-The blade shows signs of having been used in ritual bloodletting, though the edge is ceremonial rather than practical for combat."
+An inscription on the back reads:
+
+'Vesper, First Among the Devoted[line break]
+ Captain of the Guard[line break]
+ Bearer of the Duskrose's Trust'
+
+Below, in smaller text:
+
+'My oath binds me beyond death. Though my body may fail and my mind may fade, this armor shall continue my vigil. Let none pass who are unworthy of Her grace.'"
 
 The Star Chart is a lore item in the Antechamber.
 The description of the Star Chart is "A complex astronomical chart mapping constellations unknown to modern stargazers. It seems to predict celestial alignments across vast spans of time."
@@ -1613,16 +1618,19 @@ The lore text of the Star Chart is "The chart shows the alignment that occurred 
 
 Another alignment is marked as 'The Coming Age of Stars' with a date that corresponds roughly to the present time. Beside this notation is a small sketch of what appears to be the Dark Moon, with paths leading beneath it labeled 'The Journey Beyond Wisdom.'"
 
-The Cracked Mask is a lore item in the Winding Corridors.
-The description of the Cracked Mask is "A mask shaped like a waning moon, now broken across its surface. It was likely worn by one of the Duskrose's followers during rituals."
-The lore text of the Cracked Mask is "The inner surface of the mask bears an inscription:
+The Corrupted Talisman is a lore item in Beast's Nest.
+The description of the Corrupted Talisman is "A pendant of blackened silver, its surface scarred by corruption. Strange symbols spiral across its face - markings from a distant, dying world."
+The lore text of the Corrupted Talisman is "The talisman bears inscriptions in a script that predates the Golden Order, speaking of 'the First Flame' and 'Ashen One' - concepts alien to this realm.
 
-'We who walk between wear the face of transition,
-Neither bound to golden dawn nor endless night.
-In the sacred dusk we find our freedom,
-Until the stars reclaim their ancient right.'
+A fragment of parchment wrapped around the chain:
 
-The crack in the mask seems deliberate rather than accidental - perhaps part of a ritual symbolizing the breaking of old bonds."
+'A beast from beyond the fog, lost and starving. It came seeking warmth, I think... seeking anything familiar. Found it clawing at the Erdtree's roots. The gold turned sickly where it touched.
+
+I could have destroyed it. Should have, perhaps. But I saw myself in its endless hunger - we who exist between states understand such torment. So I gave it shelter here, in the labyrinth's embrace.
+
+Do not mistake mercy for foolishness. These walls are its salvation as much as its prison. What has no home in this world must not be allowed to make one.'
+
+The talisman pulses with sickly warmth, as if the beast's essence still clings to it."
 
 The Immortal Sun Fragment is a lore item in the Burial Chamber.
 The description of the Immortal Sun Fragment is "A small shard that glows with golden light. Though just a tiny piece, it radiates immense power and seems to exist partially outside normal reality."
