@@ -1016,13 +1016,18 @@ Section - Enemy Knowledge and Memory
 
 An enemy can be encountered or unencountered. An enemy is usually unencountered.
 
-Instead of examining an enemy for the first time:
-	now the noun is encountered;
-	say "[description of noun][paragraph break]";
-	if the noun is alive and the noun is undefeated:
-		say "The [noun] regards you with [if the noun is aggressive]hostile intent[otherwise]wary readiness[end if].";
+Before examining an enemy:
+	if the noun is unencountered:
+		now the noun is encountered;
+		say "[description of noun][paragraph break]";
+		if the noun is aggressive:
+			say "The [noun] regards you with hostile intent.";
+		stop the action;
+	else if the noun is dead:
+		say "The [noun] has been defeated." instead;
 	otherwise:
-		say "The [noun] has been defeated.".
+		continue the action.
+
 
 Section - Enemy Behaviors
 
