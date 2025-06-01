@@ -416,7 +416,7 @@ To decide which number is the stamina cost of thrusting:
 	decide on 14.
 
 To decide which number is the stamina cost of heavy swinging:
-	decide on 28.
+	decide on 32.
 
 To decide which number is the stamina cost of parrying:
 	decide on 12.
@@ -719,17 +719,28 @@ Attacking generally is an action applying to nothing.
 
 Carry out attacking generally:
 	let target be a random alive undefeated enemy in the location;
-	try attacking the target.
+	try attacking the target instead.
+
+[General rule for check valid attack]
+To decide whether attack is valid for (cost - a number):
+	if the player is not wielding a weapon:
+		say "You need to wield a weapon first.";
+		decide no;
+	if the stamina of the player < cost:
+		say "You don't have enough stamina to perform this action.";
+		decide no;
+	let target be a random alive undefeated enemy in the location;
+	if target is nothing:
+		say "There's no enemy to attack here.";
+		decide no;
+	if target is not alive or target is defeated:
+		say "There's no enemy to attack here.";
+		decide no;
+	decide yes.
 
 Check attacking something:
-	if the player does not carry a weapon:
-		say "You have no weapon to attack with." instead;
-	if the player is not wielding a weapon:
-		say "You can't attack with that." instead;
-	if the noun is not an enemy:
-		say "You can only attack enemies." instead;
-	if the noun is defeated:
-		say "[The noun] is already defeated." instead.
+	if not (attack is valid for the stamina cost of attacking):
+		stop the action.
 
 Carry out attacking an enemy (called the foe):
 	let the weapon be a random weapon that is wielded by the player;
@@ -759,12 +770,8 @@ Attacking it with is an action applying to one thing and one carried thing. Unde
 Check attacking something with something:
 	if the second noun is not a weapon:
 		say "You can't attack with that." instead;
-	if the noun is not an enemy:
-		say "You can only attack enemies." instead;
-	if the noun is defeated:
-		say "[The noun] is already defeated." instead;
-	if the player does not carry a weapon:
-		say "You have no weapon to attack with." instead.
+	if not (attack is valid for the stamina cost of attacking):
+		stop the action.
 
 Carry out attacking an enemy with a weapon:
 	if the enemy is alive:
@@ -784,16 +791,15 @@ Slashing is an action applying to nothing. Understand "slash" as slashing.
 Thrusting is an action applying to nothing. Understand "thrust" as thrusting.
 Heavy swinging is an action applying to nothing. Understand "swing" or "heavy swing" as heavy swinging.
 
+Slashing something is an action applying to one visible thing.
+Understand "slash [something]" as slashing something.
+
+Carry out slashing something:
+	try slashing instead.
+
 Check slashing:
-	if the player is not wielding a weapon:
-		say "You need to wield a weapon first." instead;
-	if the stamina of the player < the stamina cost of slashing:
-		say "You don't have enough stamina to perform this action." instead;
-	let target be a random enemy in the location;
-	if target is nothing:
-		say "There's no enemy to attack here." instead;
-	if target is not alive or target is defeated:
-		say "There's no enemy to attack here." instead.
+	if not (attack is valid for the stamina cost of slashing):
+		stop the action.
 
 Carry out slashing:
 	let target be a random alive undefeated enemy in the location;
@@ -810,15 +816,8 @@ Carry out slashing:
 		say "You have slain [the target]!".
 
 Check thrusting:
-	if the player is not wielding a weapon:
-		say "You need to wield a weapon first." instead;
-	if the stamina of the player < the stamina cost of thrusting:
-		say "You don't have enough stamina to perform this action." instead;
-	let target be a random enemy in the location;
-	if target is nothing:
-		say "There's no enemy to attack here." instead;
-	if target is not alive or target is defeated:
-		say "There's no enemy to attack here." instead.
+	if not (attack is valid for the stamina cost of thrusting):
+		stop the action.
 
 Carry out thrusting:
 	let target be a random alive undefeated enemy in the location;
@@ -835,15 +834,8 @@ Carry out thrusting:
 		say "You have defeated [the target]!".
 
 Check heavy swinging:
-	if the player is not wielding a weapon:
-		say "You need to wield a weapon first." instead;
-	if the stamina of the player < the stamina cost of heavy swinging:
-		say "You don't have enough stamina to perform this action." instead;
-	let target be a random enemy in the location;
-	if target is nothing:
-		say "There's no enemy to attack here." instead;
-	if target is not alive or target is defeated:
-		say "There's no enemy to attack here." instead.
+	if not (attack is valid for the stamina cost of heavy swinging):
+		stop the action.
 
 Carry out heavy swinging:
 	let target be a random alive undefeated enemy in the location;
