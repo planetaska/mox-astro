@@ -726,17 +726,24 @@ Check attacking something:
 Carry out attacking an enemy (called the foe):
 	let the weapon be a random weapon that is wielded by the player;
 	let damage be the damage of the weapon;
+	decrease the stamina of the player by the stamina cost of attacking;
 	decrease the hit points of the noun by damage;
 	say "You attack [the foe] with [the weapon] for [damage] damage!";
 	if the foe is unencountered:
-		now the foe is encountered.
-
-Report attacking an enemy (called the foe):
+		now the foe is encountered;
 	if the hit points of the noun <= 0:
 		now the noun is dead;
-		say "[line break]You have defeated [the noun]!";
+		say "You have defeated [the noun]!";
 	otherwise:
-		say "[health-status of noun]".
+		say "└[health-status of foe][line break]".
+
+[Removed due to text formatting issue]
+[Report attacking an enemy (called the foe):
+	if the hit points of the noun <= 0:
+		now the noun is dead;
+		say "You have defeated [the noun]!";
+	otherwise:
+		say "└[health-status of noun]".]
 
 [Attack foe with weapon command]
 Attacking it with is an action applying to one thing and one carried thing. Understand "attack [something] with [something]" as attacking it with.
@@ -761,9 +768,9 @@ Carry out attacking an enemy with a weapon:
 			now the noun is encountered;
 		if the hit points of the noun <= 0:
 			now the noun is dead;
-			say "[line break]You have defeated [the noun]!";
+			say "You have defeated [the noun]!";
 		otherwise:
-			say "[health-status of noun]";
+			say "└[health-status of noun][line break]";
 
 Slashing is an action applying to nothing. Understand "slash" as slashing.
 Thrusting is an action applying to nothing. Understand "thrust" as thrusting.
@@ -787,12 +794,12 @@ Carry out slashing:
 	decrease the stamina of the player by the stamina cost of slashing;
 	say "You slash at [the target] for [damage] damage!";
 	decrease the hit points of the target by damage;
-	say "[health-status of target]";
+	say "└[health-status of target][line break]";
 	if the target is unencountered:
 		now the target is encountered;
 	if the hit points of the target <= 0:
 		now the target is dead;
-		say "[line break]You have slain [the target]!".
+		say "You have slain [the target]!".
 
 Check thrusting:
 	if the player is not wielding a weapon:
@@ -812,12 +819,12 @@ Carry out thrusting:
 	decrease the stamina of the player by the stamina cost of thrusting;
 	say "You thrust at [the target] for [damage] damage!";
 	decrease the hit points of the target by damage;
-	say "[health-status of target]";
+	say "└[health-status of target][line break]";
 	if the target is unencountered:
 		now the target is encountered;
 	if the hit points of the target <= 0:
 		now the target is dead;
-		say "[line break]You have defeated [the target]!".
+		say "You have defeated [the target]!".
 
 Check heavy swinging:
 	if the player is not wielding a weapon:
@@ -837,12 +844,12 @@ Carry out heavy swinging:
 	decrease the stamina of the player by the stamina cost of heavy swinging;
 	say "You swing heavily at [the target] for [damage] damage!";
 	decrease the hit points of the target by damage;
-	say "[health-status of target]";
+	say "└[health-status of target][line break]";
 	if the target is unencountered:
 		now the target is encountered;
 	if the hit points of the target <= 0:
 		now the target is dead;
-		say "[line break]You have defeated [the target]!".
+		say "You have defeated [the target]!".
 
 Section - Combat Scene
 
@@ -901,23 +908,23 @@ Instead of going a direction (called way) from a room when an undefeated unencou
 	otherwise:
 		continue the action.
 
-Section - Adjusted Damage
+Section - Enemy Attack and Adjusted Damage
 
 To decide which number is the adjusted attack of (attacker - an enemy):
 	let base attack be the attack power of attacker;
 	if the player is parrying:
 		now the player is not parrying;
-		say "[line break]-> You successfully parry [the attacker]'s attack, reducing the damage!";
+		say "[line break]└You successfully parry [the attacker]'s attack, reducing the damage!";
 		let adjusted attack be base attack / 2;
 		decide on adjusted attack;
 	if the player is equipping a shield and the player is blocking:
 		now the player is not blocking;
-		say "[line break]-> Your shield absorbs much of [the attacker]'s blow!";
+		say "[line break]└Your shield absorbs much of [the attacker]'s blow!";
 		let adjusted attack be base attack / 3;
 		decide on adjusted attack;
 	if the player is dodging:
 		now the player is not dodging;
-		say "[line break]-> You successfully dodge [the attacker]'s attack!";
+		say "[line break]└You successfully dodge [the attacker]'s attack!";
 		let adjusted attack be 0;
 		decide on adjusted attack;
 	decide on base attack.
@@ -926,7 +933,7 @@ Before an enemy (called attacker) attacking the player:
 	let damage be the adjusted attack of attacker;
 	say "[The attacker] attacks you for [damage] damage!";
 	decrease the hit points of the player by damage;
-	say "[player-status]";
+	say "└[player-status]";
 	check for player death;
 	stop the action.
 
@@ -1062,7 +1069,7 @@ To perform (attack - a special attack):
 	otherwise:
 		say "[line break]You take [actual damage] damage from [the name of attack]!";
 		decrease the hit points of the player by actual damage;
-		say "[player-status]";
+		say "└[player-status]";
 		follow the effect rule of attack;
 		check for player death.
 
@@ -1274,7 +1281,7 @@ Every turn during Combat:
 			increase special attack counter by 1;
 			if in recovery phase:
 				say "[recovery message of the next special attack]";
-				say "[line break][player-status]";
+				say "[line break]└[player-status]";
 			if special attack counter > 3:
 				now special attack counter is 0;
 				now all special attacks are untelegraphed;
@@ -1285,7 +1292,7 @@ Every turn during Combat:
 			now attack is telegraphed;
 			now special attack counter is 1;
 			say "[telegraph message of attack]";
-			say "[line break][player-status]";
+			say "[line break]└[player-status]";
 		otherwise if special attack counter is 2:
 			[Execute the telegraphed attack]
 			if the next special attack is telegraphed:
@@ -1294,8 +1301,8 @@ Every turn during Combat:
 		otherwise if special attack counter is 0:
 			[Normal attack or preparation]
 			if a random chance of 1 in 5 succeeds:
-				say "[The foe] is watching your movements carefully, waiting for an opening.";
-				say "[line break][player-status]";
+				say "[line break][The foe] is watching your movements carefully, waiting for an opening.";
+				say "└[player-status]";
 			otherwise:
 				try the foe attacking the player.
 
