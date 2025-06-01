@@ -473,8 +473,8 @@ Instead of drinking the Flask of Crimson Tears:
 		increase the hit points of the player by 60;
 		if the hit points of the player > the max hit points of the player:
 			now the hit points of the player is the max hit points of the player;
-		say "You drink from the Flask of Crimson Tears. The crimson liquid flows through you, mending your wounds and restoring your strength.[line break][health-status of player]";
-		say "The Flask has [charges of the Flask of Crimson Tears] use[if charges of the Flask of Crimson Tears is not 1]s[end if] remaining.".
+		say "You drink from the Flask of Crimson Tears. The crimson liquid flows through you, mending your wounds and restoring your strength.[line break]└[health-status of player]";
+		say " (The Flask has [charges of the Flask of Crimson Tears] use[if charges of the Flask of Crimson Tears is not 1]s[end if] remaining.)".
 
 After printing the name of the Flask of Crimson Tears:
 	say " ([charges of the Flask of Crimson Tears]/[max charges of the Flask of Crimson Tears])".
