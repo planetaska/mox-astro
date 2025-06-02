@@ -1627,14 +1627,14 @@ Below, in smaller text:
 'My oath binds me beyond death. Though my body may fail and my mind may fade, this armor shall continue my vigil. Let none pass who are unworthy of Her grace.'"
 
 Maera's Portrait is a lore item in the Antechamber.
-The description of Maera's Portrait is "A faded oil painting that somehow retains its luminous quality despite the ages. The portrait depicts a woman in flowing robes, surrounded by swirling celestial energy."
+The description of Maera's Portrait is "A faded oil painting that somehow retains its luminous quality despite the ages. The portrait depicts a woman in ornate armor, her sword raised triumphantly."
 The lore text of Maera's Portrait is "[bold type]Maera the Seeker[roman type]
 
-The portrait captures a moment of transcendent beauty. A woman stands with arms gracefully extended, her flowing robes - once pure white with golden trim - seem to move despite being mere paint on canvas.
+The portrait captures a moment of fierce determination. A woman stands with commanding presence, her right arm raised high, wielding a curved blade that catches the light. She is clad in ornate armor overlaid with flowing white cloth trimmed in gold.
 
-Her face is serene yet intense, with pale skin that seems to glow from within as if lit by moonlight. Long, dark hair streams behind her as though caught in an otherworldly wind. Most striking are her eyes - they burn with inner light, whispering one who has gazed upon truth.
+Her face radiates confidence and purpose, with warm skin that seems to glow from within as if lit by divine purpose. Long, dark hair cascades behind her, framing features set with unwavering resolve. Most striking are her eyes - they burn with the intensity of one who has found her calling and will not be deterred.
 
-The background swirls with abstract representations of stars and nebulae, and where her bare feet should touch the ground, the artist has painted not stone but stardust dissolving into shadow. Small motes of light drift around her like captive stars.
+The background swirls with abstract representations of stars and nebulae both sacred and otherworldly. Where she stands, the artist has painted not mere stone but a threshold between realms, with golden rays drifting upward like ascending prayers.
 
 A brass nameplate at the bottom reads: 'Maera the Seeker, First Year of Pilgrimage'
 
