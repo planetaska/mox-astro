@@ -919,25 +919,31 @@ Section - Enemy Attack and Adjusted Damage
 To decide which number is the adjusted damage of (raw damage - a number):
 	[let base damage be the attack power of attacker;]
 	if the player is parrying:
-		now the player is not parrying;
-		say "[line break]└You successfully parry the attack, reducing the damage!";
 		let adjusted damage be raw damage / 2;
 		decide on adjusted damage;
 	if the player is equipping a shield and the player is blocking:
-		now the player is not blocking;
-		say "[line break]└Your shield absorbs much of the blow!";
 		let adjusted damage be raw damage / 3;
 		decide on adjusted damage;
 	if the player is dodging:
-		now the player is not dodging;
-		say "[line break]└You successfully dodge the attack!";
 		let adjusted damage be 0;
 		decide on adjusted damage;
 	decide on raw damage.
 
+To resolve adjusted damage:
+	if the player is parrying:
+		now the player is not parrying;
+		say "[line break]└You successfully parry the attack, reducing the damage!";
+	if the player is equipping a shield and the player is blocking:
+		now the player is not blocking;
+		say "[line break]└Your shield absorbs much of the blow!";
+	if the player is dodging:
+		now the player is not dodging;
+		say "[line break]└You successfully dodge the attack!".
+
 Before an enemy (called attacker) attacking the player:
 	let damage be the adjusted damage of the attack power of the attacker;
 	say "[The attacker] attacks you for [damage] damage!";
+	resolve adjusted damage;
 	decrease the hit points of the player by damage;
 	say "└[player-status]";
 	check for player death;
@@ -1074,6 +1080,7 @@ To perform (attack - a special attack):
 	say "[description of attack]";
 	[let damage be the base damage of attack;]
 	let actual damage be the adjusted damage of the base damage of attack;
+	resolve adjusted damage;
 	if actual damage is 0:
 		say "[player-status][line break]";
 		follow the effect rule of attack;
