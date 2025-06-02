@@ -1324,7 +1324,7 @@ Section - Death Check and Processing
 To check for player death:
 	if the hit points of the player <= 0:
 		now the player is dead;
-		say "[line break]YOU DIED[line break]";
+		say "[line break]YOU DIED[paragraph break]";
 		die and return.
 
 To die and return:
@@ -1339,7 +1339,9 @@ To die and return:
 	now combat turn counter is 0;
 	[Ensure the location is not combat-locked]
 	now the location of the player is combat-unlocked;
-	say "Darkness claims you, but the cold embrace of death rejects your presence. The golden-blue flame that you kindled calls to your essence across the void.[paragraph break]";
+	say "Darkness claims you, but the cold embrace of death rejects your presence. The golden-blue flame that you kindled calls to your essence across the void.[line break]";
+	say "(Press any key to continue)[paragraph break]";
+	wait for any key;
 	let revival location be the last bonfire room;
 	move the player to revival location;
 	now the player is alive;
@@ -1831,26 +1833,13 @@ Carry out asking for help:
 	say "  TOUCH/LIGHT BONFIRE - Light a bonfire[line break]";
 	say "  REST AT BONFIRE - Rest to recover HP, stamina, and flask charges[line break]";
 	say "[line break]";
-	say "Combat commands:[line break]";
-	say "  SLASH - Quick slashing attack[line break]";
-	say "  THRUST - Fast piercing attack[line break]";
-	say "  HEAVY SWING - Powerful heavy attack[line break]";
-	say "  ATTACK [bracket]enemy[close bracket] WITH [bracket]weapon[close bracket] - Attack with equipped weapon[line break]";
-	say "  PARRY - Prepare to parry next attack[line break]";
-	say "  BLOCK - Raise shield to block (requires shield)[line break]";
-	say "  DODGE - Roll to avoid damage[line break]";
-	say "  BREATHE - Recover stamina quickly[line break]";
+	say "Detailed help commands:[line break]";
 	say "  HELP COMBAT - Show attack damage and stamina costs[line break]";
-	say "[line break]";
-	say "Equipment commands:[line break]";
-	say "  WIELD/EQUIP [bracket]weapon/shield[close bracket] - Equip a weapon or shield[line break]";
-	say "  UNWIELD [bracket]weapon[close bracket] - Stop wielding a weapon[line break]";
-	say "  UNEQUIP [bracket]shield[close bracket] - Remove equipped shield[line break]";
-	say "  EQ/EQUIPPED - Show currently equipped items[line break]";
+	say "  HELP EQUIPMENT - Show attack damage and stamina costs[line break]";
 	say "[line break]";
 	say "Other commands:[line break]";
-	say "  DRINK/USE/SIP FLASK - Drink Flask of Crimson Tears to recover HP[line break]";
 	say "  STAT - Check your current HP and stamina[line break]";
+	say "  EQ/EQUIPPED - Show currently equipped items[line break]";
 	say "  DISARM [bracket]trap[close bracket] - Disable a trap (requires item)[line break]";
 	say "[line break]";
 	say "[italic type]Death is expected. Each death teaches you something new.[roman type]".
@@ -1876,7 +1865,19 @@ Carry out asking for combat help:
 	say "  Parry: 50% damage reduction, [the stamina cost of parrying] stamina[line break]";
 	say "  Block: 67% damage reduction, [the stamina cost of blocking] stamina (shield required)[line break]";
 	say "  Dodge: 100% damage reduction, [the stamina cost of dodging] stamina[line break]";
-	say "  Breathe: +80 stamina recovery[line break]".
+	say "  Breathe/B: +80 stamina recovery[line break]";
+	say "  Drink/use/sip flask - Drink Flask of Crimson Tears to recover HP[line break]".
+
+Understand "help equipment" as asking for equipment help.
+Asking for equipment help is an action out of world.
+Carry out asking for equipment help:
+	say "Equipment commands:[line break]";
+	say "  WIELD/EQUIP [bracket]weapon/shield[close bracket] - Equip a weapon or shield[line break]";
+	say "  UNWIELD [bracket]weapon[close bracket] - Stop wielding a weapon[line break]";
+	say "  UNEQUIP [bracket]shield[close bracket] - Remove equipped shield[line break]";
+	say "[line break]";
+	say "You can equip either a two-handed weapon, or a one-handed weapon with a shield.";
+
 
 Section - Test Command
 
