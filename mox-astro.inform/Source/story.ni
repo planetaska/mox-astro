@@ -258,13 +258,13 @@ To die and return:
 	try looking.
 
 [Place bonfires in specific rooms]
-Entrance Bonfire is a bonfire in Entrance Passage. "A bonfire arrangement rests against the wall, [if unlit]its ashes cold and waiting[otherwise]burning with an ethereal golden-blue flame[end if]."
+Entrance Bonfire is a bonfire in Entrance Passage. "A [o]bonfire[x] arrangement rests against the wall, [if unlit]its ashes cold and waiting[otherwise]burning with an ethereal golden-blue flame[end if]."
 
-Antechamber Bonfire is a bonfire in Antechamber. "Against the far wall, a bonfire [if unlit]lies dormant, its bones arranged in solemn ceremony[otherwise]dances with strange blue-gold flames that cast shifting constellation patterns across the dome above[end if]."
+Antechamber Bonfire is a bonfire in Antechamber. "Against the far wall, a [o]bonfire[x] [if unlit]lies dormant, its bones arranged in solemn ceremony[otherwise]dances with strange blue-gold flames that cast shifting constellation patterns across the dome above[end if]."
 
-Corridors Bonfire is a bonfire. "Hidden in a small alcove, a bonfire [if unlit]waits to be rekindled, its placement suggesting the labyrinth itself recognizes those who master its patterns[otherwise]burns with gentle flames[end if]."
+Corridors Bonfire is a bonfire. "Hidden in a small alcove, a [o]bonfire[x] [if unlit]waits to be rekindled, its placement suggesting the labyrinth itself recognizes those who master its patterns[otherwise]burns with gentle flames[end if]."
 
-Sanctum Bonfire is a bonfire in Duskrose Sanctum. "Beside the pedestal, a bonfire [if unlit]waits in silent vigil, its arrangement more intricate than the others you've encountered[otherwise]burns with unusual intensity, its flames reaching higher as if straining toward the skylight above[end if]."
+Sanctum Bonfire is a bonfire in Duskrose Sanctum. "Beside the pedestal, a [o]bonfire[x] [if unlit]waits in silent vigil, its arrangement more intricate than the others you've encountered[otherwise]burns with unusual intensity, its flames reaching higher as if straining toward the skylight above[end if]."
 
 Part - Death Traps
 [Implementation helped by Claude.ai]
@@ -890,14 +890,6 @@ When Combat begins:
 	say "[line break][health-status of the foe]";
 	say "[line break][health-status of the player]".
 
-[Ensure combat state is properly reset after the player dies and returns]
-After looking when the player is in a room (called R) and the player-deaths > 0 and Combat is not happening:
-	repeat with foe running through enemies in R:
-		if foe is alive and foe is undefeated:
-			now special attack counter is 0;
-			now all special attacks are untelegraphed;
-			now combat turn counter is 0;
-	continue the action.
 
 Section - Movement Restrictions
 
