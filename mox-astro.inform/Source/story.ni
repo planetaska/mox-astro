@@ -656,7 +656,7 @@ The max hit points of the Headless Armor is 125.
 The initial attack power of the Headless Armor is 35.
 The description of the Headless Armor is "An ancient suit of armor animated by ethereal blue energy. Where its head should be, only darkness remains."
 The activate description of the Headless Armor is "The Headless Armor stands motionless among its fallen brethren. As you approach, a ethereal blue glow begins to emanate from within its hollow chest. Slowly, methodically, it raises its ancient blade, the metal scraping against its armored form with a sound like distant thunder."
-The reactive description of the Headless Armor is "TODO."
+The reactive description of the Headless Armor is "The Headless Armor's ethereal glow flickers with renewed intensity as your attack strikes home. Dents and scratches mar its ancient plates, yet it moves with the same methodical precision, its hollow form seemingly immune to pain or fatigue."
 The defeat description of the Headless Armor is "The Headless Armor shudders violently, then collapses in a heap of metal. A soft blue light rises from the remains, hovering momentarily before dissipating with a whisper that sounds almost like 'freedom.'"
 
 The Ghost Dancers are an enemy in the Antechamber.
@@ -667,7 +667,8 @@ The max hit points of the Ghost Dancers is 80.
 The initial attack power of the Ghost Dancers is 25.
 The description of the Ghost Dancers is "Spectral figures that weave through the air in a mournful dance. Their translucent forms shimmer with ethereal light, and their movements are both beautiful and deadly."
 The activate description of the Ghost Dancers is "The air around you grows cold as your presence disturbs their eternal dance. Motes of pale blue light begin to coalesce more densely, forming clearer shapes of dancing specters. They circle you in a haunting ballet, their hollow eyes now fixed upon your every movement with growing intensity."
-The reactive description of the Ghost Dancers is "TODO."
+The reactive description of the Ghost Dancers is "The Ghost Dancers' ethereal forms waver and distort where your weapon has passed through them, their spectral essence scattering before reforming with increased agitation. Their mournful dance becomes more erratic, more desperate, as if your attacks remind them of the mortality they've lost."
+The reactive description of the Headless Armor is "The Headless Armor's ethereal glow flickers with renewed intensity as your attack strikes home. Dents and scratches mar its ancient plates, yet it moves with the same methodical precision, its hollow form seemingly immune to pain or fatigue."
 The defeat description of the Ghost Dancers is "The spectral dancers pause in their eternal waltz, their forms growing increasingly transparent. They gather in a circle, hands joining one last time before they dissolve into motes of starlight that drift upward through the domed ceiling. In their absence, you hear fragments of their story - how they followed Maera the Devout in her quest."
 
 The Cursed Beast is an enemy in Beast's Nest.
@@ -678,7 +679,7 @@ The max hit points of the Cursed Beast is 180.
 The initial attack power of the Cursed Beast is 38.
 The description of the Cursed Beast is "A creature of pure golden light corrupted by shadow, sealed within the labyrinth by the Duskrose. Its form shifts constantly, part majestic stag, part serpent, part something wholly unknowable."
 The activate description of the Cursed Beast is "A low growl echoes through the twisted corridors, seeming to come from everywhere and nowhere at once. The shadows before you congeal into a mass of writhing darkness shot through with veins of corrupted gold. The Cursed Beast manifests fully, its form a nightmarish amalgamation of beasts both familiar and alien."
-The reactive description of the Cursed Beast is "TODO."
+The reactive description of the Cursed Beast is "Your strikes seem to wound the Cursed Beast's form, causing sections of its shadowy mass to dissipate only to reform moments later. The corrupted golden veins pulse more frantically now, and its shapeshifting becomes more violent and unpredictable, as if the damage is driving the corruption deeper into madness."
 The defeat description of the Cursed Beast is "The Cursed Beast thrashes wildly as its form begins to come apart, the corruption that sustained it unraveling. With a final, agonized roar that echoes throughout the winding corridors, it explodes into fragments of shadow and corrupted light. As the last motes fade, a sense of ancient relief fills the air, as if something long tormented has finally found peace."
 
 The Spirit of Vesper is an enemy in the Burial Chamber.
@@ -689,7 +690,7 @@ The max hit points of the Spirit of Vesper is 160.
 The initial attack power of the Spirit of Vesper is 36.
 The description of the Spirit of Vesper is "Unlike the mindless Headless Armor, this is Vesper's true consciousness preserved by the Duskrose's power. He appears as a noble knight wreathed in spectral blue flame, his eyes wells of ancient sorrow."
 The activate description of the Spirit of Vesper is "'Seeker of the Star Leaf,' he intones, his voice like wind through ancient ruins. 'I am Vesper, First Follower of the Duskrose. By my oath, none may pass who have not proven their worth. Draw your weapon, Starbound.'"
-The reactive description of the Spirit of Vesper is "TODO."
+The reactive description of the Spirit of Vesper is "Vesper's spectral form flickers where your blade has struck, blue flames dancing around the wounds that heal almost as quickly as they're made. His expression remains resolute, though you catch a glimmer of approval in his ancient eyes. 'Your skill honors the blade you carry, Starbound. But I must test you further.'"
 The defeat description of the Spirit of Vesper is "Vesper drops to one knee, his spectral sword clattering to the ground before dissolving into light. He looks up at you, a smile flickering across his translucent features.
 
 'Well fought, Starbound. Your purpose... it resonates with what we once sought.' His form begins to fade, but his voice remains steady.
