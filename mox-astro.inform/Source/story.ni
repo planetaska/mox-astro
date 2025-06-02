@@ -39,7 +39,7 @@ Duskrose Labyrinth is a region.
 Entrance Passage is a room in Duskrose Labyrinth.
 "You stand in the Entrance Passage, where fading dusklight filters through cracks in the Onyx stone above, casting long golden veins across the dark floor. The air is cool and dry, untouched by time. Faint [carvings] shimmer faintly - celestial runes in praise of the Moon. To the north, an iron door lies slightly ajar, its hinges groaning like a beast slumbering too long."
 
-The carvings is a scenery in the Entrance Passage. "The carvings shapes like celestial bodies."
+The carvings is a scenery in the Entrance Passage. "Ancient runes spiral across the stone in delicate patterns, their lines filled with silver dust that catches the fading light."
 
 Guardroom is a room in Duskrose Labyrinth.
 "The Guardroom bears silent witness to forgotten duty. Weathered suits of armor - headless, some pierced through - stand slouched against the walls, their surfaces dulled by dust and disuse. A pale blue flame dances in a brazier at the center, casting distorted shadows that writhe like phantoms. The passage stretches west toward an antechamber, half-obscured by hanging moss and forgotten banners, and to the south back toward the entrance."
@@ -1406,14 +1406,18 @@ Recall begins when we have examined the carvings.
 Recall ends when Recall begins.
 
 When Recall begins:
-	say "The carvings makes you recall the journey until this point.
+	say "As you trace the silver-filled grooves with your fingertips, the carvings seem to resonate with your touch. A chill runs through your armor, and for a moment, your vision blurs...
+	
+(Press any key to continue)[paragraph break]";
+	wait for any key;
+	say "You see yourself as if from above - a lone figure on a spectral steed, racing across ash-grey plains beneath three pale moons. The memory of Ranni's voice echoes in your mind, each word crystalline with purpose: 'The Star Leaf blooms only where light surrenders to shadow. Seek the one who walked this path before us.'
 
-For weeks, you have traversed forgotten valleys and scaled treacherous peaks. Ancient texts and dying whispers have all pointed to one location: the Duskrose Labyrinth. A place spoken of in hushed tones by scholars and madmen alike, said to house treasures beyond mortal comprehension.
+The vision shifts. You remember the scholar in Leyndell's ruins, mad with age but lucid in his final moments: 'The Duskrose... she who was Maera... keeper of the threshold... in her labyrinth lies what you seek...' His words had dissolved into laughter, then silence.
 
-The journey has not been without sacrifice. Blood has been spilled, oaths have been sworn, and companions have been lost to the shadows. Yet you persevere, driven by devotion to Ranni's vision – a cosmic order free from the dictates of capricious gods."
+Another flash - your last companion falling to the Crucible Knight that guarded the valley's entrance. Their final gesture had been to point you onward, blood-flecked lips forming the word: 'Go.'
 
-[When Recall ends:
-	say "foo".]
+The visions fade, leaving you standing before the entrance once more. The carvings' silver dust glows faintly. Whatever trials await within, they are merely the culmination of a journey already steeped in sacrifice."
+
 
 Chapter - NPCs
 
