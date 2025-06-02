@@ -437,13 +437,11 @@ Check breathing:
 		say "Your breathing is already steady. You don't need to catch your breath." instead.
 
 Carry out breathing:
-	increase the stamina of the player by 60;
-	if the stamina of the player > the max stamina of the player:
-		now the stamina of the player is the max stamina of the player;
+	now the stamina of the player is the max stamina of the player;
 	say "You take a moment to catch your breath, steadying yourself. Your stamina recovers.[line break][player-status]".
 
 Instead of breathing during Combat:
-	increase the stamina of the player by 60;
+	increase the stamina of the player by 80;
 	if the stamina of the player > the max stamina of the player:
 		now the stamina of the player is the max stamina of the player;
 	say "You take a quick, deep breath in the midst of battle, regaining some of your strength.[line break][player-status][line break]";
@@ -867,6 +865,7 @@ Combat is a recurring scene.
 
 Combat begins when there is an alive encountered undefeated enemy in the location of the player.
 Combat ends when every enemy in the location of the player is defeated or the player is dead.
+Combat help hinted is a truth state that varies. Combat help hinted is false.
 
 A room can be combat-locked or combat-unlocked. A room is usually combat-unlocked.
 
@@ -887,6 +886,9 @@ When Combat begins:
 		if the reactive description of foe is not "":
 			say "[reactive description of foe][paragraph break]";
 		[try the foe attacking the player.]
+	if Combat help hinted is false:
+		now Combat help hinted is true;
+		say "[line break]Type HELP COMBAT for help";
 	say "[line break][health-status of the foe]";
 	say "[line break][health-status of the player]".
 
@@ -1861,18 +1863,20 @@ Carry out asking for combat help:
 		now base-damage is the damage of the weapon;
 	say "ATTACK ACTIONS:[line break]";
 	if base-damage > 0:
-		say "  Slash: [base-damage + 6] damage, [the stamina cost of slashing] stamina[line break]";
-		say "  Thrust: [base-damage - 3] damage, [the stamina cost of thrusting] stamina[line break]";
-		say "  Heavy Swing: [base-damage + 15] damage, [the stamina cost of heavy swinging] stamina[line break]";
+		say "  Attack: [base-damage] damage, [the stamina cost of attacking] stamina[line break]";
+		say "  Slash: [base-damage + slash modifier] damage, [the stamina cost of slashing] stamina[line break]";
+		say "  Thrust: [base-damage - thrust modifier] damage, [the stamina cost of thrusting] stamina[line break]";
+		say "  Heavy Swing: [base-damage + heavy swing modifier] damage, [the stamina cost of heavy swinging] stamina[line break]";
 	otherwise:
-		say "  Slash: +6 damage, [the stamina cost of slashing] stamina[line break]";
-		say "  Thrust: -3 damage, [the stamina cost of thrusting] stamina[line break]";
-		say "  Heavy Swing: +15 damage, [the stamina cost of heavy swinging] stamina[line break]";
+		say "  Attack: +0 damage, [the stamina cost of attacking] stamina[line break]";
+		say "  Slash: +[slash modifier] damage, [the stamina cost of slashing] stamina[line break]";
+		say "  Thrust: [thrust modifier] damage, [the stamina cost of thrusting] stamina[line break]";
+		say "  Heavy Swing: +[heavy swing modifier] damage, [the stamina cost of heavy swinging] stamina[line break]";
 	say "[line break]DEFENSE ACTIONS:[line break]";
 	say "  Parry: 50% damage reduction, [the stamina cost of parrying] stamina[line break]";
 	say "  Block: 67% damage reduction, [the stamina cost of blocking] stamina (shield required)[line break]";
 	say "  Dodge: 100% damage reduction, [the stamina cost of dodging] stamina[line break]";
-	say "  Breathe: +60 stamina recovery[line break]".
+	say "  Breathe: +80 stamina recovery[line break]".
 
 Section - Test Command
 
