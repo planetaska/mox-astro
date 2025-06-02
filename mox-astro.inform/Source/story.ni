@@ -650,9 +650,9 @@ An enemy can be calm or frenzied. An enemy is usually calm.
 The Headless Armor is an enemy in the Guardroom.
 The Headless Armor is alive and undefeated.
 The Headless Armor is passive.
-The hit points of the Headless Armor is 75.
-The max hit points of the Headless Armor is 75.
-The initial attack power of the Headless Armor is 25.
+The hit points of the Headless Armor is 125.
+The max hit points of the Headless Armor is 125.
+The initial attack power of the Headless Armor is 35.
 The description of the Headless Armor is "An ancient suit of armor animated by ethereal blue energy. Where its head should be, only darkness remains."
 The waiting description of the Headless Armor is "The Headless Armor stands motionless among its fallen brethren. As you approach, a ethereal blue glow begins to emanate from within its hollow chest. Slowly, methodically, it raises its ancient blade, the metal scraping against its armored form with a sound like distant thunder."
 The defeat description of the Headless Armor is "The Headless Armor shudders violently, then collapses in a heap of metal. A soft blue light rises from the remains, hovering momentarily before dissipating with a whisper that sounds almost like 'freedom.'"
@@ -660,9 +660,9 @@ The defeat description of the Headless Armor is "The Headless Armor shudders vio
 The Ghost Dancers are an enemy in the Antechamber.
 The Ghost Dancers are alive and undefeated.
 The Ghost Dancers are aggressive.
-The hit points of the Ghost Dancers is 60.
-The max hit points of the Ghost Dancers is 60. 
-The initial attack power of the Ghost Dancers is 15.
+The hit points of the Ghost Dancers is 80.
+The max hit points of the Ghost Dancers is 80.
+The initial attack power of the Ghost Dancers is 25.
 The description of the Ghost Dancers is "Spectral figures that weave through the air in a mournful dance. Their translucent forms shimmer with ethereal light, and their movements are both beautiful and deadly."
 The waiting description of the Ghost Dancers is "The air around you grows cold as your presence disturbs their eternal dance. Motes of pale blue light begin to coalesce more densely, forming clearer shapes of dancing specters. They circle you in a haunting ballet, their hollow eyes now fixed upon your every movement with growing intensity."
 The defeat description of the Ghost Dancers is "The spectral dancers pause in their eternal waltz, their forms growing increasingly transparent. They gather in a circle, hands joining one last time before they dissolve into motes of starlight that drift upward through the domed ceiling. In their absence, you hear fragments of their story - how they followed Maera the Devout in her quest."
@@ -670,9 +670,9 @@ The defeat description of the Ghost Dancers is "The spectral dancers pause in th
 The Cursed Beast is an enemy in Beast's Nest.
 The Cursed Beast is alive and undefeated.
 The Cursed Beast is aggressive.
-The hit points of the Cursed Beast is 100.
-The max hit points of the Cursed Beast is 100.
-The initial attack power of the Cursed Beast is 28.
+The hit points of the Cursed Beast is 180.
+The max hit points of the Cursed Beast is 180.
+The initial attack power of the Cursed Beast is 38.
 The description of the Cursed Beast is "A creature of pure golden light corrupted by shadow, sealed within the labyrinth by the Duskrose. Its form shifts constantly, part majestic stag, part serpent, part something wholly unknowable."
 The waiting description of the Cursed Beast is "A low growl echoes through the twisted corridors, seeming to come from everywhere and nowhere at once. The shadows before you congeal into a mass of writhing darkness shot through with veins of corrupted gold. The Cursed Beast manifests fully, its form a nightmarish amalgamation of beasts both familiar and alien."
 The defeat description of the Cursed Beast is "The Cursed Beast thrashes wildly as its form begins to come apart, the corruption that sustained it unraveling. With a final, agonized roar that echoes throughout the winding corridors, it explodes into fragments of shadow and corrupted light. As the last motes fade, a sense of ancient relief fills the air, as if something long tormented has finally found peace."
@@ -680,8 +680,8 @@ The defeat description of the Cursed Beast is "The Cursed Beast thrashes wildly 
 The Spirit of Vesper is an enemy in the Burial Chamber.
 The Spirit of Vesper is alive and undefeated.
 The Spirit of Vesper is passive.
-The hit points of the Spirit of Vesper is 120.
-The max hit points of the Spirit of Vesper is 120.
+The hit points of the Spirit of Vesper is 160.
+The max hit points of the Spirit of Vesper is 160.
 The initial attack power of the Spirit of Vesper is 36.
 The description of the Spirit of Vesper is "Unlike the mindless Headless Armor, this is Vesper's true consciousness preserved by the Duskrose's power. He appears as a noble knight wreathed in spectral blue flame, his eyes wells of ancient sorrow."
 The waiting description of the Spirit of Vesper is "'Seeker of the Star Leaf,' he intones, his voice like wind through ancient ruins. 'I am Vesper, First Follower of the Duskrose. By my oath, none may pass who have not proven their worth. Draw your weapon, Starbound.'"
@@ -914,27 +914,27 @@ Instead of going a direction (called way) from a room when an undefeated unencou
 
 Section - Enemy Attack and Adjusted Damage
 
-To decide which number is the adjusted attack of (attacker - an enemy):
-	let base attack be the attack power of attacker;
+To decide which number is the adjusted damage of (raw damage - a number):
+	[let base damage be the attack power of attacker;]
 	if the player is parrying:
 		now the player is not parrying;
-		say "[line break]└You successfully parry [the attacker]'s attack, reducing the damage!";
-		let adjusted attack be base attack / 2;
-		decide on adjusted attack;
+		say "[line break]└You successfully parry the attack, reducing the damage!";
+		let adjusted damage be raw damage / 2;
+		decide on adjusted damage;
 	if the player is equipping a shield and the player is blocking:
 		now the player is not blocking;
-		say "[line break]└Your shield absorbs much of [the attacker]'s blow!";
-		let adjusted attack be base attack / 3;
-		decide on adjusted attack;
+		say "[line break]└Your shield absorbs much of the blow!";
+		let adjusted damage be raw damage / 3;
+		decide on adjusted damage;
 	if the player is dodging:
 		now the player is not dodging;
-		say "[line break]└You successfully dodge [the attacker]'s attack!";
-		let adjusted attack be 0;
-		decide on adjusted attack;
-	decide on base attack.
+		say "[line break]└You successfully dodge the attack!";
+		let adjusted damage be 0;
+		decide on adjusted damage;
+	decide on raw damage.
 
 Before an enemy (called attacker) attacking the player:
-	let damage be the adjusted attack of attacker;
+	let damage be the adjusted damage of the attack power of the attacker;
 	say "[The attacker] attacks you for [damage] damage!";
 	decrease the hit points of the player by damage;
 	say "└[player-status]";
@@ -1070,8 +1070,8 @@ A special attack has an enemy called owner.
 
 To perform (attack - a special attack):
 	say "[description of attack]";
-	let damage be the base damage of attack;
-	let actual damage be the adjusted attack of the owner of attack;
+	[let damage be the base damage of attack;]
+	let actual damage be the adjusted damage of the base damage of attack;
 	if actual damage is 0:
 		say "You completely avoid the attack!";
 		follow the effect rule of attack;
@@ -1088,7 +1088,7 @@ Section - Enemy Special Attacks
 The overhead slash is a special attack.
 The name of the overhead slash is "Overhead Slash".
 The description of the overhead slash is "The Headless Armor performs a devastating overhead slash!".
-The base damage of the overhead slash is 40.
+The base damage of the overhead slash is 60.
 The effect rule of the overhead slash is the overhead slash effect rule.
 The owner of the overhead slash is the Headless Armor.
 
@@ -1099,7 +1099,7 @@ This is the overhead slash effect rule:
 The sweeping attack is a special attack.
 The name of the sweeping attack is "Sweeping Attack".
 The description of the sweeping attack is "The Headless Armor performs a wide sweeping attack!".
-The base damage of the sweeping attack is 32.
+The base damage of the sweeping attack is 42.
 The effect rule of the sweeping attack is the sweeping attack effect rule.
 The owner of the sweeping attack is the Headless Armor.
 
@@ -1111,7 +1111,7 @@ This is the sweeping attack effect rule:
 The spectral tornado is a special attack.
 The name of the spectral tornado is "Spectral Tornado".
 The description of the spectral tornado is "The Ghost Dancers swirl around you in a spectral tornado, their ethereal forms passing through your body!".
-The base damage of the spectral tornado is 25.
+The base damage of the spectral tornado is 35.
 The effect rule of the spectral tornado is the spectral tornado effect rule.
 The owner of the spectral tornado is the Ghost Dancers.
 
@@ -1122,7 +1122,7 @@ This is the spectral tornado effect rule:
 The mournful dirge is a special attack.
 The name of the mournful dirge is "Mournful Dirge".
 The description of the mournful dirge is "The Ghost Dancers perform a mournful dirge that seems to pull at your very life force!".
-The base damage of the mournful dirge is 18.
+The base damage of the mournful dirge is 48.
 The effect rule of the mournful dirge is the mournful dirge effect rule.
 The owner of the mournful dirge is the Ghost Dancers.
 
@@ -1134,7 +1134,7 @@ This is the mournful dirge effect rule:
 The corruption blast is a special attack.
 The name of the corruption blast is "Corruption Blast".
 The description of the corruption blast is "The Cursed Beast rears up and releases a blast of corrupted golden light!".
-The base damage of the corruption blast is 42.
+The base damage of the corruption blast is 72.
 The effect rule of the corruption blast is the corruption blast effect rule.
 The owner of the corruption blast is the Cursed Beast.
 
@@ -1145,7 +1145,7 @@ This is the corruption blast effect rule:
 The shifting limbs is a special attack.
 The name of the shifting limbs is "Shifting Limbs".
 The description of the shifting limbs is "The Cursed Beast's form shifts rapidly, lashing out with multiple limbs simultaneously!".
-The base damage of the shifting limbs is 35.
+The base damage of the shifting limbs is 68.
 The effect rule of the shifting limbs is the shifting limbs effect rule.
 The owner of the shifting limbs is the Cursed Beast.
 
@@ -1156,7 +1156,7 @@ This is the shifting limbs effect rule:
 The corruption shockwave is a special attack.
 The name of the corruption shockwave is "Corruption Shockwave".
 The description of the corruption shockwave is "The Cursed Beast slams into the ground, sending a shockwave of corrupted energy through the floor!".
-The base damage of the corruption shockwave is 28.
+The base damage of the corruption shockwave is 52.
 The effect rule of the corruption shockwave is the corruption shockwave effect rule.
 The owner of the corruption shockwave is the Cursed Beast.
 
@@ -1168,7 +1168,7 @@ This is the corruption shockwave effect rule:
 The moonlight slash is a special attack.
 The name of the moonlight slash is "Moonlight Slash".
 The description of the moonlight slash is "Vesper raises his spectral blade, which glows with ethereal moonlight before he brings it down in a perfect arc!".
-The base damage of the moonlight slash is 45.
+The base damage of the moonlight slash is 75.
 The effect rule of the moonlight slash is the moonlight slash effect rule.
 The owner of the moonlight slash is the Spirit of Vesper.
 
@@ -1179,7 +1179,7 @@ This is the moonlight slash effect rule:
 The perfect thrust is a special attack.
 The name of the perfect thrust is "Perfect Thrust".
 The description of the perfect thrust is "Vesper performs a perfect thrust, his spectral blade aimed at your heart with unerring precision!".
-The base damage of the perfect thrust is 40.
+The base damage of the perfect thrust is 80.
 The effect rule of the perfect thrust is the perfect thrust effect rule.
 The owner of the perfect thrust is the Spirit of Vesper.
 
@@ -1192,7 +1192,7 @@ This is the perfect thrust effect rule:
 The phantom duplicates is a special attack.
 The name of the phantom duplicates is "Phantom Duplicates".
 The description of the phantom duplicates is "Vesper surrounds himself with spectral duplicates that all attack simultaneously!".
-The base damage of the phantom duplicates is 38.
+The base damage of the phantom duplicates is 72.
 The effect rule of the phantom duplicates is the phantom duplicates effect rule.
 The owner of the phantom duplicates is the Spirit of Vesper.
 
