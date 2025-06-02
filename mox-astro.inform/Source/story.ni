@@ -446,11 +446,11 @@ Instead of breathing during Combat:
 	increase the stamina of the player by 60;
 	if the stamina of the player > the max stamina of the player:
 		now the stamina of the player is the max stamina of the player;
-	say "You take a quick, deep breath in the midst of battle, regaining some of your strength.[line break][player-status]";
+	say "You take a quick, deep breath in the midst of battle, regaining some of your strength.[line break][player-status][line break]";
 	let foe be a random alive undefeated enemy in the location of the player;
 	if foe is not nothing:
 		if a random chance of 1 in 4 succeeds:
-			say "[line break]Your momentary pause gives [the foe] an opening to strike!";
+			say "Your momentary pause gives [the foe] an opening to strike!";
 			try the foe attacking the player.
 
 Section - Flask of Crimson Tears
@@ -642,7 +642,8 @@ An enemy is a kind of person. An enemy can be defeated or undefeated. An enemy i
 An enemy has a number called initial attack power. The initial attack power of an enemy is usually 10.
 An enemy has a number called attack power. The attack power of an enemy is usually 10.
 
-An enemy has a text called waiting description. The waiting description of an enemy is usually "".
+An enemy has a text called activate description. The activate description of an enemy is usually "".
+An enemy has a text called reactive description. The reactive description of an enemy is usually "".
 An enemy has a text called defeat description. The defeat description of an enemy is usually "".
 An enemy can be passive or aggressive. An enemy is usually passive.
 An enemy can be calm or frenzied. An enemy is usually calm.
@@ -654,7 +655,8 @@ The hit points of the Headless Armor is 125.
 The max hit points of the Headless Armor is 125.
 The initial attack power of the Headless Armor is 35.
 The description of the Headless Armor is "An ancient suit of armor animated by ethereal blue energy. Where its head should be, only darkness remains."
-The waiting description of the Headless Armor is "The Headless Armor stands motionless among its fallen brethren. As you approach, a ethereal blue glow begins to emanate from within its hollow chest. Slowly, methodically, it raises its ancient blade, the metal scraping against its armored form with a sound like distant thunder."
+The activate description of the Headless Armor is "The Headless Armor stands motionless among its fallen brethren. As you approach, a ethereal blue glow begins to emanate from within its hollow chest. Slowly, methodically, it raises its ancient blade, the metal scraping against its armored form with a sound like distant thunder."
+The reactive description of the Headless Armor is "TODO."
 The defeat description of the Headless Armor is "The Headless Armor shudders violently, then collapses in a heap of metal. A soft blue light rises from the remains, hovering momentarily before dissipating with a whisper that sounds almost like 'freedom.'"
 
 The Ghost Dancers are an enemy in the Antechamber.
@@ -664,7 +666,8 @@ The hit points of the Ghost Dancers is 80.
 The max hit points of the Ghost Dancers is 80.
 The initial attack power of the Ghost Dancers is 25.
 The description of the Ghost Dancers is "Spectral figures that weave through the air in a mournful dance. Their translucent forms shimmer with ethereal light, and their movements are both beautiful and deadly."
-The waiting description of the Ghost Dancers is "The air around you grows cold as your presence disturbs their eternal dance. Motes of pale blue light begin to coalesce more densely, forming clearer shapes of dancing specters. They circle you in a haunting ballet, their hollow eyes now fixed upon your every movement with growing intensity."
+The activate description of the Ghost Dancers is "The air around you grows cold as your presence disturbs their eternal dance. Motes of pale blue light begin to coalesce more densely, forming clearer shapes of dancing specters. They circle you in a haunting ballet, their hollow eyes now fixed upon your every movement with growing intensity."
+The reactive description of the Ghost Dancers is "TODO."
 The defeat description of the Ghost Dancers is "The spectral dancers pause in their eternal waltz, their forms growing increasingly transparent. They gather in a circle, hands joining one last time before they dissolve into motes of starlight that drift upward through the domed ceiling. In their absence, you hear fragments of their story - how they followed Maera the Devout in her quest."
 
 The Cursed Beast is an enemy in Beast's Nest.
@@ -674,7 +677,8 @@ The hit points of the Cursed Beast is 180.
 The max hit points of the Cursed Beast is 180.
 The initial attack power of the Cursed Beast is 38.
 The description of the Cursed Beast is "A creature of pure golden light corrupted by shadow, sealed within the labyrinth by the Duskrose. Its form shifts constantly, part majestic stag, part serpent, part something wholly unknowable."
-The waiting description of the Cursed Beast is "A low growl echoes through the twisted corridors, seeming to come from everywhere and nowhere at once. The shadows before you congeal into a mass of writhing darkness shot through with veins of corrupted gold. The Cursed Beast manifests fully, its form a nightmarish amalgamation of beasts both familiar and alien."
+The activate description of the Cursed Beast is "A low growl echoes through the twisted corridors, seeming to come from everywhere and nowhere at once. The shadows before you congeal into a mass of writhing darkness shot through with veins of corrupted gold. The Cursed Beast manifests fully, its form a nightmarish amalgamation of beasts both familiar and alien."
+The reactive description of the Cursed Beast is "TODO."
 The defeat description of the Cursed Beast is "The Cursed Beast thrashes wildly as its form begins to come apart, the corruption that sustained it unraveling. With a final, agonized roar that echoes throughout the winding corridors, it explodes into fragments of shadow and corrupted light. As the last motes fade, a sense of ancient relief fills the air, as if something long tormented has finally found peace."
 
 The Spirit of Vesper is an enemy in the Burial Chamber.
@@ -684,7 +688,8 @@ The hit points of the Spirit of Vesper is 160.
 The max hit points of the Spirit of Vesper is 160.
 The initial attack power of the Spirit of Vesper is 36.
 The description of the Spirit of Vesper is "Unlike the mindless Headless Armor, this is Vesper's true consciousness preserved by the Duskrose's power. He appears as a noble knight wreathed in spectral blue flame, his eyes wells of ancient sorrow."
-The waiting description of the Spirit of Vesper is "'Seeker of the Star Leaf,' he intones, his voice like wind through ancient ruins. 'I am Vesper, First Follower of the Duskrose. By my oath, none may pass who have not proven their worth. Draw your weapon, Starbound.'"
+The activate description of the Spirit of Vesper is "'Seeker of the Star Leaf,' he intones, his voice like wind through ancient ruins. 'I am Vesper, First Follower of the Duskrose. By my oath, none may pass who have not proven their worth. Draw your weapon, Starbound.'"
+The reactive description of the Spirit of Vesper is "TODO."
 The defeat description of the Spirit of Vesper is "Vesper drops to one knee, his spectral sword clattering to the ground before dissolving into light. He looks up at you, a smile flickering across his translucent features.
 
 'Well fought, Starbound. Your purpose... it resonates with what we once sought.' His form begins to fade, but his voice remains steady.
@@ -869,8 +874,8 @@ When Combat begins:
 	let foe be a random alive undefeated enemy in the location of the player;
 	if the hit points of the foe is the max hit points of the foe:
 		[triggered by looking]
-		if the waiting description of foe is not "":
-			say "[waiting description of foe][paragraph break]";
+		if the activate description of foe is not "":
+			say "[activate description of foe][paragraph break]";
 		if foe is aggressive:
 			say "[The foe] immediately moves to attack you!";
 			try the foe attacking the player;
@@ -878,9 +883,11 @@ When Combat begins:
 			say "([The foe] has noticed you. Get ready.)";
 	otherwise:
 		[triggered by attacking]
-		if the waiting description of foe is not "":
-			say "[waiting description of foe][paragraph break]";
-		try the foe attacking the player.
+		if the reactive description of foe is not "":
+			say "[reactive description of foe][paragraph break]";
+		[try the foe attacking the player.]
+	say "[line break][health-status of the foe]";
+	say "[line break][health-status of the player]".
 
 [Ensure combat state is properly reset after the player dies and returns]
 After looking when the player is in a room (called R) and the player-deaths > 0 and Combat is not happening:
@@ -1041,10 +1048,10 @@ First every turn when Combat is happening and the combat turn counter > 2:
 	otherwise:
 		let current_hp be the hit points of foe;
 		let max_hp be the max hit points of foe;
-		if foe is the Headless Armor and current_hp < (max_hp / 2):
+		if foe is the Headless Armor and current_hp < (max_hp / 2) and a random chance of 1 in 3 succeeds:
 			say "The Headless Armor draws itself up to its full height, its empty armor rattling with renewed vigor. It raises its sword in a defensive stance, seeming to gather its strength.";
 			increase the hit points of foe by 30;
-			say "[The foe] recovers some health![line break][health-status of foe]";
+			say "[The foe] recovers some health![line break]└[health-status of foe]";
 		if foe is the Ghost Dancers:
 			if a random chance of 1 in 3 succeeds:
 				say "The Ghost Dancers' movements become frenzied, a whirling storm of spectral limbs and mournful faces that becomes almost impossible to track.";
@@ -1073,12 +1080,12 @@ To perform (attack - a special attack):
 	[let damage be the base damage of attack;]
 	let actual damage be the adjusted damage of the base damage of attack;
 	if actual damage is 0:
-		say "You completely avoid the attack!";
+		say "[player-status][line break]";
 		follow the effect rule of attack;
 	otherwise:
 		say "[line break]You take [actual damage] damage from [the name of attack]!";
 		decrease the hit points of the player by actual damage;
-		say "└[player-status]";
+		say "└[player-status][line break]";
 		follow the effect rule of attack;
 		check for player death.
 
@@ -1310,7 +1317,7 @@ Every turn during Combat:
 		otherwise if special attack counter is 0:
 			[Normal attack or preparation]
 			if a random chance of 1 in 5 succeeds:
-				say "[line break][The foe] is watching your movements carefully, waiting for an opening.";
+				say "[The foe] is watching your movements carefully, waiting for an opening.";
 				say "└[player-status]";
 			otherwise:
 				try the foe attacking the player.
