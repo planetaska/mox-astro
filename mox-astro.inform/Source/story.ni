@@ -1590,13 +1590,15 @@ The wind carries the scent of ash and forgotten promises as the Starbound gazes 
 
 Three moons hang in the twilight sky – pale sentinels watching over a realm in transition. Their light catches on the Starbound's armor, crafted from meteorite metal and imbued with cosmic resonance. Such material marks the Starbound as one chosen by Ranni the Starweaver, former princess and architect of this new age.
 
-'Find the Astrophyllite,' Ranni had whispered, her voice like frost crystallizing in still air. 'The Star Leaf that blooms only in darkness. With it, I shall craft the Mox Astro – the key to our journey beneath the wisdom of the Dark Moon.'"
+'Find the Astrophyllite,' Ranni had whispered, her voice like frost crystallizing in still air. 'The Star Leaf that blooms only in darkness. With it, I shall craft the Mox Astro – the key to our journey beneath the wisdom of the Dark Moon.'
+
+The Starbound knelt before Ranni, placing a gauntleted fist over the heart in silent oath before departing. As the Starbound mounted their spectral steed, the weight of destiny settled upon armored shoulders like a familiar burden. The mount pawed at the ground with ethereal hooves, sensing its rider's determination."
 
 The player is carrying the Memory Fragment.
 
 The Torn Journal is a lore item in the Entrance Passage.
 The description of the Torn Journal is "A weathered journal with most pages missing. The remaining entries detail the early days of Maera's pilgrimage away from the Golden Order."
-The lore text of the Torn Journal is "Journal of Irina, Follower of Maera
+The lore text of the Torn Journal is "[bold type]Journal of Irina, Follower of Maera[roman type]
 
 Day 42 of our pilgrimage.
 
@@ -1612,7 +1614,7 @@ May the moonlight guide our—
 
 The Devoted's Emblem is a lore item in the Guardroom.
 The description of the Devoted's Emblem is "A military badge of the Duskrose's guard, its surface dulled by age. The name 'Vesper' is engraved beneath the insignia."
-The lore text of the Devoted's Emblem is "The badge bears the emblem of the First Guard - an honor given only to the most trusted protector of the Duskrose. 
+The lore text of the Devoted's Emblem is "[bold type]Emblem of the First Guard[roman type]
 
 An inscription on the back reads:
 
@@ -1626,7 +1628,9 @@ Below, in smaller text:
 
 Maera's Portrait is a lore item in the Antechamber.
 The description of Maera's Portrait is "A faded oil painting that somehow retains its luminous quality despite the ages. The portrait depicts a woman in flowing robes, surrounded by swirling celestial energy."
-The lore text of Maera's Portrait is "The portrait captures a moment of transcendent beauty. A woman stands with arms gracefully extended, her flowing robes - once pure white with golden trim - seem to move despite being mere paint on canvas.
+The lore text of Maera's Portrait is "[bold type]Maera the Seeker[roman type]
+
+The portrait captures a moment of transcendent beauty. A woman stands with arms gracefully extended, her flowing robes - once pure white with golden trim - seem to move despite being mere paint on canvas.
 
 Her face is serene yet intense, with pale skin that seems to glow from within as if lit by moonlight. Long, dark hair streams behind her as though caught in an otherworldly wind. Most striking are her eyes - they burn with inner light, whispering one who has gazed upon truth.
 
@@ -1634,17 +1638,21 @@ The background swirls with abstract representations of stars and nebulae, and wh
 
 A brass nameplate at the bottom reads: 'Maera the Seeker, First Year of Pilgrimage'
 
-Below, in smaller script: 'She who abandoned the golden throne to walk among the stars. May her journey lead to wisdom beyond the Order's reach.'"
+Below, in smaller script: 'She who abandoned the golden throne to walk among the stars. May her journey lead to salvation beyond the Order's reach.'"
 
 The Star Chart is a lore item.
 The description of the Star Chart is "A complex astronomical chart mapping constellations unknown to modern stargazers. It seems to predict celestial alignments across vast spans of time."
-The lore text of the Star Chart is "The chart shows the alignment that occurred during the Convergence, when multiple moons crossed paths in the night sky. Notes in faded ink mark this as 'The Threshold Moment' when 'the veil between ordered light and formless shadow grows thin enough to perceive greater truths.'
+The lore text of the Star Chart is "[bold type]Ancient Star Chart[roman type]
 
-Another alignment is marked as 'The Coming Age of Stars' with a date that corresponds roughly to the present time. Beside this notation is a small sketch of what appears to be the Dark Moon, with paths leading beneath it labeled 'The Journey Beyond Wisdom.'"
+The chart shows the alignment that occurred during the Convergence, when multiple moons crossed paths in the night sky. Notes in faded ink mark this as 'The Threshold Moment' when 'the veil between ordered light and formless shadow grows thin enough to perceive greater truths.'
+
+Another alignment is marked as 'The Coming Age of Stars' with a date that corresponds roughly to the present time. Beside this notation is a small sketch of what appears to be the Dark Moon, with paths leading beneath it labeled 'The Journey Beyond'"
 
 The Corrupted Talisman is a lore item in Beast's Nest.
 The description of the Corrupted Talisman is "A pendant of blackened silver, its surface scarred by corruption. Strange symbols spiral across its face - markings from a distant, dying world."
-The lore text of the Corrupted Talisman is "The talisman bears inscriptions in a script that predates the Golden Order, speaking of 'the First Flame' and 'Ashen One' - concepts alien to this realm.
+The lore text of the Corrupted Talisman is "[bold type]Twisted Talisman[roman type]
+	
+The talisman bears inscriptions in a script that predates the Golden Order, speaking of 'the First Flame' and 'the Ashen One' - concepts alien to this realm.
 
 A fragment of parchment wrapped around the chain:
 
@@ -1656,13 +1664,15 @@ Do not mistake mercy for foolishness. These walls are its salvation as much as i
 
 The talisman pulses with sickly warmth, as if the beast's essence still clings to it."
 
-The Immortal Sun Fragment is a lore item in the Burial Chamber.
-The description of the Immortal Sun Fragment is "A small shard that glows with golden light. Though just a tiny piece, it radiates immense power and seems to exist partially outside normal reality."
-The lore text of the Immortal Sun Fragment is "The fragment pulses with a rhythm like a heartbeat, though the tempo feels impossibly slow - as if operating on a timescale vaster than human comprehension.
+The Immortal Sun Sliver is a lore item in the Burial Chamber.
+The description of the Immortal Sun Sliver is "A small shard that glows with golden light. Though just a tiny piece, it radiates immense power and seems to exist partially outside normal reality."
+The lore text of the Immortal Sun Sliver is "[bold type]Sliver of the Immortal Sun[roman type]
 
-When you hold it, memories that aren't your own briefly flash through your mind: a grand ritual, Maera standing before the complete Immortal Sun, Vesper attempting to intervene and being struck down, and finally Maera's transformation into the Duskrose as she accepted the artifact's burden.
+The sliver pulses with a rhythm like a heartbeat.
 
-The last memory lingers - a warning that even a fragment of true immortality carries both power and curse. Those who bear it exist partially outside time's flow, observing but rarely able to directly intervene in the world's affairs."
+When you hold it, memories that aren't your own briefly flash through your mind: a grand ritual, Maera standing before the Immortal Sun, Vesper attempting to intervene and being struck down, and finally Maera's transformation into the Duskrose as she accepted the artifact's burden.
+
+The last memory lingers - a warning that even a fragment of true immortality carries both power and curse."
 
 Section - Examining Lore
 
