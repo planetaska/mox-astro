@@ -449,7 +449,7 @@ Instead of breathing during Combat:
 	say "You take a quick, deep breath in the midst of battle, regaining some of your strength.[line break][player-status][line break]";
 	let foe be a random alive undefeated enemy in the location of the player;
 	if foe is not nothing:
-		if a random chance of 1 in 4 succeeds:
+		if not in recovery phase and a random chance of 1 in 4 succeeds:
 			say "Your momentary pause gives [the foe] an opening to strike!";
 			try the foe attacking the player.
 
@@ -1279,7 +1279,7 @@ A special attack counter is a number that varies. Special attack counter is 0.
 The next special attack is a special attack that varies.
 
 To decide whether in recovery phase:
-	if special attack counter is 3:
+	if special attack counter >= 3:
 		decide yes;
 	decide no.
 
@@ -1295,13 +1295,12 @@ Every turn during Combat:
 		[Special attack counter]
 		if special attack counter > 0:
 			increase special attack counter by 1;
-			if in recovery phase:
-				say "[recovery message of the next special attack]";
-				say "[line break]└[player-status]";
-			if special attack counter > 3:
-				now special attack counter is 0;
-				now all special attacks are untelegraphed;
-		if special attack counter is 0 and a random chance of 1 in 3 succeeds:
+		if in recovery phase:
+			say "[recovery message of the next special attack]";
+			say "[line break]└[player-status]";
+			now special attack counter is 0;
+			now all special attacks are untelegraphed;
+		otherwise if special attack counter is 0 and a random chance of 1 in 2 succeeds:
 			[Begin telegraph sequence]
 			let attack be a random attack of foe;
 			now the next special attack is attack;
