@@ -425,10 +425,10 @@ To decide which number is the stamina cost of heavy swinging:
 	decide on 32.
 
 To decide which number is the stamina cost of parrying:
-	decide on 12.
+	decide on 10.
 
 To decide which number is the stamina cost of blocking:
-	decide on 10.
+	decide on 14.
 
 To decide which number is the stamina cost of dodging:
 	decide on 24.
@@ -550,7 +550,7 @@ Carried by knights who served the Carian royal family.
 [italic type]Excels when facing magic or holy attacks. Just who were these
 knights preparing to fight?[roman type]"
 
-The defense of the Carian Knight's Shield is 10.
+The defense of the Carian Knight's Shield is 20.
 
 Section - Wielding and Equipping Relation
 
@@ -938,7 +938,7 @@ To decide which number is the adjusted damage of (raw damage - a number):
 	if the player is parrying:
 		let adjusted damage be raw damage / 4;
 		decide on adjusted damage;
-	if the player is equipping a shield and the player is blocking:
+	if the player is equipping a shield (called shield) and the player is blocking:
 		let adjusted damage be raw damage / 10;
 		decide on adjusted damage;
 	if the player is dodging:
@@ -990,7 +990,7 @@ Check blocking:
 		say "You have no shield to block with." instead;
 	if the player is not equipping a shield:
 		say "Your shield is not ready. Try equipping it first." instead;
-	if an alive undefeated enemy is not in the location:
+	if Combat is not happening:
 		say "There's no attack to block." instead;
 	if the stamina of the player < the stamina cost of blocking:
 		say "You don't have enough stamina to perform this action." instead.
@@ -1304,6 +1304,11 @@ To decide whether in recovery phase:
 		decide yes;
 	decide no.
 
+To reset player defense actions:
+	now the player is not blocking;
+	now the player is not parrying;
+	now the player is not dodging;
+
 [Use telegraph in the combat system]
 Every turn during Combat:
 	let foe be a random alive undefeated enemy in the location of the player;
@@ -1339,6 +1344,7 @@ Every turn during Combat:
 			if a random chance of 1 in 5 succeeds:
 				say "[The foe] is watching your movements carefully, waiting for an opening.";
 				say "└[player-status]";
+				reset player defense actions;
 			otherwise:
 				try the foe attacking the player.
 
@@ -1357,9 +1363,7 @@ Easy mode informed is a truth state that varies. Easy mode informed is false.
 
 To die and return:
 	increase the player-deaths by 1;
-	now the player is not parrying;
-	now the player is not blocking;
-	now the player is not dodging;
+	reset player defense actions;
 	[Reset special attack system]
 	now special attack counter is 0;
 	now all special attacks are untelegraphed;
@@ -1393,9 +1397,7 @@ Section - Combat Resets
 
 [Reset blocking and parrying when combat ends]
 When Combat ends:
-	now the player is not parrying;
-	now the player is not blocking;
-	now the player is not dodging;
+	reset player defense actions;
 	now the stamina of the player is the max stamina of the player;
 	now combat turn counter is 0;
 	now special attack counter is 0;
