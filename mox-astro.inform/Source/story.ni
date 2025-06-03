@@ -934,10 +934,13 @@ Instead of going a direction (called way) from a room when an undefeated unencou
 Section - Enemy Attack and Adjusted Damage
 
 To decide which number is the adjusted damage of (raw damage - a number):
-	[let base damage be the attack power of attacker;]
 	if the player is parrying:
-		let adjusted damage be raw damage / 4;
-		decide on adjusted damage;
+		let block chance be 4;
+		if the player is wielding the Buckler:
+			now block chance is 2;
+		if a random chance of 1 in block chance succeeds:
+			decide on 0;
+		decide on raw damage;
 	if the player is equipping a shield (called shield) and the player is blocking:
 		let adjusted damage be raw damage / 10;
 		decide on adjusted damage;
@@ -946,10 +949,14 @@ To decide which number is the adjusted damage of (raw damage - a number):
 		decide on adjusted damage;
 	decide on raw damage.
 
-To resolve adjusted damage:
+To resolve adjusted damage for (damage - a number):
 	if the player is parrying:
+		if damage is 0:
+			say "[line break]└With a swift move, you parry the attack and strike back!";
+			try heavy swinging;
+		otherwise:
+			say "[line break]└You failed to parry the attack!";
 		now the player is not parrying;
-		say "[line break]└You successfully parry the attack, reducing the damage!";
 	if the player is equipping a shield and the player is blocking:
 		now the player is not blocking;
 		say "[line break]└Your shield absorbs much of the blow!";
@@ -957,14 +964,16 @@ To resolve adjusted damage:
 		now the player is not dodging;
 		say "[line break]└You successfully dodge the attack!".
 
-Before an enemy (called attacker) attacking the player:
+Carry out an enemy (called attacker) attacking the player:
 	let damage be the adjusted damage of the attack power of the attacker;
-	say "[The attacker] attacks you for [damage] damage!";
-	resolve adjusted damage;
+	if damage > 0:
+		say "[The attacker] attacks you for [damage] damage!";
+	otherwise:
+		say "[The attacker] initiates an attack...";
+	resolve adjusted damage for damage;
 	decrease the hit points of the player by damage;
 	say "└[player-status]";
-	check for player death;
-	stop the action.
+	check for player death.
 
 A person can be parrying. A person is usually not parrying.
 A person can be blocking. A person is usually not blocking.
@@ -1099,7 +1108,7 @@ To perform (attack - a special attack):
 	say "[description of attack]";
 	[let damage be the base damage of attack;]
 	let actual damage be the adjusted damage of the base damage of attack;
-	resolve adjusted damage;
+	resolve adjusted damage for actual damage;
 	if actual damage is 0:
 		say "[player-status][line break]";
 		follow the effect rule of attack;
@@ -1893,7 +1902,7 @@ Carry out asking for combat help:
 		say "  Thrust: [thrust modifier] damage, [the stamina cost of thrusting] stamina[line break]";
 		say "  Heavy Swing: +[heavy swing modifier] damage, [the stamina cost of heavy swinging] stamina[line break]";
 	say "[line break]DEFENSE ACTIONS:[line break]";
-	say "  Parry: 75% damage reduction, [the stamina cost of parrying] stamina[line break]";
+	say "  Parry: 25% success chance (50% with Buckler), [the stamina cost of parrying] stamina[line break]";
 	say "  Block: 90% damage reduction, [the stamina cost of blocking] stamina (shield required)[line break]";
 	say "  Dodge: 100% damage reduction, [the stamina cost of dodging] stamina[line break]";
 	say "  Breathe/B: +80 stamina recovery[line break]";
