@@ -1425,11 +1425,11 @@ When Recall begins:
 	wait for any key;
 	say "You see yourself as if from above - a lone figure on a spectral steed, racing across ash-grey plains beneath three pale moons. The memory of Ranni's voice echoes in your mind, each word crystalline with purpose: 'The Star Leaf blooms only where light surrenders to shadow. Seek the one who walked this path before us.'
 
-The vision shifts. You remember the scholar in Leyndell's ruins, mad with age but lucid in his final moments: 'The Duskrose... she who was Maera... keeper of the threshold... in her labyrinth lies what you seek...' His words had dissolved into laughter, then silence.
+The vision shifts. You remember the scholar in Leyndell's ruins, mad with age but lucid in his final moments: 'The Duskrose... keeper of the threshold... in her labyrinth lies what you seek...' His words had dissolved into laughter, then silence.
 
 Another flash - your last companion falling to the Crucible Knight that guarded the valley's entrance. Their final gesture had been to point you onward, blood-flecked lips forming the word: 'Go.'
 
-The visions fade, leaving you standing before the entrance once more. The carvings' silver dust glows faintly. Whatever trials await within, they are merely the culmination of a journey already steeped in sacrifice."
+The visions fade, leaving you standing before the entrance once more. The carvings[apostrophe] silver dust glows faintly. Whatever trials await within, they are merely the culmination of a journey already steeped in sacrifice."
 
 
 Chapter - NPCs
@@ -1580,7 +1580,7 @@ When Ending Scene begins:
 
 As you emerge into the fading daylight, the Star Leaf pulses with newfound intensity in your grasp. The Astrophyllite's cosmic energy flows through you, awakening senses you never knew you possessed.
 
-Through this enhanced perception, you see what was hidden before - the distant mountains shadow is no mere trick of light. The Star Leaf's power reveals writhing tendrils of chaotic energy reaching across the valley like grasping fingers. Within that unnatural darkness, the Frenzied Flame writhes with malevolent hunger, its yellow-orange fires seeking to unravel the very fabric of reality.
+Through this enhanced perception, you see what was hidden before - the distant mountains[apostrophe] shadow is no mere trick of light. The Star Leaf's power reveals writhing tendrils of chaotic energy reaching across the valley like grasping fingers. Within that unnatural darkness, the Frenzied Flame writhes with malevolent hunger, its yellow-orange fires seeking to unravel the very fabric of reality.
 
 The revelation strikes you with crystalline clarity: this is why Ranni needed the Astrophyllite. Not merely as a key to the Age of Stars, but as a means to perceive and oppose the cosmic threats that lesser eyes cannot see. Where once you might have ridden unknowingly into danger, now you mount your spectral steed with full awareness of what awaits.
 
