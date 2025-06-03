@@ -936,10 +936,10 @@ Section - Enemy Attack and Adjusted Damage
 To decide which number is the adjusted damage of (raw damage - a number):
 	[let base damage be the attack power of attacker;]
 	if the player is parrying:
-		let adjusted damage be raw damage / 2;
+		let adjusted damage be raw damage / 4;
 		decide on adjusted damage;
 	if the player is equipping a shield and the player is blocking:
-		let adjusted damage be raw damage / 3;
+		let adjusted damage be raw damage / 10;
 		decide on adjusted damage;
 	if the player is dodging:
 		let adjusted damage be 0;
@@ -1891,8 +1891,8 @@ Carry out asking for combat help:
 		say "  Thrust: [thrust modifier] damage, [the stamina cost of thrusting] stamina[line break]";
 		say "  Heavy Swing: +[heavy swing modifier] damage, [the stamina cost of heavy swinging] stamina[line break]";
 	say "[line break]DEFENSE ACTIONS:[line break]";
-	say "  Parry: 50% damage reduction, [the stamina cost of parrying] stamina[line break]";
-	say "  Block: 67% damage reduction, [the stamina cost of blocking] stamina (shield required)[line break]";
+	say "  Parry: 75% damage reduction, [the stamina cost of parrying] stamina[line break]";
+	say "  Block: 90% damage reduction, [the stamina cost of blocking] stamina (shield required)[line break]";
 	say "  Dodge: 100% damage reduction, [the stamina cost of dodging] stamina[line break]";
 	say "  Breathe/B: +80 stamina recovery[line break]";
 	say "  Drink/use/sip flask - Drink Flask of Crimson Tears to recover HP[line break]".
