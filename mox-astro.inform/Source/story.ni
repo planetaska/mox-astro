@@ -301,8 +301,8 @@ Carry out stepping on a pressure plate:
 
 Before going to Duskrose Sanctum:
 	if Burial Chamber Pressure Plate is untriggered or Burial Chamber Pressure Plate is triggered:
-		if the player carries the moonstone wedge:
-			say "As you approach the glass staircase, you notice a slightly raised floor tile in your path. Having experienced such traps before, you carefully place the moonstone wedge beneath the edge of the pressure plate, preventing it from being depressed.";
+		if the player carries the Moonstone Wedge:
+			say "As you approach the glass staircase, you notice a slightly raised floor tile in your path. Having experienced such traps before, you carefully place the Moonstone Wedge beneath the edge of the pressure plate, preventing it from being depressed.";
 			now Burial Chamber Pressure Plate is disarmed;
 			continue the action;
 		otherwise:
@@ -321,12 +321,12 @@ Check disarming:
 		say "That's not something you can disarm." instead;
 	if the noun is disarmed:
 		say "You've already disarmed it." instead;
-	if the player does not carry the moonstone wedge:
+	if the player does not carry the Moonstone Wedge:
 		say "You don't have anything suitable to disarm the mechanism. Something thin and sturdy might work to wedge beneath the pressure plate." instead.
 
 Carry out disarming a pressure plate:
 	now the noun is disarmed;
-	say "You carefully slide the moonstone wedge beneath the edge of the pressure plate, preventing it from being fully depressed. The mechanism has been rendered harmless.".
+	say "You carefully slide the Moonstone Wedge beneath the edge of the pressure plate, preventing it from being fully depressed. The mechanism has been rendered harmless.".
 
 Burial Chamber Pressure Plate is a pressure plate in Burial Chamber.
 
@@ -336,7 +336,7 @@ After looking in Burial Chamber:
 	otherwise if Burial Chamber Pressure Plate is triggered:
 		say "You see the depressed pressure plate in the floor, its deadly mechanism already triggered.";
 	otherwise:
-		say "You see the disabled trap with your moonstone wedge carefully placed beneath the raised stone tile, preventing the mechanism from activating."
+		say "You see the disabled trap with your Moonstone Wedge carefully placed beneath the raised stone tile, preventing the mechanism from activating."
 
 Understand "raised stone tile" or "stone tile" or "tile" or "raised tile" or "floor tile" as Burial Chamber Pressure Plate.
 
@@ -345,16 +345,16 @@ Instead of examining Burial Chamber Pressure Plate:
 		say "A slightly raised stone tile with its mechanism carefully disabled. You've rendered it harmless.";
 	otherwise:
 		say "A slightly raised stone tile that seems out of place with the rest of the floor. As a seasoned Tarnished, you recognize the telltale signs of a pressure plate trap - the slightly different wear pattern around its edges, the almost imperceptible seam that allows it to sink when weight is applied. The carvings around its edge depict falling stars and mourning figures. You also notice thin seams in the nearby walls - likely apertures for some deadly mechanism.";
-		if the player carries the moonstone wedge:
-			say "[paragraph break]The moonstone wedge you carry might be thin and sturdy enough to wedge beneath the pressure plate, preventing it from being depressed.";
+		if the player carries the Moonstone Wedge:
+			say "[paragraph break]The Moonstone Wedge you carry might be thin and sturdy enough to wedge beneath the pressure plate, preventing it from being depressed.";
 
-The moonstone wedge is a thing. The description is "A thin, crescent-shaped piece of opalescent stone. Its edges glint with a silvery-blue light when moved, like moonlight on water. It seems sturdy despite its delicate appearance."
+The Moonstone Wedge is a thing. The description is "A thin, crescent-shaped piece of opalescent stone. Its edges glint with a silvery-blue light when moved, like moonlight on water. It seems sturdy despite its delicate appearance."
 
 Warned the player is a truth state that varies. Warned the player is false.
 
 Before going from the Antechamber when the Ghost Dancers is defeated:
-	if the player is not carrying the moonstone wedge and warned the player is false:
-		say "As you navigate the twisting stairway, something catches your eye - a glint of blue-white light from a small alcove. Upon inspection, you discover a thin, crescent-shaped moonstone wedge that has fallen between two stones. [bold type]Something tells you this might prove useful...[roman type]";
+	if the player is not carrying the Moonstone Wedge and warned the player is false:
+		say "As you navigate the twisting stairway, something catches your eye - a glint of blue-white light from a small alcove. Upon inspection, you discover a thin, crescent-shaped Moonstone Wedge that has fallen between two stones. [bold type]Something tells you this might prove useful...[roman type]";
 		now warned the player is true;
 		stop the action.
 
@@ -1008,7 +1008,7 @@ First every turn during combat:
 			say "[paragraph break](Press any key to continue)[line break]";
 			[Boss drops or triggered gimmicks]
 			if the foe is Ghost Dancers:
-				now the moonstone wedge is in the Antechamber;
+				now the Moonstone Wedge is in the Antechamber;
 			[Wait for key and look]
 			wait for any key;
 			try looking.
@@ -1744,7 +1744,7 @@ The Dark Moon Greatsword is equipment.
 The Carian Knight's Sword is equipment.
 The Buckler is equipment.
 The Carian Knight's Shield is equipment.
-The moonstone wedge is equipment.
+The Moonstone Wedge is equipment.
 
 [All lore items are lore-item category]
 A lore item is always lore-item.
