@@ -1445,7 +1445,7 @@ Instead of talking to Maera:
 
 She flickers like a candle in wind. 'I am... grateful. After centuries of watching... I was finally able to act. This is... a better ending than I dared hope for.'
 
-The portal behind her grows more stable even as she fades. 'Go now... while I still have strength to maintain the passage.' Her form is now just a suggestion of light and shadow. 'And tell Vesper... if spirits can hear across the veil... that I understood. That love... even misguided... is never truly wrong.'
+The [o]portal[x] behind her grows more stable even as she fades. 'Go now... while I still have strength to maintain the passage.' Her form is now just a suggestion of light and shadow. 'And tell Vesper... if spirits can hear across the veil... that I understood. That love... even misguided... is never truly wrong.'
 
 'Farewell... Starbound... May your journey beneath the Dark Moon's wisdom... lead to the liberation... we both have sought...'";
 		now Portal is in Duskrose Sanctum;
