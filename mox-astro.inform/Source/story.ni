@@ -487,7 +487,7 @@ Section - Player Status
 Instead of examining the player:
 	say "[if the player is wearing plot armour]You are wearing the Plot Armour.
 
-The best armor. Replenishes HP and Stamina every turn. With it you will no longer suffer from death - well, almost.
+The best armor. Replenishes HP and Stamina each turn. With it, you will no longer suffer the consequences of death - well, almost.
 
 [italic type]Mortality? That's for other protagonists.[roman type]
 [otherwise]You are wearing the Carian Knight's armor.
