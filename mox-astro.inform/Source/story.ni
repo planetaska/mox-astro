@@ -379,12 +379,6 @@ To say health-status of (creature - a person):
 	else:
 		say "[The creature] has [hit points of the creature]/[max hit points of the creature] HP";
 
-[Every turn when the player is alive:
-	if hit points of the player <= 0:
-		now the player is dead;
-		say "YOU DIED[line break]";
-		die and return.]
-
 Section - Stamina System
 
 A person has a number called stamina. The stamina of a person is usually 100.
@@ -495,7 +489,7 @@ Instead of examining the player:
 
 The best armor. Replenishes HP and Stamina every turn. With it you will no longer suffer from death - well, almost.
 
-[italic type]Terms and conditions may apply.[roman type]
+[italic type]Mortality? That's for other protagonists.[roman type]
 [otherwise]You are wearing the Carian Knight's armor.
 
 Armor of the enchanted knights that once served the Carian royal family.
@@ -723,12 +717,6 @@ When play begins:
 	repeat with foe running through enemies:
 		now the attack power of the foe is the initial attack power of the foe.
 
-[Every turn:
-	repeat with foe running through enemies in the location:
-		if foe is alive and foe is undefeated:
-			say "[The foe] attacks you for [attack power of foe] damage!";
-			decrease the hit points of the player by the attack power of foe;
-			say "[health-status of player]".]
 
 Section - Attack Commands
 
@@ -778,7 +766,7 @@ Carry out attacking an enemy (called the foe):
 	otherwise:
 		say "└[health-status of foe][line break]".
 
-[Removed due to text formatting issue]
+[Moved to carry out due to text formatting issue]
 [Report attacking an enemy (called the foe):
 	if the hit points of the noun <= 0:
 		now the noun is dead;
@@ -1399,8 +1387,6 @@ To die and return:
 After an enemy (called attacker) attacking the player:
 	check for player death.
 
-[Every turn when the player is alive and the hit points of the player <= 0:
-	check for player death.]
 
 Section - Combat Resets
 
@@ -1826,17 +1812,6 @@ Instead of taking inventory:
 	if consumable-count is 0 and equipment-count is 0 and lore-count is 0:
 		say "	nothing.[line break]";
 
-[Section - Equipment Listing
-
-Rule for printing the name of a weapon (called item) while taking inventory:
-	say "[printed name of item]";	
-	if the player wields the item:
-		say " (wielded)";
-	
-Rule for printing the name of a shield (called item) while taking inventory:
-	say "[printed name of item]";	
-	if the player equips the item:
-		say " (equipped)";]
 
 Section - Alternative Short Inventory
 
