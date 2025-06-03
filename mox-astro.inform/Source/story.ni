@@ -1339,6 +1339,8 @@ To check for player death:
 		say "[line break]YOU DIED[paragraph break]";
 		die and return.
 
+Easy mode informed is a truth state that varies. Easy mode informed is false.
+
 To die and return:
 	increase the player-deaths by 1;
 	now the player is not parrying;
@@ -1361,6 +1363,9 @@ To die and return:
 	now the stamina of the player is the max stamina of the player;
 	replenish flask;
 	say "You awaken beside [if there is a lit bonfire in the location of the player]the[otherwise]an unlit[end if] bonfire, your body reformed by the strange magic that binds you to this world. The memory of your death lingers like a half-forgotten dream.[paragraph break][death status].[paragraph break]";
+	if player-deaths >= 3 and easy mode informed is false:
+		now easy mode informed is true;
+		say "(If combat is too difficult, you can type STORY MODE to avoid death in combat.)[line break]".
 
 [Centralized death check]
 [ *Still need to manually check in other places for the player to die "on the spot" ]
