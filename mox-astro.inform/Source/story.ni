@@ -491,11 +491,16 @@ To replenish flask:
 Section - Player Status
 
 Instead of examining the player:
-	say "You are wearing the Carian Knight's armor.
+	say "[if the player is wearing plot armour]You are wearing the Plot Armour.
+
+The best armor. Replenishes HP and Stamina every turn. With it you will no longer suffer from death - well, almost.
+
+[italic type]Terms and conditions may apply.[roman type]
+[otherwise]You are wearing the Carian Knight's armor.
 
 Armor of the enchanted knights that once served the Carian royal family.
 
-[italic type]The enchanted knights, anointed by the Lunar Queen, were heroes of the highest honors, but fell into disarray with the decline of the royal family.[roman type]
+[italic type]The enchanted knights, anointed by the Lunar Queen, were heroes of the highest honors, but fell into disarray with the decline of the royal family.[roman type][end if]
 
 [player-status]"
 
@@ -1717,9 +1722,7 @@ Part - Misc
 
 Section - Story Mode
 
-Plot Armour is a wearable thing.
-
-[The player is carrying the Plot Armour.]
+Plot Armour is a wearable thing. The description is "Deus ex machina."
 
 Understand "story mode" as enabling story mode.
 Enabling story mode is an action out of world.
