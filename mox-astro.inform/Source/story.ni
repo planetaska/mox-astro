@@ -230,6 +230,11 @@ Instead of burning a bonfire when an undefeated unencountered enemy (called the 
 	say "You tried to reach the bonfire, but [the foe] noticed you.";
 	now the foe is encountered.
 
+Resting is an action applying to nothing. Understand "rest" as resting.
+Carry out resting:
+	let bonfire be a random bonfire in the location;
+	try resting at bonfire instead.
+
 Resting at is an action applying to one visible thing. Understand "rest at [something]" or "rest by [something]" or "rest near [something]" or "rest beside [something]" as resting at.
 
 Check resting at:
