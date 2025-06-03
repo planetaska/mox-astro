@@ -521,6 +521,13 @@ Weapon of knights sworn to Carian royalty.
 
 The damage of the Carian Knight's Sword is 8.
 
+Darkdrift is a weapon. The description is "A cursed sword with an unseen blade, the choice weapon of Yuria of Londor.
+
+[italic type]Yuria, a mentor of the Sable Church and accomplished swordswoman, is said to have claimed a hundred lives with this weapon.[roman type]"
+
+The damage of the Darkdrift is 22.
+
+
 Section - Shields
 
 A shield is a kind of thing. A shield has a number called defense. The defense of a shield is usually 5.
@@ -1014,6 +1021,8 @@ First every turn during combat:
 			[Boss drops or triggered gimmicks]
 			if the foe is Ghost Dancers:
 				now the Moonstone Wedge is in the Antechamber;
+			if the foe is Cursed Beast:
+				now the Darkdrift is in the Beast's Nest;
 			[Wait for key and look]
 			wait for any key;
 			try looking.
