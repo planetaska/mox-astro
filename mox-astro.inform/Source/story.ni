@@ -1564,7 +1564,7 @@ When Final Scene begins:
 	
 	She gestures weakly, and a portal of swirling twilight begins to form. 'My last gift... safe passage... Tell them all... the dusk has finally given way... to stars...'
 	
-	The Star Leaf settles gently onto the altar, waiting to be claimed.";
+	The [o]Star Leaf[x] settles gently onto the altar, waiting to be claimed.";
 	now the Celestial Altar is in Duskrose Sanctum.
 
 Ending Scene is a scene.
