@@ -19,7 +19,7 @@ When Intro begins:
 	now the left hand status line is "Age of the Stars";
 	say "In a realm akin to the Lands Between of Elden Ring, yet distinct, the Age of the Stars dawns. With the Elden Beast vanquished, Ranni the Witch embarks on manifesting her vision of a new order.
 
-The Starbound, a trusted Tarnished, have been chosen by Ranni for a crucial quest: seeking out Astrophyllite, also known as Star Leaf. This golden metallic gemstone, flashing like a cosmic explosion, is essential in forging the Mox Astro - an artifact prophesied to realize Ranni's dream of journeying into the darkness beneath the Dark Moon's wisdom.
+The Starbound, a trusted Tarnished, have been chosen by Ranni for a crucial quest: seeking out Astrophyllite, also known as Star Leaf. This sapphirine crystalline gemstone, flashing like a cosmic explosion, is essential in forging the Mox Astro - an artifact prophesied to realize Ranni's dream of journeying into the darkness beneath the Dark Moon's wisdom.
 
 (The combat in this game can be very unforgiving. Use 'help' command for a list of possible actions to carry you through the battle. Death is to be expected.)
 
@@ -1505,7 +1505,7 @@ The description of the Celestial Altar is "A low pedestal of black onyx inlaid w
 
 The Star Leaf is a thing.
 The Star Leaf is on the Celestial Altar.
-The description of the Star Leaf is "The Star Leaf pulses with inner fire, its golden metallic surface erupting in patterns that mirror cosmic explosions. Each facet catches and amplifies light in impossible ways, creating the illusion of distant galaxies swirling within the gemstone. When you look closely, you can almost see the birth and death of stars playing out in miniature across its surface. This is the legendary Astrophyllite - the key component Ranni requires to forge the Mox Astro."
+The description of the Star Leaf is "The Star Leaf pulses with inner fire, its crystalline surface erupting in patterns that mirror cosmic explosions. Each facet catches and amplifies light in dreamlike patterns, creating the illusion of distant galaxies swirling within the gemstone. When you look closely, you can almost see the birth and death of stars playing out in miniature across its surface. This is the legendary Astrophyllite - the key component Ranni requires to forge the Mox Astro."
 
 After taking the Star Leaf:
 	say "As your fingers close around the Astrophyllite, warmth spreads through your gauntlets and up your arms. The gemstone pulses in rhythm with your heartbeat, and for a moment you feel connected to something vast and ancient - the cosmic forces that Ranni seeks to harness.
@@ -1514,7 +1514,7 @@ After taking the Star Leaf:
 	
 	'When you are ready to depart, simply talk to me and I shall open the way. Return to Ranni with haste - the Age of Stars awaits, and your role in its dawning has only just begun.'
 	
-(You can ask Maera about things using natural sentences like 'Maera, tell me about [bracket]topic[close bracket]', or using commands like 'ask Maera about [bracket]topic[close bracket]'. When you are done, you can 'talk to Maera'.)";
+(You can ask Maera about things using natural sentences like 'Maera, tell me about [bracket]topic[close bracket]', or using commands like 'ask Maera about [bracket]topic[close bracket]'. When you are done, you can '[bold type]talk to Maera[roman type]'.)";
 
 Portal is an enterable supporter. Portal is fixed in place.
 The description of the Portal is "A swirling vortex of twilight energy hovers in the air, its edges crackling with silver and deep purple light. Through its shimmering surface, you can glimpse the entrance passage where your spectral steed waits patiently, its ethereal mane stirring in an unfelt wind. The portal's center shows not the labyrinth's stone passages, but a vista of star-filled sky - as if it opens not just to another place, but to another state of being."
