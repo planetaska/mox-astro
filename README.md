@@ -6,6 +6,10 @@ A dark fantasy interactive fiction inspired by Elden Ring, where you play as an 
 
 Mox Astro is an Inform 7 interactive fiction game that blends the challenging combat of Elden Ring with narrative exploration. Players take on the role of the Starbound, navigating the treacherous Duskrose Labyrinth to obtain the Astrophyllite for Ranni the Witch.
 
+## Playing Online
+
+Play the latest release at: https://planetaska.github.io/mox-astro/
+
 ## Run the Game
 
 1. Install [Inform 7](http://inform7.com/)
@@ -30,10 +34,6 @@ Modified Keyword Interface-v9.i7x
   color: green;
 }
 ```
-
-## Playing Online
-
-Play the latest release at: https://planetaska.github.io/mox-astro/
 
 ## Project Structure
 
