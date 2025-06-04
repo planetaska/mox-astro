@@ -8,5 +8,7 @@
 !mox-astro.materials/
 !mox-astro.materials/Cover.jpg
 !mox-astro.materials/Small Cover.jpg
+!docs/
+!docs/*
 
 !.gitignore
