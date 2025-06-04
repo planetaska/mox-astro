@@ -34,7 +34,7 @@ The player is in Entrance Passage.
 Part - Locations
 
 [Room descriptions]
-Duskrose Labyrinth is a region.
+The Duskrose Labyrinth is a region.
 
 Entrance Passage is a room in Duskrose Labyrinth.
 "You stand in the Entrance Passage, where fading dusklight filters through cracks in the Onyx stone above, casting long golden veins across the dark floor. The air is cool and dry, untouched by time. Faint [carvings] shimmer faintly - celestial runes in praise of the Moon. To the north, an iron door lies slightly ajar, its hinges groaning like a beast slumbering too long."
@@ -339,7 +339,7 @@ After looking in Burial Chamber:
 	if Burial Chamber Pressure Plate is untriggered:
 		say "You notice a slightly raised stone tile near the center of the room. Your time as a Tarnished has taught you caution - such floor anomalies often conceal deadly mechanisms.";
 	otherwise if Burial Chamber Pressure Plate is triggered:
-		say "You see the depressed pressure plate in the floor, its deadly mechanism already triggered.";
+		say "You see the depressed pressure plate on the floor, its deadly mechanism already triggered.";
 	otherwise:
 		say "You see the disabled trap with your Moonstone Wedge carefully placed beneath the raised stone tile, preventing the mechanism from activating."
 
@@ -694,12 +694,12 @@ The max hit points of the Spirit of Vesper is 160.
 The initial attack power of the Spirit of Vesper is 36.
 The description of the Spirit of Vesper is "Unlike the mindless Headless Armor, this is Vesper's true consciousness preserved by the Duskrose's power. He appears as a noble knight wreathed in spectral blue flame, his eyes wells of ancient sorrow."
 The activate description of the Spirit of Vesper is "'Seeker of the Star Leaf,' he intones, his voice like wind through ancient ruins. 'I am Vesper, First Follower of the Duskrose. By my oath, none may pass who have not proven their worth. Draw your weapon, Starbound.'"
-The reactive description of the Spirit of Vesper is "Vesper's spectral form flickers where your blade has struck, blue flames dancing around the wounds that heal almost as quickly as they're made. His expression remains resolute, though you catch a glimmer of approval in his ancient eyes. 'Your skill honors the blade you carry, Starbound. But I must test you further.'"
+The reactive description of the Spirit of Vesper is "Vesper's spectral form flickers where your blade has struck, blue flames dancing around the wounds that heal almost as quickly as they are made. His expression remains resolute, though you catch a glimmer of approval in his ancient eyes. 'Your skill honors the blade you carry, Starbound. But I must test you further.'"
 The defeat description of the Spirit of Vesper is "Vesper drops to one knee, his spectral sword clattering to the ground before dissolving into light. He looks up at you, a smile flickering across his translucent features.
 
 'Well fought, Starbound. Your purpose... it resonates with what we once sought.' His form begins to fade, but his voice remains steady.
 
-'Listen well, for I would share truth with you. I was not merely the First Follower - I loved Maera, she who became the Duskrose. When we discovered the Immortal Sun, I sought to claim its burden for myself, to spare her its weight. My betrayal was born of devotion, yet it wounded her deeply.'
+'Listen well, for I would share the truth with you. I was not merely the First Follower - I loved Maera, she who became the Duskrose. When we discovered the Immortal Sun, I sought to claim its burden for myself, to spare her its weight. My betrayal was born of devotion, yet it wounded her deeply.'
 
 He gestures toward the sanctum above, his expression growing sorrowful.
 
@@ -898,7 +898,7 @@ Section - Movement Restrictions
 [Prevent player from leaving during combat]
 Before going from a room (called origin) when origin is combat-locked:
 	let foe be a random enemy in the origin;
-	say "[one of][The foe] blocks your escape route![or]You cannot leave while enemies block your path![or]You tried to escape, but [the foe] blocks your way![at random]" instead.
+	say "[one of][The foe] blocks your escape route![or]You cannot leave while enemies block your path![or]You try to escape, but [the foe] blocks your way![at random]" instead.
 
 [Store player's from direction]
 From direction is a direction that varies.
@@ -909,7 +909,7 @@ Carry out going a direction (called way):
 [Allow player retreat to previous room if not encountered]
 Instead of going a direction (called way) from a room when an undefeated unencountered enemy (called the foe) is in the location:
 	if way is not the from direction:
-		say "As you move forward, you noticed movement in [the foe]'s direction.";
+		say "As you move forward, you notice movement in [the foe]'s direction.";
 		now the foe is encountered;
 	otherwise:
 		continue the action.
@@ -1218,7 +1218,7 @@ The owner of the phantom duplicates is the Spirit of Vesper.
 
 This is the phantom duplicates effect rule:
 	if the hit points of the player > 0:
-		say "The confusion of multiple attackers makes it difficult to prepare your defense for the next assault.".
+		say "The confusion of multiple attackers makes it difficult to prepare your defense against the next assault".
 
 To decide which special attack is a random attack of (enemy - an enemy):
 	if the enemy is the Headless Armor:
@@ -1260,7 +1260,7 @@ The telegraph message of the overhead slash is "The Headless Armor slowly raises
 The recovery message of the overhead slash is "The Headless Armor struggles to recover its balance after the powerful swing.".
 
 The telegraph message of the sweeping attack is "The Headless Armor shifts its stance lower, blade held horizontally as it prepares for a wide attack.".
-The recovery message of the sweeping attack is "The momentum of the sweeping attack leaves the Headless Armor temporarily open.".
+The recovery message of the sweeping attack is "The sweeping attack's momentum leaves the Headless Armor temporarily open.".
 
 The telegraph message of the spectral tornado is "The Ghost Dancers begin to circle more rapidly, their forms blurring as they build up ethereal energy.".
 The recovery message of the spectral tornado is "After their whirlwind assault, the Ghost Dancers drift apart momentarily, their forms less cohesive.".
