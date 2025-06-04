@@ -5,5 +5,7 @@
 !mox-astro.inform/
 !mox-astro.inform/Source/
 !mox-astro.inform/Source/story.ni
+!mox-astro.materials/
+!mox-astro.materials/Cover.jpg
 
 !.gitignore
