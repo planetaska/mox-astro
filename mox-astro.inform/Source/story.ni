@@ -4,7 +4,7 @@ Include Basic Screen Effects by Emily Short.
 Include Exit Lister by Gavin Lambert.
 Include Modified Keyword Interface by Aaron Reed.
 
-Release along with an interpreter.
+Release along with an interpreter, cover art, introductory postcard.
 
 When play begins: now every scenery thing is keyworded.
 
