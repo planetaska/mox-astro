@@ -1,0 +1,413 @@
+Mox Astro walkthrough
+by aska
+
+============ Walkthorugh start =============
+
+In a realm akin to the Lands Between of Elden Ring, yet distinct, the Age of the Stars dawns. With the Elden Beast vanquished, Ranni the Witch embarks on manifesting her vision of a new order.
+
+The Starbound, a trusted Tarnished, have been chosen by Ranni for a crucial quest: seeking out Astrophyllite, also known as Star Leaf. This sapphirine crystalline gemstone, flashing like a cosmic explosion, is essential in forging the Mox Astro - an artifact prophesied to realize Ranni's dream of journeying into the darkness beneath the Dark Moon's wisdom.
+
+(The combat in this game can be very unforgiving. Use "help" command for a list of possible actions to carry you through the battle. Death is to be expected.)
+
+Press any key to continue
+
+Mox Astro
+An Interactive Fiction by aska
+Release 1 / Serial number 250604 / Inform 7 v10.1.2 / D
+
+Entrance Passage
+You stand in the Entrance Passage, where fading dusklight filters through cracks in the Onyx stone above, casting long golden veins across the dark floor. The air is cool and dry, untouched by time. Faint carvings shimmer faintly - celestial runes in praise of the Moon. To the north, an iron door lies slightly ajar, its hinges groaning like a beast slumbering too long.
+
+A bonfire arrangement rests against the wall, its ashes cold and waiting.
+
+You can also see a Torn Journal here.
+
+You can go north from here.
+
+>story mode
+(Story mode enabled.)
+
+>n
+
+Guardroom
+The Guardroom bears silent witness to forgotten duty. Weathered suits of armor - headless, some pierced through - stand slouched against the walls, their surfaces dulled by dust and disuse. A pale blue flame dances in a brazier at the center, casting distorted shadows that writhe like phantoms. The passage stretches west toward an antechamber, half-obscured by hanging moss and forgotten banners, and to the south back toward the entrance.
+
+You can see a Headless Armor and a Devoted's Emblem here.
+
+You can go south to Entrance Passage and west from here.
+
+>l armor
+An ancient suit of armor animated by ethereal blue energy. Where its head should be, only darkness remains.
+
+The Headless Armor stands motionless among its fallen brethren. As you approach, a ethereal blue glow begins to emanate from within its hollow chest. Slowly, methodically, it raises its ancient blade, the metal scraping against its armored form with a sound like distant thunder.
+
+(The Headless Armor has noticed you. Get ready.)
+
+Type HELP COMBAT for help
+The Headless Armor has 125/125 HP
+You have 100/100 HP
+
+-- COMBAT
+
+You have slain the Headless Armor!
+
+The Headless Armor shudders violently, then collapses in a heap of metal. A soft blue light rises from the remains, hovering momentarily before dissipating with a whisper that sounds almost like "freedom."
+
+(Press any key to continue)
+
+Guardroom
+The Guardroom bears silent witness to forgotten duty. Weathered suits of armor - headless, some pierced through - stand slouched against the walls, their surfaces dulled by dust and disuse. A pale blue flame dances in a brazier at the center, casting distorted shadows that writhe like phantoms. The passage stretches west toward an antechamber, half-obscured by hanging moss and forgotten banners, and to the south back toward the entrance.
+
+You can see a Devoted's Emblem here.
+
+You can go south to Entrance Passage and west from here.
+
+>l emblem
+A military badge of the Duskrose's guard, its surface dulled by age. The name "Vesper" is engraved beneath the insignia.
+
+Would you like to examine it more closely? (YES or NO)
+>yes
+Emblem of the First Guard
+
+An inscription on the back reads:
+
+"Vesper, First Among the Devoted
+ Captain of the Guard
+ Bearer of the Duskrose's Trust"
+
+Below, in smaller text:
+
+"My oath binds me beyond death. Though my body may fail and my mind may fade, this armor shall continue my vigil. Let none pass who are unworthy of Her grace."
+
+>w
+
+Antechamber
+A circular room with domed ceilings inlaid with faded constellations, the Antechamber feels almost reverent. Cracked murals depict a figure cloaked in midnight blue reaching for a falling star. The floor bears scuffs from countless rituals long past. A faint hum lingers in the air-melancholic, celestial. A narrow stairway descends southward into darkness, while the way back is to the east.
+
+Against the far wall, a bonfire lies dormant, its bones arranged in solemn ceremony.
+
+You can also see a Ghost Dancers and Maera's Portrait here.
+
+You can go south and east to Guardroom from here.
+
+>l dancers
+Spectral figures that weave through the air in a mournful dance. Their translucent forms shimmer with ethereal light, and their movements are both beautiful and deadly.
+
+The Ghost Dancers regards you with hostile intent.
+
+The air around you grows cold as your presence disturbs their eternal dance. Motes of pale blue light begin to coalesce more densely, forming clearer shapes of dancing specters. They circle you in a haunting ballet, their hollow eyes now fixed upon your every movement with growing intensity.
+
+The Ghost Dancers immediately moves to attack you!
+
+-- COMBAT
+
+You have slain the Ghost Dancers!
+
+The spectral dancers pause in their eternal waltz, their forms growing increasingly transparent. They gather in a circle, hands joining one last time before they dissolve into motes of starlight that drift upward through the domed ceiling. In their absence, you hear fragments of their story - how they followed Maera the Devout in her quest.
+
+(Press any key to continue)
+
+Antechamber
+A circular room with domed ceilings inlaid with faded constellations, the Antechamber feels almost reverent. Cracked murals depict a figure cloaked in midnight blue reaching for a falling star. The floor bears scuffs from countless rituals long past. A faint hum lingers in the air-melancholic, celestial. A narrow stairway descends southward into darkness, while the way back is to the east.
+
+Against the far wall, a bonfire lies dormant, its bones arranged in solemn ceremony.
+
+You can also see a Moonstone Wedge and Maera's Portrait here.
+
+You can go south and east to Guardroom from here.
+
+>touch bonfire
+You press your palm against the cold ashes. The fragments of bone and wood tremble, then ignite with a soft whoosh. A strange, golden-blue flame rises, casting long shadows that dance like reverent worshippers. The warmth seeps into your very being, and for a moment, you feel connected to this place - anchored by the flame's promise of return. Should darkness claim you, it is to this light you shall return.
+
+>l portrait
+A faded oil painting that somehow retains its luminous quality despite the ages. The portrait depicts a woman in ornate armor, her sword raised triumphantly.
+
+Would you like to examine it more closely? (YES or NO)
+>y
+Maera the Seeker
+
+The portrait captures a moment of fierce determination. A woman stands with commanding presence, her right arm raised high, wielding a curved blade that catches the light. She is clad in ornate armor overlaid with flowing white cloth trimmed in gold.
+
+Her face radiates confidence and purpose, with warm skin that seems to glow from within as if lit by divine purpose. Long, dark hair cascades behind her, framing features set with unwavering resolve. Most striking are her eyes - they burn with the intensity of one who has found her calling and will not be deterred.
+
+The background swirls with abstract representations of stars and nebulae both sacred and otherworldly. Where she stands, the artist has painted not mere stone but a threshold between realms, with golden rays drifting upward like ascending prayers.
+
+A brass nameplate at the bottom reads: "Maera the Seeker, First Year of Pilgrimage"
+
+Below, in smaller script: "She who abandoned the golden throne to walk among us. May her journey lead to salvation beyond the Order's reach."
+
+>s
+As you navigate the twisting stairway, something catches your eye - a glint of blue-white light from a small alcove. Upon inspection, you discover a thin, crescent-shaped Moonstone Wedge that has fallen between two stones. Something tells you this might prove useful...
+
+>get wedge
+Taken.
+
+>s
+
+Winding Corridors
+This maze-like passage twists and coils with no sense of logic, as if shaped by a dreaming god. The walls here are covered in inscriptions that shift subtly when not watched directly. Echoes bounce at odd intervals, often repeating things you haven't said. Occasionally, something brushes past you in the dark, but there's nothing there. The only clear way back leads north.
+
+>s
+You turn down a twisting passage. The walls seem to guide your steps, funneling you forward through carved channels.
+
+>e
+Another corridor beckons. The design feels deliberate - wide openings leading inward, narrower exits leading out.
+
+>s
+The passages continue to twist. You begin to suspect this maze was built as a trap - easy to enter, difficult to escape.
+
+>e
+The labyrinth's intent becomes clear: every path leads deeper, while escape routes remain hidden. You press forward.
+
+The twisting passages seem to straighten and clarify now that you understand their true nature. The false paths that once confused you have faded away.
+
+As you emerge from the maze's final passage, you notice a small alcove carved into the wall. Within it, arranged bones and kindling await.
+
+(Press any key to continue)
+
+Winding Corridors
+Having mastered the maze's pattern, you notice the subtle differences in the passages that mark the true path forward. East leads toward strange sounds and disturbing growls of something large. The only clear way back leads north.
+
+Hidden in a small alcove, a bonfire waits to be rekindled, its placement suggesting the labyrinth itself recognizes those who master its patterns.
+
+You can also see a Star Chart here.
+
+You can go north to Antechamber and east from here.
+
+>touch bonfire
+You touch the cold ashes and they ignite once more with familiar golden-blue flames. The bonfire's warmth anchors you to this place.
+
+>l chart
+A complex astronomical chart mapping constellations unknown to modern stargazers. It seems to predict celestial alignments across vast spans of time.
+
+Would you like to examine it more closely? (YES or NO)
+>y
+Ancient Star Chart
+
+The chart shows the alignment that occurred during the Convergence, when multiple moons crossed paths in the night sky. Notes in faded ink mark this as "The Threshold Moment" when "the veil between ordered light and formless shadow grows thin enough to perceive greater truths."
+
+Another alignment is marked as "The Coming Age of Stars" with a date that corresponds roughly to the present time. Beside this notation is a small sketch of what appears to be the Dark Moon, with paths leading beneath it labeled "The Journey Beyond"
+
+>e
+Having mastered the labyrinth's pattern, you quickly navigate the familiar passages toward the Beast's Nest.
+
+Beast's Nest
+A cavernous chamber where the labyrinth's ordered stone gives way to something more primal. The walls here are scarred by massive claws, and patches of corrupted golden light seep through cracks in the ceiling like infected wounds. The air feels thick and oppressive, charged with malevolent energy. Strange growls and the sound of something large moving in the shadows echo from the darkness ahead. To the west lies the relative safety of the winding corridors, while a narrow passage continues east toward the burial grounds.
+
+You can see a Cursed Beast and a Corrupted Talisman here.
+
+You can go east and west to Winding Corridors from here.
+
+>l beast
+A creature of pure golden light corrupted by shadow, sealed within the labyrinth by the Duskrose. Its form shifts constantly, part majestic stag, part serpent, part something wholly unknowable.
+
+The Cursed Beast regards you with hostile intent.
+
+A low growl echoes through the twisted corridors, seeming to come from everywhere and nowhere at once. The shadows before you congeal into a mass of writhing darkness shot through with veins of corrupted gold. The Cursed Beast manifests fully, its form a nightmarish amalgamation of beasts both familiar and alien.
+
+The Cursed Beast immediately moves to attack you!
+
+-- COMBAT
+
+You have slain the Cursed Beast!
+
+The Cursed Beast thrashes wildly as its form begins to come apart, the corruption that sustained it unraveling. With a final, agonized roar that echoes throughout the winding corridors, it explodes into fragments of shadow and corrupted light. As the last motes fade, a sense of ancient relief fills the air, as if something long tormented has finally found peace.
+
+(Press any key to continue)
+
+Beast's Nest
+A cavernous chamber where the labyrinth's ordered stone gives way to something more primal. The walls here are scarred by massive claws, and patches of corrupted golden light seep through cracks in the ceiling like infected wounds. The air feels thick and oppressive, charged with malevolent energy. Strange growls and the sound of something large moving in the shadows echo from the darkness ahead. To the west lies the relative safety of the winding corridors, while a narrow passage continues east toward the burial grounds.
+
+You can see Darkdrift and a Corrupted Talisman here.
+
+You can go east and west to Winding Corridors from here.
+
+>l talisman
+A pendant of blackened silver, its surface scarred by corruption. Strange symbols spiral across its face - markings from a distant, dying world.
+
+Would you like to examine it more closely? (YES or NO)
+>y
+Twisted Talisman
+
+The talisman bears inscriptions in a script that predates the Golden Order, speaking of "the First Flame" and "the Ashen One" - concepts alien to this realm.
+
+A fragment of parchment wrapped around the chain:
+
+"A beast from beyond the fog, lost and starving. It came seeking warmth, I think... seeking anything familiar. Found it clawing at the Erdtree's roots. The gold turned sickly where it touched.
+
+I could have destroyed it. Should have, perhaps. But I saw myself in its endless hunger - we who exist between states understand such torment. So I gave it shelter here, in the labyrinth's embrace.
+
+Do not mistake mercy for foolishness. These walls are its salvation as much as its prison. What has no home in this world must not be allowed to make one."
+
+The talisman pulses with sickly warmth, as if the beast's essence still clings to it.
+
+>get darkdrift
+Taken.
+
+>wield darkdrift
+(You stop wielding Dark Moon Greatsword.) You wield Darkdrift.
+
+>eq
+Currently equipped:
+ Weapon: Darkdrift
+ Shield: none
+
+>e
+
+Burial Chamber
+Rows of biers made from stone and silver line the chamber, each cradling a body wrapped in cloth of starless black. Their faces are covered by masks shaped like waning moons. The scent of dry rose and ancient incense fills the air. One sarcophagus in the center is sealed in gold and onyx - untouched. A staircase of pale glass ascends north into still silence. The corridor continues west.
+
+You can see a Spirit of Vesper and an Immortal Sun Sliver here.
+
+You can go north and west to Beast's Nest from here.
+
+You notice a slightly raised stone tile near the center of the room. Your time as a Tarnished has taught you caution - such floor anomalies often conceal deadly mechanisms.
+
+>l vesper
+Unlike the mindless Headless Armor, this is Vesper's true consciousness preserved by the Duskrose's power. He appears as a noble knight wreathed in spectral blue flame, his eyes wells of ancient sorrow.
+
+"Seeker of the Star Leaf," he intones, his voice like wind through ancient ruins. "I am Vesper, First Follower of the Duskrose. By my oath, none may pass who have not proven their worth. Draw your weapon, Starbound."
+
+(The Spirit of Vesper has noticed you. Get ready.)
+
+-- COMBAT
+
+You have slain the Spirit of Vesper!
+
+Vesper drops to one knee, his spectral sword clattering to the ground before dissolving into light. He looks up at you, a smile flickering across his translucent features.
+
+"Well fought, Starbound. Your purpose... it resonates with what we once sought." His form begins to fade, but his voice remains steady.
+
+"Listen well, for I would share truth with you. I was not merely the First Follower - I loved Maera, she who became the Duskrose. When we discovered the Immortal Sun, I sought to claim its burden for myself, to spare her its weight. My betrayal was born of devotion, yet it wounded her deeply."
+
+He gestures toward the sanctum above, his expression growing sorrowful.
+
+"She awaits, suspended between light and shadow. Tell her that Vesper has kept his vigil faithfully, and that I am ready for rest. The Astrophyllite you seek... she holds it close." His voice drops to a whisper. "May you forgive her for what she must do to grant your wish."
+
+With these words, the Spirit of Vesper dissolves completely, leaving only a faint blue glow that slowly fades.
+
+(Press any key to continue)
+
+Burial Chamber
+Rows of biers made from stone and silver line the chamber, each cradling a body wrapped in cloth of starless black. Their faces are covered by masks shaped like waning moons. The scent of dry rose and ancient incense fills the air. One sarcophagus in the center is sealed in gold and onyx - untouched. A staircase of pale glass ascends north into still silence. The corridor continues west.
+
+You can see an Immortal Sun Sliver here.
+
+You can go north and west to Beast's Nest from here.
+
+You notice a slightly raised stone tile near the center of the room. Your time as a Tarnished has taught you caution - such floor anomalies often conceal deadly mechanisms.
+
+>l sliver
+A small shard that glows with golden light. Though just a tiny piece, it radiates immense power and seems to exist partially outside normal reality.
+
+Would you like to examine it more closely? (YES or NO)
+>y
+Sliver of the Immortal Sun
+
+The sliver pulses with a rhythm like a heartbeat.
+
+When you hold it, memories that aren't your own briefly flash through your mind: a grand ritual, Maera standing before the Immortal Sun, Vesper attempting to intervene and being struck down, and finally Maera's transformation into the Duskrose as she accepted the artifact's burden.
+
+The last memory lingers - a warning that even a fragment of true immortality carries both power and curse.
+
+>n
+As you approach the glass staircase, you notice a slightly raised floor tile in your path. Having experienced such traps before, you carefully place the Moonstone Wedge beneath the edge of the pressure plate, preventing it from being depressed.
+
+Duskrose Sanctum
+At the heart of the labyrinth lies the Duskrose Sanctum, a great circular hall with a skylight open to the dying sun. Here, the black stone glows faintly gold, like a withered rose catching its last breath. In the center stands a low pedestal, and atop it - a shattered bowl, once cradling offerings. Faint echoes of starlight ripple through the chamber. You feel the presence of something long gone, or perhaps something waiting to return. Behind you to the north, the burial chamber remains still and silent.
+
+Beside the pedestal, a bonfire waits in silent vigil, its arrangement more intricate than the others you've encountered.
+
+You can go south to Burial Chamber from here.
+
+>touch bonfire
+As you kindle the bonfire, its ethereal flames dance higher, but you feel the temperature drops, and the air grows heavy with ancient power. From the darkness beyond the skylight, a figure begins to materialize.
+
+She appears first as wisps of twilight, then gradually takes the form of a woman suspended between states of being. Her figure flickers constantly - one moment solid and regal, the next translucent as starlight. This is Maera, the Duskrose, caught eternally in the threshold between light and shadow.
+
+Her eyes, ancient and weary yet filled with quiet determination, fix upon you with recognition.
+
+(Press any key to continue)
+
+"Starbound," she speaks, her voice carrying the weight of centuries, each word measured and deliberate. "You have proven yourself worthy by enduring my trials. Vesper spoke truly of your resolve before his spirit found peace at last."
+
+The Duskrose moves closer, her form shifting between states of existence. "I sense Ranni's purpose burns within you like cosmic fire. The Age of Stars she seeks to birth... it resonates with the vision I once held. Where I became bound to eternal watching, perhaps she will succeed in breaking the chains that bind this realm."
+
+She pauses, her expression growing both sorrowful and hopeful. "The Astrophyllite you seek cannot simply be taken - it must be created. And I alone hold the power to forge it, through the Immortal Sun that I have guarded these long centuries."
+
+(Press any key to continue)
+
+Her form begins to glow with an inner light, golden threads of energy starting to weave around her. "To create the Star Leaf requires cosmic energy beyond mortal comprehension. The Immortal Sun must give all of its power - and with it, I too shall fade. This is not curse, but purpose. Not ending, but transformation."
+
+Without waiting for protest, she raises both hands, and the sanctum fills with blinding radiance. The stones respond to her will, and from the floor rises an altar of black onyx with golden carvings. Above it, reality tears open to reveal the Immortal Sun - a sphere of pure cosmic energy that makes your eyes water to behold.
+
+"Witness, Starbound, as centuries of vigil find their meaning!"
+
+The Immortal Sun begins to unravel, streams of golden light flowing from it into a growing crystalline form above the altar. With each thread of power drawn out, Maera's form grows fainter, more translucent.
+
+"Tell Ranni..." her voice grows softer as the transformation continues, "that the Duskrose chose this freely. That in the end, I found the action I was denied for so long."
+
+(Press any key to continue)
+
+The process reaches its crescendo. The Immortal Sun gives its final pulse of energy and collapses into nothingness. In its place, the Astrophyllite hovers above the altar - a crystalline gemstone of deep sapphire shot through with silver veins, its surface flashing with stellar radiance like a captured cosmic explosion.
+
+Maera, now barely visible, manages one last act. "The Star Leaf is complete. Take it..."
+
+She gestures weakly, and a portal of swirling twilight begins to form. "My last gift... safe passage... Tell them all... the dusk has finally given way... to stars..."
+
+The Star Leaf settles gently onto the altar, waiting to be claimed.
+
+>get leaf
+As your fingers close around the Astrophyllite, warmth spreads through your gauntlets and up your arms. The gemstone pulses in rhythm with your heartbeat, and for a moment you feel connected to something vast and ancient - the cosmic forces that Ranni seeks to harness.
+
+The Duskrose's voice carries a note of satisfaction. "At last, the Star Leaf finds its way to worthy hands." She pauses, her ethereal form flickering between states of being. "Time grows short, Starbound. The forces that oppose change gather strength even now. Yet I am willing to share what knowledge I possess, should you have questions about our journey or the path ahead."
+
+"When you are ready to depart, simply talk to me and I shall open the way. Return to Ranni with haste - the Age of Stars awaits, and your role in its dawning has only just begun."
+
+(You can ask Maera about things using natural sentences like "Maera, tell me about [topic]", or using commands like "ask Maera about [topic]". When you are done, you can "talk to Maera".)
+
+>maera, tell me about the immortal sun
+"The Immortal Sun... the burden I accepted to protect this realm from its power. It grants true immortality, not the flawed cycle of rebirth offered by the Golden Order. But the price..." Her form flickers between light and shadow. "To claim its power, one must sacrifice the ability to directly shape the world. I became an observer, a guardian of balance, watching centuries pass while unable to act. Yet there is one final act it can perform - one last gift it can grant, though the cost..." She trails off, her expression unreadable.
+
+>maera, what?s the golden order
+"The Golden Order... I once served faithfully as Maera the Devout, believing in its promise of eternal light. But I witnessed its corruption, how its light grew harsh and blinding, leaving no room for shadow or growth. True divinity lies not in absolute light, but in the sacred dusk - the threshold between light and dark where infinite possibility blooms."
+
+>maera, what do you think about vesper?
+"I am what remains of Maera the Devout, transformed by the Immortal Sun into something between mortal and divine. The Duskrose they call me now - a being of eternal twilight, forever suspended in the moment of transition. I guard the balance I once sought to create, watching over the threshold between light and shadow until one worthy comes to continue the work."
+
+>talk to maera
+"Starbound..." Maera's voice is barely a whisper now, her form so faint you can barely make out her features. "You have... what you came for. The Star Leaf pulses with the Immortal Sun's essence... and my own."
+
+She flickers like a candle in wind. "I am... grateful. After centuries of watching... I was finally able to act. This is... a better ending than I dared hope for."
+
+The portal behind her grows more stable even as she fades. "Go now... while I still have strength to maintain the passage." Her form is now just a suggestion of light and shadow. "And tell Vesper... if spirits can hear across the veil... that I understood. That love... even misguided... is never truly wrong."
+
+"Farewell... Starbound... May your journey beneath the Dark Moon's wisdom... lead to the liberation... we both have sought..."
+
+>enter portal
+You step forward into the swirling twilight, the Star Leaf held carefully in your hands. Behind you, the last whisper of the Duskrose's voice drifts through the sanctum:
+
+"Freedom... at last..."
+
+The portal's energy envelops you, and as reality dissolves into streams of silver light, you catch a final glimpse of the sanctum. Where Maera stood, only motes of golden light remain, drifting upward through the skylight like prayers finally answered.
+
+The Immortal Sun is no more. The Duskrose has found her rest. And in your hands, their combined sacrifice has created the key to Ranni's ascension...
+
+(Press any key)
+
+Starborn Revelation
+
+As you emerge into the fading daylight, the Star Leaf pulses with newfound intensity in your grasp. The Astrophyllite's cosmic energy flows through you, awakening senses you never knew you possessed.
+
+Through this enhanced perception, you see what was hidden before - the distant mountains' shadow is no mere trick of light. The Star Leaf's power reveals writhing tendrils of chaotic energy reaching across the valley like grasping fingers. Within that unnatural darkness, the Frenzied Flame writhes with malevolent hunger, its yellow-orange fires seeking to unravel the very fabric of reality.
+
+The revelation strikes you with crystalline clarity: this is why Ranni needed the Astrophyllite. Not merely as a key to the Age of Stars, but as a means to perceive and oppose the cosmic threats that lesser eyes cannot see. Where once you might have ridden unknowingly into danger, now you mount your spectral steed with full awareness of what awaits.
+
+With Maera's sacrifice, and your senses deepened by trials overcome, you ride deliberately toward the heart of encroaching chaos. The Age of Stars demands not just vision, but the courage to face what lurks in the spaces between light and shadow.
+
+Your journey as the Starbound has truly begun.
+
+
+
+    *** THE END ***
+

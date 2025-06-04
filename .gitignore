@@ -1,7 +1,7 @@
 # Ignore everything
 *
 
-# Except the story.ni file
+# Except necessary files
 !mox-astro.inform/
 !mox-astro.inform/Source/
 !mox-astro.inform/Source/story.ni
@@ -10,5 +10,12 @@
 !mox-astro.materials/Small Cover.jpg
 !docs/
 !docs/**
+
+# Need to explicitly exclude this one
+docs/.DS_Store
+
+!README.md
+!LICENSE.txt
+
 
 !.gitignore
