@@ -1443,7 +1443,11 @@ Chapter - NPCs
 Section - Maera
 
 [Maera is a woman in Duskrose Sanctum.]
-Maera is a woman.
+Maera is a woman. The description is "The Duskrose hovers before you, neither fully corporeal nor entirely spectral. Her form shifts constantly between states - one moment you see the regal priestess she once was, draped in flowing robes of twilight hues, the next she appears as pure starlight given shape. Golden threads of the Immortal Sun's power course through her translucent form like veins of liquid light.
+
+Her face, when visible, bears the weight of centuries yet retains a serene beauty. Eyes that have witnessed the rise and fall of ages regard you with ancient wisdom and quiet sorrow. Her hair flows like liquid shadow shot through with stars, defying gravity as it moves in an unfelt cosmic wind.
+
+She exists in a perpetual state of transition - forever caught in that sacred moment of dusk she once revered. Light and shadow dance across her form in equal measure, neither gaining dominance, creating an ethereal beauty that is both magnificent and melancholic."
 Maera can be satisfied or unsatisfied. Maera is unsatisfied.
 
 Understand "talk to [someone]" as talking to. Understand "talk to [something]" as talking to. Talking to is an action applying to one visible thing.
