@@ -1657,7 +1657,7 @@ The background swirls with abstract representations of stars and nebulae both sa
 
 A brass nameplate at the bottom reads: 'Maera the Seeker, First Year of Pilgrimage'
 
-Below, in smaller script: 'She who abandoned the golden throne to walk among the stars. May her journey lead to salvation beyond the Order's reach.'"
+Below, in smaller script: 'She who abandoned the golden throne to walk among us. May her journey lead to salvation beyond the Order's reach.'"
 
 The Star Chart is a lore item.
 The description of the Star Chart is "A complex astronomical chart mapping constellations unknown to modern stargazers. It seems to predict celestial alignments across vast spans of time."
