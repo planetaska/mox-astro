@@ -485,18 +485,13 @@ To replenish flask:
 Section - Player Status
 
 Instead of examining the player:
-	say "[if the player is wearing plot armour]You are wearing the Plot Armour.
-
-The best armor. Replenishes HP and Stamina each turn. With it, you will no longer suffer the consequences of death - well, almost.
-
-[italic type]Mortality? That's for other protagonists.[roman type]
-[otherwise]You are wearing the Carian Knight's armor.
+	say "You are wearing the Carian Knight's armor.
 
 Armor of the enchanted knights that once served the Carian royal family.
 
-[italic type]The enchanted knights, anointed by the Lunar Queen, were heroes of the highest honors, but fell into disarray with the decline of the royal family.[roman type][end if]
+[italic type]The enchanted knights, anointed by the Lunar Queen, were heroes of the highest honors, but fell into disarray with the decline of the royal family.[roman type]
 
-[player-status]"
+[player-status][if the player is wearing plot armour][line break](You are under the effect of the Plot Armour)[end if]"
 
 To say player-status:
 	say "[health-status of the player] / [stamina-status of the player]"
@@ -1719,7 +1714,9 @@ Part - Misc
 
 Section - Story Mode
 
-Plot Armour is a wearable thing. The description is "Deus ex machina."
+Plot Armour is a wearable thing. The description is "The best armor. Replenishes HP and Stamina each turn. With it, you will no longer suffer the consequences of death - well, almost.
+
+[italic type]Mortality? That's for other protagonists.[roman type]"
 
 Understand "story mode" as enabling story mode.
 Enabling story mode is an action out of world.
@@ -1764,6 +1761,7 @@ The Carian Knight's Sword is equipment.
 The Buckler is equipment.
 The Carian Knight's Shield is equipment.
 The Moonstone Wedge is equipment.
+The Plot Armour is equipment.
 
 [All lore items are lore-item category]
 A lore item is always lore-item.
