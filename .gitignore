@@ -11,8 +11,9 @@
 !docs/
 !docs/**
 
-# Need to explicitly exclude this one
+# Need to explicitly exclude these
 docs/.DS_Store
+docs/extensions/.DS_Store
 
 !README.md
 !LICENSE.txt

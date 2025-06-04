@@ -6,11 +6,19 @@ A dark fantasy interactive fiction inspired by Elden Ring, where you play as an 
 
 Mox Astro is an Inform 7 interactive fiction game that blends the challenging combat of Elden Ring with narrative exploration. Players take on the role of the Starbound, navigating the treacherous Duskrose Labyrinth to obtain the Astrophyllite for Ranni the Witch.
 
-## Building the Game
+## Run the Game
 
 1. Install [Inform 7](http://inform7.com/)
-2. Open `mox-astro.inform/story.ni` in the Inform 7 IDE
-3. Click "Go!" to compile and test the game
+2. Install provided Inform 7 extensions in `extensions` folder:
+```
+# Exit Lister by Gavin Lambert
+Exit Lister-v4.i7x
+
+# A modified version of Keyword Interface by Aaron Reed
+Modified Keyword Interface-v9.i7x
+```
+3. Open `mox-astro.inform/story.ni` in the Inform 7 IDE
+4. Click "Go!" to compile and test the game
 
 ## Playing Online
 
