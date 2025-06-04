@@ -359,8 +359,9 @@ Warned the player is a truth state that varies. Warned the player is false.
 
 Before going from the Antechamber when the Ghost Dancers is defeated:
 	if the player is not carrying the Moonstone Wedge and warned the player is false:
-		say "As you navigate the twisting stairway, something catches your eye - a glint of blue-white light from a small alcove. Upon inspection, you discover a thin, crescent-shaped Moonstone Wedge that has fallen between two stones. [bold type]Something tells you this might prove useful...[roman type]";
+		say "As you navigate the twisting stairway, something catches your eye - a glint of blue-white light from a small alcove. Upon inspection, you discover a thin, crescent-shaped Moonstone [o]Wedge[x] that has fallen between two stones. [bold type]Something tells you this might prove useful...[roman type]";
 		now warned the player is true;
+		now the Moonstone Wedge is in the Antechamber;
 		stop the action.
 
 Part - Combat
@@ -1016,8 +1017,6 @@ First every turn during combat:
 			say "[defeat description of the foe]";
 			say "[paragraph break](Press any key to continue)[line break]";
 			[Boss drops or triggered gimmicks]
-			if the foe is Ghost Dancers:
-				now the Moonstone Wedge is in the Antechamber;
 			if the foe is Cursed Beast:
 				now the Darkdrift is in the Beast's Nest;
 			[Wait for key and look]
