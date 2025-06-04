@@ -19,6 +19,17 @@ Modified Keyword Interface-v9.i7x
 ```
 3. Open `mox-astro.inform/story.ni` in the Inform 7 IDE
 4. Click "Go!" to compile and test the game
+5. (Optional) If you wish to run the story in a browser with text color, after releasing the story in Inform 7, add these style to the interpreter CSS file:
+```
+# Add to mox-astro.materials/Release/interpreter/glkote.css
+.Style_user1 {
+  color: blue;
+}
+
+.Style_user2 {
+  color: green;
+}
+```
 
 ## Playing Online
 
