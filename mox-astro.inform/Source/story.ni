@@ -1015,7 +1015,10 @@ First every turn during combat:
 			now the foe is defeated;
 			remove foe from play;
 			say "[defeat description of the foe]";
-			say "[paragraph break](Press any key to continue)[line break]";
+			[Reward the player with +1 flask use]
+			increase the max charges of the Flask of Crimson Tears by 1;
+			say "[paragraph break]Your Flask of Crimson Tears now holds more charges.";
+			say "[line break](Press any key to continue)[line break]";
 			[Boss drops or triggered gimmicks]
 			if the foe is Cursed Beast:
 				now the Darkdrift is in the Beast's Nest;
