@@ -265,9 +265,9 @@ To die and return:
 [Place bonfires in specific rooms]
 Entrance Bonfire is a bonfire in Entrance Passage. "A [o]bonfire[x] arrangement rests against the wall, [if unlit]its ashes cold and waiting[otherwise]burning with an ethereal golden-blue flame[end if]."
 
-Antechamber Bonfire is a bonfire in Antechamber. "Against the far wall, a [o]bonfire[x] [if unlit]lies dormant, its bones arranged in solemn ceremony[otherwise]dances with strange blue-gold flames that cast shifting constellation patterns across the dome above[end if]."
+Antechamber Bonfire is a bonfire in Antechamber. "Against the far wall, a [o]bonfire[x] [if unlit]lies dormant, its bones arranged in solemn ceremony[otherwise]dances with blue-gold flames[end if]."
 
-Corridors Bonfire is a bonfire. "Hidden in a small alcove, a [o]bonfire[x] [if unlit]waits to be rekindled, its placement suggesting the labyrinth itself recognizes those who master its patterns[otherwise]burns with gentle flames[end if]."
+Corridors Bonfire is a bonfire. "Hidden in a small alcove, a [o]bonfire[x] [if unlit]waits to be rekindled[otherwise]burns with gentle flames[end if]."
 
 Sanctum Bonfire is a bonfire in Duskrose Sanctum. "Beside the pedestal, a [o]bonfire[x] [if unlit]waits in silent vigil, its arrangement more intricate than the others you've encountered[otherwise]burns with unusual intensity, its flames reaching higher as if straining toward the skylight above[end if]."
 
@@ -1174,7 +1174,7 @@ The owner of the shifting limbs is the Cursed Beast.
 
 This is the shifting limbs effect rule:
 	if the hit points of the player > 0:
-		say "The unpredictable nature of the attack leaves you off-balance.".
+		say "The unpredictable attack leaves you off-balance.".
 
 The corruption shockwave is a special attack.
 The name of the corruption shockwave is "Corruption Shockwave".
