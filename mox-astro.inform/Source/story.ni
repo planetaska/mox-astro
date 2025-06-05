@@ -1074,7 +1074,7 @@ First every turn when Combat is happening and the combat turn counter > 2:
 			say "The Cursed Beast's attacks become more powerful in its frenzy!";
 		if foe is the Spirit of Vesper and current_hp < (max_hp / 4):
 			say "Vesper's spectral form begins to flicker. 'Your resolve... it reminds me of her,' he whispers. 'Prove yourself.' His attacks become slower, more measured, yet far deadly.";
-			now the attack power of the foe is the attack power of the foe * 3;
+			now the attack power of the foe is the attack power of the foe * 2;
 			now the foe is frenzied;
 
 Section - Special Attack
