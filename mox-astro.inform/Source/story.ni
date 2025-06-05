@@ -1072,7 +1072,8 @@ First every turn when Combat is happening and the combat turn counter > 2:
 				now the attack power of the foe is the attack power of the foe + 10;
 		if foe is the Cursed Beast and current_hp < (max_hp / 3):
 			say "The Cursed Beast lets out a terrible roar, its form shifting wildly between light and shadow. The corruption within it seems to take fuller control!";
-			now the attack power of the foe is the attack power of the foe * 2;
+			[Effectively 1.5x]
+			now the attack power of the foe is (the attack power of the foe * 3) / 2;
 			now the foe is frenzied;
 			say "The Cursed Beast's attacks become more powerful in its frenzy!";
 		if foe is the Spirit of Vesper and current_hp < (max_hp / 4):
