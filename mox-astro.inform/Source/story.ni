@@ -1014,10 +1014,11 @@ First every turn during combat:
 			[This line ends combat scene]
 			now the foe is defeated;
 			remove foe from play;
-			say "[defeat description of the foe]";
-			[Reward the player with +1 flask use]
-			increase the max charges of the Flask of Crimson Tears by 1;
-			say "[paragraph break]Your Flask of Crimson Tears now holds more charges.";
+			say "[defeat description of the foe][line break]";
+			if the foe is Headless Armor or the foe is Cursed Beast:
+				[Reward the player with +1 flask use]
+				increase the max charges of the Flask of Crimson Tears by 1;
+				say "[paragraph break][bracket]Your Flask of Crimson Tears now holds more charges.[close bracket]";
 			say "[line break](Press any key to continue)[line break]";
 			[Boss drops or triggered gimmicks]
 			if the foe is Cursed Beast:
