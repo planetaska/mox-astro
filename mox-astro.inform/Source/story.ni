@@ -45,7 +45,7 @@ Guardroom is a room in Duskrose Labyrinth.
 "The Guardroom bears silent witness to forgotten duty. Weathered suits of armor - headless, some pierced through - stand slouched against the walls, their surfaces dulled by dust and disuse. A pale blue flame dances in a brazier at the center, casting distorted shadows that writhe like phantoms. The passage stretches west toward an antechamber, half-obscured by hanging moss and forgotten banners, and to the south back toward the entrance."
 
 Antechamber is a room in Duskrose Labyrinth.
-"A circular room with domed ceilings inlaid with faded constellations, the Antechamber feels almost reverent. Cracked murals depict a figure cloaked in midnight blue reaching for a falling star. The floor bears scuffs from countless rituals long past. A faint hum lingers in the air—melancholic, celestial. A narrow stairway descends southward into darkness, while the way back is to the east."
+"A circular room with domed ceilings inlaid with faded constellations, the Antechamber feels almost reverent. Cracked murals depict a figure cloaked in midnight blue reaching for a falling star. The floor bears scuffs from countless rituals long past. A faint hum lingers in the air — melancholic, celestial. A narrow stairway descends southward into darkness, while the way back is to the east."
 
 Winding Corridors is a room in Duskrose Labyrinth.
 "[if maze completed is false]This maze-like passage twists and coils with no sense of logic, as if shaped by a dreaming god. The walls here are covered in inscriptions that shift subtly when not watched directly. Echoes bounce at odd intervals, often repeating things you haven't said. Occasionally, something brushes past you in the dark, but there's nothing there. [otherwise]Having mastered the maze's pattern, you notice the subtle differences in the passages that mark the true path forward. [end if][if maze completed is true]East leads toward strange sounds and disturbing growls of something large. [end if]The only clear way back leads north."
@@ -64,13 +64,13 @@ Instead of examining north in Entrance Passage:
 	say "An iron door looms in the dim light, its surface marked with tarnished lunar sigils. Beyond it, the path sinks deeper into forgotten duty.";
 
 Instead of examining south in Guardroom:
-	say "A narrow corridor trails into shadow. The runes along the stone walls flicker faintly in the waning dusklight—your only guide back to the entrance.";
+	say "A narrow corridor trails into shadow. The runes along the stone walls flicker faintly in the waning dusklight — your only guide back to the entrance.";
 
 Instead of examining west in Guardroom:
 	say "Through a broken arch veiled in moss and tattered banners lies a circular chamber, where stars once danced upon the ceiling.";
 
 Instead of examining east in Antechamber:
-	say "You glimpse flickering blue light beyond—a haunted room where broken armors and empty braziers await silently.";
+	say "You glimpse flickering blue light beyond — a haunted room where broken armors and empty braziers await silently.";
 
 Instead of examining south in Antechamber:
 	say "A descending stair curves into the black, its steps worn smooth by ancient processions and fading prayers.";
@@ -504,7 +504,9 @@ A weapon can be one-handed or two-handed. A weapon is usually one-handed.
 
 Dark Moon Greatsword is a weapon. The description is "A Moon Greatsword, bestowed by a Carian queen upon her spouse to honor long-standing tradition. One of the legendary armaments.
 
-[italic type]Ranni's sigil is a full moon, cold and leaden, and this sword is but a beam of its light.[roman type]".
+[italic type]Ranni's sigil is a full moon, cold and leaden, and this sword is but a beam of its light.[roman type]
+
+Damage: 15".
 
 The Dark Moon Greatsword is two-handed.
 The damage of the Dark Moon Greatsword is 15.
@@ -512,13 +514,17 @@ The damage of the Dark Moon Greatsword is 15.
 Carian Knight's Sword is a weapon. The description is "Straight sword embedded with a blue glintstone. 
 Weapon of knights sworn to Carian royalty.
 
-[italic type]These knights' swords could serve as catalysts, letting them wield sorcerous battle skills. Despite numbering fewer than twenty, this power made them a match for even the champions of gold in battle.[roman type]"
+[italic type]These knights' swords could serve as catalysts, letting them wield sorcerous battle skills. Despite numbering fewer than twenty, this power made them a match for even the champions of gold in battle.[roman type]
+
+Damage: 8"
 
 The damage of the Carian Knight's Sword is 8.
 
 Darkdrift is a weapon. The description is "A cursed sword with an unseen blade, the choice weapon of Yuria of Londor.
 
-[italic type]Yuria, a mentor of the Sable Church and accomplished swordswoman, is said to have claimed a hundred lives with this weapon.[roman type]"
+[italic type]Yuria, a mentor of the Sable Church and accomplished swordswoman, is said to have claimed a hundred lives with this weapon.[roman type]
+
+Damage: 22"
 
 The damage of the Darkdrift is 22.
 
@@ -532,13 +538,17 @@ The bump in the center enables parrying techniques.
 
 A well-timed parry can break an enemy's stance, allowing a critical
 hit.
-[line break][italic type]Best suited for those prepared to take the risk to reap their reward.[roman type]"
+[line break][italic type]Best suited for those prepared to take the risk to reap their reward.[roman type]
+
+Defense: 5"
 
 Carian Knight's Shield is a shield. The description is "A teardrop-shaped shield embedded with blue glintstones.
 Carried by knights who served the Carian royal family.
 
 [italic type]Excels when facing magic or holy attacks. Just who were these
-knights preparing to fight?[roman type]"
+knights preparing to fight?[roman type]
+
+Defense: 20"
 
 The defense of the Carian Knight's Shield is 20.
 
@@ -890,8 +900,10 @@ When Combat begins:
 	if Combat help hinted is false:
 		now Combat help hinted is true;
 		say "[line break]Type HELP COMBAT for help";
-	say "[line break][health-status of the foe]";
-	say "[line break][health-status of the player]".
+	if the player is alive and the location of the player is combat-locked:
+		[check combat-locked in case the player immediately died]
+		say "[line break][health-status of the foe]";
+		say "[line break][health-status of the player]".
 
 
 Section - Movement Restrictions
@@ -1439,7 +1451,7 @@ The vision shifts. You remember the scholar in Leyndell's ruins, mad with age bu
 
 Another flash - your last companion falling to the Crucible Knight that guarded the valley's entrance. Their final gesture had been to point you onward, blood-flecked lips forming the word: 'Go.'
 
-The visions fade, leaving you standing before the entrance once more. The carvings[apostrophe] silver dust glows faintly. Whatever trials await within, they are merely the culmination of a journey already steeped in sacrifice."
+The visions fade, leaving you standing before the entrance once more. The carvings[apostrophe] silver dust glows faintly. Whatever trials await within, they are the culmination of a journey steeped in sacrifice."
 
 
 Chapter - NPCs
@@ -1856,7 +1868,7 @@ Carry out asking for help:
 	say "[line break]";
 	say "Detailed help commands:[line break]";
 	say "  HELP COMBAT - Show attack damage and stamina costs[line break]";
-	say "  HELP EQUIPMENT - Show attack damage and stamina costs[line break]";
+	say "  HELP EQUIPMENT - Show equipment commands[line break]";
 	say "[line break]";
 	say "Other commands:[line break]";
 	say "  STAT - Check your current HP and stamina[line break]";
