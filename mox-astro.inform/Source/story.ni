@@ -252,16 +252,6 @@ Carry out resting at a lit bonfire:
 	replenish flask;
 	say "You kneel beside the bonfire, extending your hands toward its warm glow. The flames dance higher, casting strange shadows across your face. For a moment, you feel weightless, as if the fire draws the burden of your journey away. Your wounds seal, your strength returns, and your mind clears.".
 
-To die and return:
-	increase the player-deaths by 1;
-	say "Darkness claims you, but the cold embrace of death rejects your presence. The golden-blue flame that you kindled calls to your essence across the void.[paragraph break]";
-	let revival location be the last bonfire room;
-	if revival location is nothing:
-		now revival location is Entrance Passage;
-	move the player to revival location;
-	say "You awaken beside [if there is a lit bonfire in the location of the player]the[otherwise]an unlit[end if] bonfire, your body reformed by the strange magic that binds you to this world. The memory of your death lingers like a half-forgotten dream.[paragraph break][death status].[paragraph break]";
-	try looking.
-
 [Place bonfires in specific rooms]
 Entrance Bonfire is a bonfire in Entrance Passage. "A [o]bonfire[x] arrangement rests against the wall, [if unlit]its ashes cold and waiting[otherwise]burning with an ethereal golden-blue flame[end if]."
 
@@ -683,7 +673,6 @@ The initial attack power of the Ghost Dancers is 25.
 The description of the Ghost Dancers is "Spectral figures that weave through the air in a mournful dance. Their translucent forms shimmer with ethereal light, and their movements are both beautiful and deadly."
 The activate description of the Ghost Dancers is "The air around you grows cold as your presence disturbs their eternal dance. Motes of pale blue light begin to coalesce more densely, forming clearer shapes of dancing specters. They circle you in a haunting ballet, their hollow eyes now fixed upon your every movement with growing intensity."
 The reactive description of the Ghost Dancers is "The Ghost Dancers' ethereal forms waver and distort where your weapon has passed through them, their spectral essence scattering before reforming with increased agitation. Their mournful dance becomes more erratic, more desperate, as if your attacks remind them of the mortality they've lost."
-The reactive description of the Headless Armor is "The Headless Armor's ethereal glow flickers with renewed intensity as your attack strikes home. Dents and scratches mar its ancient plates, yet it moves with the same methodical precision, its hollow form seemingly immune to pain or fatigue."
 The defeat description of the Ghost Dancers is "The spectral dancers pause in their eternal waltz, their forms growing increasingly transparent. They gather in a circle, hands joining one last time before they dissolve into motes of starlight that drift upward through the domed ceiling. In their absence, you hear fragments of their story - how they followed Maera the Devout in her quest."
 
 The Cursed Beast is an enemy in Beast's Nest.
